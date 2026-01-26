@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Виртуальная модель компьютера</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="computer-style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Orbitron:wght@400;500&family=Source+Code+Pro:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Анимированный фон -->
+    <div class="animated-bg"></div>
+    
+    <!-- Навигация -->
+    <div class="circular-menu">
+        <div class="menu-toggle" id="menuToggle">
+            <i class="fas fa-bars"></i>
+        </div>
+        <div class="menu-items" id="menuItems">
+            <a href="../index.html" class="menu-item" data-tooltip="Главная">
+                <i class="fas fa-home"></i>
+            </a>
+            <a href="computer.html" class="menu-item active" data-tooltip="Модель компьютера">
+                <i class="fas fa-desktop"></i>
+            </a>
+            <a href="../binar/binar.html" class="menu-item" data-tooltip="Бинарный тренажёр">
+                <i class="fas fa-calculator"></i>
+            </a>
+            <a href="../algo/algo.html" class="menu-item" data-tooltip="Алгоритмы">
+                <i class="fas fa-project-diagram"></i>
+            </a>
+            <a href="../contact/contact.html" class="menu-item" data-tooltip="Контакты">
+                <i class="fas fa-envelope"></i>
+            </a>
+        </div>
+    </div>
+
+    <!-- Основной контент -->
+    <main class="container">
+        <!-- Заголовок с эффектом -->
+        <header class="hero">
+            <div class="title-container">
+                <h1 class="main-title">
+                    <span class="title-text">ВИРТУАЛЬНАЯ МОДЕЛЬ КОМПЬЮТЕРА</span>
+                    <span class="title-subtext">Изучите работу компьютера изнутри</span>
+                </h1>
+                <div class="code-decoration">
+                    <pre><code>CPU → RAM → HDD → Display
+Интерактивная модель работы компьютера</code></pre>
+                </div>
+            </div>
+        </header>
+
+        <!-- Секция 1: Схема работы компьютера -->
+        <section class="content-section">
+            <div class="section-header">
+                <i class="fas fa-sitemap icon"></i>
+                <h2>Схема работы компьютера</h2>
+            </div>
+            
+            <div class="workflow-section">
+                <div class="workflow-container">
+                    <!-- Схема потока данных -->
+                    <div class="workflow-diagram">
+                        <div class="workflow-step" data-step="1">
+                            <div class="step-icon">
+                                <i class="fas fa-keyboard"></i>
+                            </div>
+                            <div class="step-label">Ввод данных</div>
+                            <div class="step-arrow">
+                                <i class="fas fa-arrow-right"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="workflow-step" data-step="2">
+                            <div class="step-icon">
+                                <i class="fas fa-microchip"></i>
+                            </div>
+                            <div class="step-label">Обработка в CPU</div>
+                            <div class="step-arrow">
+                                <i class="fas fa-arrow-right"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="workflow-step" data-step="3">
+                            <div class="step-icon">
+                                <i class="fas fa-memory"></i>
+                            </div>
+                            <div class="step-label">Хранение в RAM</div>
+                            <div class="step-arrow">
+                                <i class="fas fa-arrow-right"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="workflow-step" data-step="4">
+                            <div class="step-icon">
+                                <i class="fas fa-hdd"></i>
+                            </div>
+                            <div class="step-label">Сохранение на диск</div>
+                            <div class="step-arrow">
+                                <i class="fas fa-arrow-right"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="workflow-step" data-step="5">
+                            <div class="step-icon">
+                                <i class="fas fa-desktop"></i>
+                            </div>
+                            <div class="step-label">Вывод на экран</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Контролы анимации -->
+                    <div class="workflow-controls">
+                        <button class="flow-btn" id="startFlow">
+                            <i class="fas fa-play"></i> Запустить анимацию
+                        </button>
+                        <button class="flow-btn" id="pauseFlow">
+                            <i class="fas fa-pause"></i> Пауза
+                        </button>
+                        <button class="flow-btn" id="resetFlow">
+                            <i class="fas fa-redo"></i> Сброс
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Описание работы -->
+                <div class="workflow-description">
+                    <h3><i class="fas fa-info-circle"></i> Как работает компьютер?</h3>
+                    <div class="description-content">
+                        <p>Компьютер работает по принципу <strong>цикла выполнения инструкций</strong>:</p>
+                        
+                        <div class="cycle-steps">
+                            <div class="cycle-step active">
+                                <span class="cycle-number">1</span>
+                                <div class="cycle-text">
+                                    <h4>Ввод (Input)</h4>
+                                    <p>Данные поступают через устройства ввода: клавиатура, мышь, микрофон.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="cycle-step">
+                                <span class="cycle-number">2</span>
+                                <div class="cycle-text">
+                                    <h4>Обработка (Processing)</h4>
+                                    <p>Процессор получает данные, выполняет вычисления и логические операции.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="cycle-step">
+                                <span class="cycle-number">3</span>
+                                <div class="cycle-text">
+                                    <h4>Хранение (Storage)</h4>
+                                    <p>Данные временно хранятся в оперативной памяти во время работы.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="cycle-step">
+                                <span class="cycle-number">4</span>
+                                <div class="cycle-text">
+                                    <h4>Постоянное хранение</h4>
+                                    <p>Важные данные сохраняются на жёсткий диск для долговременного хранения.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="cycle-step">
+                                <span class="cycle-number">5</span>
+                                <div class="cycle-text">
+                                    <h4>Вывод (Output)</h4>
+                                    <p>Результаты выводятся на устройства вывода: монитор, принтер, колонки.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="data-flow">
+                            <h4>Поток данных:</h4>
+                            <div class="flow-visual">
+                                <div class="flow-item">Ввод →</div>
+                                <div class="flow-item">CPU →</div>
+                                <div class="flow-item">RAM →</div>
+                                <div class="flow-item">HDD →</div>
+                                <div class="flow-item">Вывод</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Секция 2: Визуализация компонентов -->
+        <section class="content-section">
+            <div class="section-header">
+                <i class="fas fa-cogs icon"></i>
+                <h2>Визуализация работы компонентов</h2>
+            </div>
+            
+            <div class="components-visualization">
+                <!-- Процессор -->
+                <div class="component-visual" id="cpuVisual">
+                    <div class="visual-header">
+                        <h3><i class="fas fa-microchip"></i> Работа процессора</h3>
+                        <button class="visual-toggle">
+                            <i class="fas fa-play"></i> Запустить
+                        </button>
+                    </div>
+                    
+                    <div class="visual-content">
+                        <div class="cpu-animation">
+                            <div class="cpu-core">
+                                <div class="core-label">Ядро 1</div>
+                                <div class="instruction-flow">
+                                    <div class="instruction">LOAD</div>
+                                    <div class="instruction">ADD</div>
+                                    <div class="instruction">STORE</div>
+                                    <div class="instruction">JMP</div>
+                                </div>
+                            </div>
+                            <div class="cpu-core">
+                                <div class="core-label">Ядро 2</div>
+                                <div class="instruction-flow">
+                                    <div class="instruction">MUL</div>
+                                    <div class="instruction">DIV</div>
+                                    <div class="instruction">CMP</div>
+                                    <div class="instruction">MOV</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="visual-info">
+                            <h4>Цикл выполнения инструкций:</h4>
+                            <ol>
+                                <li><strong>Выборка</strong> — чтение инструкции из памяти</li>
+                                <li><strong>Декодирование</strong> — определение типа операции</li>
+                                <li><strong>Исполнение</strong> — выполнение операции в АЛУ</li>
+                                <li><strong>Запись</strong> — сохранение результата</li>
+                            </ol>
+                            <p class="clock-info">Тактовая частота: <span id="cpuClockSpeed">3.5 GHz</span></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Оперативная память -->
+                <div class="component-visual" id="ramVisual">
+                    <div class="visual-header">
+                        <h3><i class="fas fa-memory"></i> Работа оперативной памяти</h3>
+                        <button class="visual-toggle">
+                            <i class="fas fa-play"></i> Запустить
+                        </button>
+                    </div>
+                    
+                    <div class="visual-content">
+                        <div class="ram-animation">
+                            <div class="memory-bank">
+                                <div class="bank-label">Банк A</div>
+                                <div class="memory-cells">
+                                    <div class="cell" data-value="0101">0101</div>
+                                    <div class="cell" data-value="1010">1010</div>
+                                    <div class="cell" data-value="1111">1111</div>
+                                    <div class="cell" data-value="0000">0000</div>
+                                </div>
+                            </div>
+                            <div class="memory-bank">
+                                <div class="bank-label">Банк B</div>
+                                <div class="memory-cells">
+                                    <div class="cell" data-value="0011">0011</div>
+                                    <div class="cell" data-value="1100">1100</div>
+                                    <div class="cell" data-value="1001">1001</div>
+                                    <div class="cell" data-value="0110">0110</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="visual-info">
+                            <h4>Принцип работы RAM:</h4>
+                            <ul>
+                                <li>Хранит данные во время работы компьютера</li>
+                                <li>Прямой доступ к любой ячейке памяти</li>
+                                <li>Быстрая скорость чтения/записи</li>
+                                <li>Энергозависимая память (данные теряются при выключении)</li>
+                            </ul>
+                            <p class="speed-info">Скорость доступа: <span id="ramSpeed">~10 ns</span></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Жёсткий диск -->
+                <div class="component-visual" id="hddVisual">
+                    <div class="visual-header">
+                        <h3><i class="fas fa-hdd"></i> Работа жёсткого диска</h3>
+                        <button class="visual-toggle">
+                            <i class="fas fa-play"></i> Запустить
+                        </button>
+                    </div>
+                    
+                    <div class="visual-content">
+                        <div class="hdd-animation">
+                            <div class="disk-platters">
+                                <div class="platter" data-layer="1"></div>
+                                <div class="platter" data-layer="2"></div>
+                                <div class="platter" data-layer="3"></div>
+                            </div>
+                            <div class="read-heads">
+                                <div class="head" data-head="1"></div>
+                                <div class="head" data-head="2"></div>
+                                <div class="head" data-head="3"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="visual-info">
+                            <h4>Принцип работы HDD:</h4>
+                            <ul>
+                                <li>Магнитные пластины вращаются со скоростью 5400-7200 об/мин</li>
+                                <li>Считывающие головки двигаются над поверхностью пластин</li>
+                                <li>Данные записываются в виде магнитных областей</li>
+                                <li>Механическое устройство — есть движущиеся части</li>
+                            </ul>
+                            <p class="speed-info">Скорость вращения: <span id="hddSpeed">7200 RPM</span></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Устройства ввода/вывода -->
+                <div class="component-visual" id="ioVisual">
+                    <div class="visual-header">
+                        <h3><i class="fas fa-exchange-alt"></i> Устройства ввода/вывода</h3>
+                        <button class="visual-toggle">
+                            <i class="fas fa-play"></i> Запустить
+                        </button>
+                    </div>
+                    
+                    <div class="visual-content">
+                        <div class="io-animation">
+                            <div class="input-devices">
+                                <div class="device">
+                                    <i class="fas fa-keyboard"></i>
+                                    <span>Клавиатура</span>
+                                </div>
+                                <div class="device">
+                                    <i class="fas fa-mouse"></i>
+                                    <span>Мышь</span>
+                                </div>
+                                <div class="device">
+                                    <i class="fas fa-microphone"></i>
+                                    <span>Микрофон</span>
+                                </div>
+                            </div>
+                            
+                            <div class="io-arrow">
+                                <i class="fas fa-exchange-alt"></i>
+                            </div>
+                            
+                            <div class="output-devices">
+                                <div class="device">
+                                    <i class="fas fa-desktop"></i>
+                                    <span>Монитор</span>
+                                </div>
+                                <div class="device">
+                                    <i class="fas fa-print"></i>
+                                    <span>Принтер</span>
+                                </div>
+                                <div class="device">
+                                    <i class="fas fa-volume-up"></i>
+                                    <span>Колонки</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="visual-info">
+                            <h4>Типы устройств:</h4>
+                            <div class="io-types">
+                                <div class="io-type">
+                                    <h5><i class="fas fa-sign-in-alt"></i> Ввод</h5>
+                                    <p>Преобразуют физические действия в цифровые сигналы</p>
+                                </div>
+                                <div class="io-type">
+                                    <h5><i class="fas fa-sign-out-alt"></i> Вывод</h5>
+                                    <p>Преобразуют цифровые сигналы в физические действия</p>
+                                </div>
+                            </div>
+                            <p class="interface-info">Основной интерфейс: <span id="ioInterface">USB 3.0</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Секция 3: Справочник по компонентам -->
+        <section class="content-section">
+            <div class="section-header">
+                <i class="fas fa-book icon"></i>
+                <h2>Справочник по компонентам компьютера</h2>
+            </div>
+            
+            <div class="components-reference">
+                <div class="ref-tabs-simple">
+                    <button class="ref-tab-simple active" data-component="cpu">
+                        <i class="fas fa-microchip"></i>
+                        Процессор
+                    </button>
+                    <button class="ref-tab-simple" data-component="ram">
+                        <i class="fas fa-memory"></i>
+                        Память
+                    </button>
+                    <button class="ref-tab-simple" data-component="hdd">
+                        <i class="fas fa-hdd"></i>
+                        Диск
+                    </button>
+                    <button class="ref-tab-simple" data-component="io">
+                        <i class="fas fa-keyboard"></i>
+                        Устройства ВВ
+                    </button>
+                </div>
+                
+                <div class="ref-content-simple">
+                    <div class="ref-item active" id="cpuRef">
+                        <h3><i class="fas fa-microchip"></i> Центральный процессор (CPU)</h3>
+                        <p><strong>Назначение:</strong> Выполнение программ и обработка данных.</p>
+                        
+                        <div class="ref-details">
+                            <div class="ref-detail">
+                                <h4><i class="fas fa-calculator"></i> АЛУ</h4>
+                                <p>Арифметико-логическое устройство выполняет все математические и логические операции.</p>
+                            </div>
+                            
+                            <div class="ref-detail">
+                                <h4><i class="fas fa-cogs"></i> Устройство управления</h4>
+                                <p>Управляет выполнением инструкций, координирует работу всех компонентов процессора.</p>
+                            </div>
+                            
+                            <div class="ref-detail">
+                                <h4><i class="fas fa-database"></i> Регистры</h4>
+                                <p>Сверхбыстрая память внутри процессора для хранения промежуточных результатов.</p>
+                                <ul>
+                                    <li><strong>R0-R7</strong> — регистры общего назначения</li>
+                                    <li><strong>PC</strong> — счётчик команд (адрес следующей инструкции)</li>
+                                    <li><strong>SP</strong> — указатель стека</li>
+                                    <li><strong>FLAGS</strong> — флаги состояния</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="ref-example">
+                            <h4><i class="fas fa-code"></i> Пример инструкций:</h4>
+                            <pre><code>ADD R1, R2, R3  // Сложение: R1 = R2 + R3
+SUB R1, R2, R3  // Вычитание: R1 = R2 - R3
+LOAD R1, 100    // Загрузка из памяти
+STORE R1, 200   // Сохранение в память
+JMP label       // Переход к метке</code></pre>
+                        </div>
+                    </div>
+                    
+                    <div class="ref-item" id="ramRef">
+                        <h3><i class="fas fa-memory"></i> Оперативная память (RAM)</h3>
+                        <p><strong>Назначение:</strong> Временное хранение данных и программ во время работы компьютера.</p>
+                        
+                        <div class="ref-details">
+                            <div class="ref-detail">
+                                <h4><i class="fas fa-bolt"></i> Характеристики</h4>
+                                <ul>
+                                    <li><strong>Быстрая</strong> — доступ за наносекунды</li>
+                                    <li><strong>Энергозависимая</strong> — данные теряются при выключении</li>
+                                    <li><strong>Прямой доступ</strong> — можно обратиться к любой ячейке</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="ref-detail">
+                                <h4><i class="fas fa-layer-group"></i> Организация</h4>
+                                <p>Память разделена на ячейки, каждая имеет уникальный адрес:</p>
+                                <pre><code>Адрес   Данные
+0x0000: [программа]
+0x0100: [данные]
+0x0200: [стек]</code></pre>
+                            </div>
+                            
+                            <div class="ref-detail">
+                                <h4><i class="fas fa-sd-card"></i> Типы памяти</h4>
+                                <ul>
+                                    <li><strong>DRAM</strong> — динамическая, требует обновления</li>
+                                    <li><strong>SRAM</strong> — статическая, быстрее но дороже</li>
+                                    <li><strong>DDR4/DDR5</strong> — современные типы</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="ref-item" id="hddRef">
+                        <h3><i class="fas fa-hdd"></i> Жёсткий диск (HDD)</h3>
+                        <p><strong>Назначение:</strong> Постоянное хранение данных, программ и операционной системы.</p>
+                        
+                        <div class="ref-details">
+                            <div class="ref-detail">
+                                <h4><i class="fas fa-compact-disc"></i> Устройство</h4>
+                                <p>Состоит из вращающихся пластин и считывающих головок.</p>
+                                <ul>
+                                    <li><strong>Пластины</strong> — покрыты магнитным слоем</li>
+                                    <li><strong>Дорожки</strong> — концентрические круги</li>
+                                    <li><strong>Секторы</strong> — участки дорожек (обычно 512 байт)</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="ref-detail">
+                                <h4><i class="fas fa-hdd"></i> Характеристики</h4>
+                                <ul>
+                                    <li><strong>Большой объём</strong> — до нескольких терабайт</li>
+                                    <li><strong>Медленный доступ</strong> — миллисекунды</li>
+                                    <li><strong>Энергонезависимая</strong> — данные сохраняются</li>
+                                    <li><strong>Механическая</strong> — содержит движущиеся части</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="ref-detail">
+                                <h4><i class="fas fa-solid-state-drive"></i> SSD</h4>
+                                <p>Твердотельные накопители — современная альтернатива:</p>
+                                <ul>
+                                    <li><strong>Быстрее</strong> — нет движущихся частей</li>
+                                    <li><strong>Надёжнее</strong> — устойчивы к ударам</li>
+                                    <li><strong>Дороже</strong> — за ту же ёмкость</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="ref-item" id="ioRef">
+                        <h3><i class="fas fa-keyboard"></i> Устройства ввода/вывода</h3>
+                        <p><strong>Назначение:</strong> Взаимодействие компьютера с пользователем и внешним миром.</p>
+                        
+                        <div class="ref-details">
+                            <div class="ref-detail">
+                                <h4><i class="fas fa-sign-in-alt"></i> Устройства ввода</h4>
+                                <ul>
+                                    <li><strong>Клавиатура</strong> — ввод текста и команд</li>
+                                    <li><strong>Мышь</strong> — управление указателем</li>
+                                    <li><strong>Сканер</strong> — оцифровка документов</li>
+                                    <li><strong>Микрофон</strong> — запись звука</li>
+                                    <li><strong>Камера</strong> — захват видео</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="ref-detail">
+                                <h4><i class="fas fa-sign-out-alt"></i> Устройства вывода</h4>
+                                <ul>
+                                    <li><strong>Монитор</strong> — вывод изображения</li>
+                                    <li><strong>Принтер</strong> — печать на бумаге</li>
+                                    <li><strong>Колонки</span> — воспроизведение звука</li>
+                                    <li><strong>Проектор</strong> — вывод на большой экран</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="ref-detail">
+                                <h4><i class="fas fa-exchange-alt"></i> Интерфейсы подключения</h4>
+                                <ul>
+                                    <li><strong>USB</strong> — универсальная последовательная шина</li>
+                                    <li><strong>HDMI</strong> — цифровое видео и аудио</li>
+                                    <li><strong>Ethernet</strong> — сетевое подключение</li>
+                                    <li><strong>Bluetooth</strong> — беспроводное соединение</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Секция 4: Тест на понимание -->
+        <section class="content-section">
+            <div class="section-header">
+                <i class="fas fa-graduation-cap icon"></i>
+                <h2>Проверьте свои знания</h2>
+            </div>
+            
+            <div class="simple-test">
+                <div class="test-question" id="testQuestion1">
+                    <h3>Вопрос 1: Что выполняет АЛУ в процессоре?</h3>
+                    <div class="test-options">
+                        <label class="option">
+                            <input type="radio" name="q1" value="1">
+                            <span class="option-text">Управляет выполнением инструкций</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q1" value="2">
+                            <span class="option-text">Выполняет арифметические и логические операции</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q1" value="3">
+                            <span class="option-text">Хранит данные для быстрого доступа</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q1" value="4">
+                            <span class="option-text">Обеспечивает связь с устройствами ввода/вывода</span>
+                        </label>
+                    </div>
+                    <button class="check-answer-btn" data-question="1">
+                        <i class="fas fa-check"></i>
+                        Проверить ответ
+                    </button>
+                    <div class="answer-explanation" id="explanation1"></div>
+                </div>
+                
+                <div class="test-question" id="testQuestion2">
+                    <h3>Вопрос 2: Какая память является энергозависимой?</h3>
+                    <div class="test-options">
+                        <label class="option">
+                            <input type="radio" name="q2" value="1">
+                            <span class="option-text">Жёсткий диск</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q2" value="2">
+                            <span class="option-text">Оперативная память (RAM)</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q2" value="3">
+                            <span class="option-text">Флеш-память</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q2" value="4">
+                            <span class="option-text">DVD-диск</span>
+                        </label>
+                    </div>
+                    <button class="check-answer-btn" data-question="2">
+                        <i class="fas fa-check"></i>
+                        Проверить ответ
+                    </button>
+                    <div class="answer-explanation" id="explanation2"></div>
+                </div>
+                
+                <div class="test-results" id="testResults">
+                    <h3><i class="fas fa-trophy"></i> Результаты теста</h3>
+                    <div class="results-stats">
+                        <div class="stat">
+                            <span class="stat-label">Правильных ответов:</span>
+                            <span class="stat-value" id="correctAnswers">0</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">Всего вопросов:</span>
+                            <span class="stat-value">2</span>
+                        </div>
+                    </div>
+                    <button id="resetTestBtn" class="test-reset-btn">
+                        <i class="fas fa-redo"></i>
+                        Пройти тест заново
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Футер -->
+        <footer class="site-footer">
+            <div class="footer-content">
+                <p>© 2025 Жосткин Иван Николаевич. Все права защищены.</p>
+                <p>Сайт разработан для образовательных целей</p>
+                <div class="footer-links">
+                    <a href="https://67minsk.schools.by/">Средняя школа №67 г.Минска</a>
+                    <span> | </span>
+                    <a href="https://edu.gov.by/">Министерство образования Республики Беларусь</a>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Кнопка "Наверх" -->
+    <button class="scroll-top" id="scrollTop">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script src="../script.js"></script>
+    <script src="computer-script.js"></script>
+</body>
+</html>

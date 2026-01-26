@@ -1,0 +1,847 @@
+/* Стили для страницы "Безопасность" */
+
+/* Герой-заголовок для страницы безопасности */
+.hero .title-text {
+    font-size: 3.5rem;
+    background: linear-gradient(90deg, #36d1dc, #6c63ff, #ff6584);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: gradient-shift 5s ease infinite;
+}
+
+@keyframes gradient-shift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Карточки понятий */
+.concepts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.concept-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.concept-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    border-color: rgba(54, 209, 220, 0.3);
+}
+
+.concept-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, var(--accent), var(--primary));
+}
+
+.concept-icon {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, var(--accent), var(--primary));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+}
+
+.concept-card h3 {
+    color: var(--accent);
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.concept-definition {
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+}
+
+.concept-details h4 {
+    color: white;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.concept-details ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.concept-details li {
+    color: rgba(255, 255, 255, 0.8);
+    padding: 5px 0;
+    padding-left: 25px;
+    position: relative;
+    font-size: 0.9rem;
+}
+
+.concept-details li::before {
+    content: '•';
+    position: absolute;
+    left: 10px;
+    color: var(--primary);
+    font-size: 1.2rem;
+}
+
+/* Схема взаимосвязи понятий */
+.scheme-container {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 40px;
+    border: 1px solid rgba(108, 99, 255, 0.1);
+    margin-top: 30px;
+}
+
+.scheme {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    margin: 0 auto 40px;
+}
+
+/* Центральный элемент */
+.scheme-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+
+.main-node {
+    width: 180px;
+    height: 180px;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 600;
+    text-align: center;
+    padding: 20px;
+    box-shadow: 0 10px 30px rgba(108, 99, 255, 0.3);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.main-node i {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+/* Внешние узлы */
+.scheme-node {
+    position: absolute;
+    width: 160px;
+    height: 160px;
+    background: rgba(42, 45, 67, 0.95);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    border: 2px solid var(--accent);
+    transition: all 0.3s ease;
+    z-index: 5;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.scheme-node:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(54, 209, 220, 0.3);
+    border-color: var(--primary);
+}
+
+.scheme-node i {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: var(--accent);
+}
+
+.scheme-node span {
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+/* Позиционирование узлов по кругу с учетом размеров */
+.node-top {
+    top: -5%;
+    left: 42.5%;
+    transform: translateX(-50%);
+}
+
+.node-right {
+    top: 35%;
+    right: 5%;
+    transform: translateY(-50%);
+}
+
+.node-bottom {
+    bottom: -5%;
+    left: 42.5%;
+    transform: translateX(-50%);
+}
+
+.node-left {
+    top: 35%;
+    left: 5%;
+    transform: translateY(-50%);
+}
+
+/* Линии соединений */
+.connection-line {
+    position: absolute;
+    background: rgba(108, 99, 255, 0.4);
+    z-index: 1;
+}
+
+.line-top {
+    top: 180px; /* От нижней границы центрального круга */
+    left: 50%;
+    width: 2px;
+    height: 80px;
+    transform: translateX(-50%);
+}
+
+.line-right {
+    top: 50%;
+    right: 180px; /* От правой границы центрального круга */
+    width: 150px;
+    height: 2px;
+    transform: translateY(-50%);
+}
+
+.line-bottom {
+    bottom: 180px; /* От верхней границы центрального круга */
+    left: 50%;
+    width: 2px;
+    height: 80px;
+    transform: translateX(-50%);
+}
+
+.line-left {
+    top: 50%;
+    left: 180px; /* От левой границы центрального круга */
+    width: 150px;
+    height: 2px;
+    transform: translateY(-50%);
+}
+
+.scheme-explanation {
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.7;
+    font-size: 1.05rem;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.scheme-explanation strong {
+    color: var(--accent);
+}
+
+/* Нормативные документы */
+.law-section {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 30px;
+    margin-bottom: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.law-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid rgba(108, 99, 255, 0.2);
+}
+
+.law-header h3 {
+    color: white;
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.law-badge {
+    background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.law-articles {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.article-card {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    padding: 25px;
+    border-left: 4px solid var(--accent);
+    transition: all 0.3s ease;
+}
+
+.article-card:hover {
+    background: rgba(0, 0, 0, 0.3);
+    transform: translateX(5px);
+}
+
+.article-number {
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+.article-content p {
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.7;
+    margin-bottom: 15px;
+}
+
+.article-penalty {
+    background: rgba(255, 101, 132, 0.1);
+    padding: 12px 15px;
+    border-radius: 10px;
+    margin-top: 15px;
+    color: rgba(255, 255, 255, 0.9);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.95rem;
+}
+
+.article-penalty i {
+    color: var(--secondary);
+}
+
+.concept-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.concept-list li {
+    color: rgba(255, 255, 255, 0.9);
+    padding: 8px 0;
+    padding-left: 30px;
+    position: relative;
+}
+
+.concept-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--primary);
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.threats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.threat-item {
+    background: rgba(255, 101, 132, 0.1);
+    border-radius: 10px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+}
+
+.threat-item:hover {
+    background: rgba(255, 101, 132, 0.2);
+    transform: translateY(-5px);
+}
+
+.threat-item i {
+    font-size: 1.5rem;
+    color: var(--secondary);
+}
+
+.threat-item span {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* Практические упражнения */
+.exercises-container {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin-top: 30px;
+}
+
+.exercise-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.exercise-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid rgba(108, 99, 255, 0.2);
+}
+
+.exercise-header h3 {
+    color: white;
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.exercise-difficulty {
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.exercise-difficulty.easy {
+    background: rgba(76, 201, 240, 0.2);
+    color: var(--success);
+}
+
+.exercise-difficulty.medium {
+    background: rgba(255, 158, 0, 0.2);
+    color: var(--warning);
+}
+
+.exercise-difficulty.hard {
+    background: rgba(255, 101, 132, 0.2);
+    color: var(--secondary);
+}
+
+.exercise-question {
+    color: rgba(255, 255, 255, 0.95);
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+.exercise-options {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.option {
+    position: relative;
+}
+
+.option input {
+    display: none;
+}
+
+.option label {
+    display: block;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 18px 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.option label:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(108, 99, 255, 0.3);
+}
+
+.option input:checked + label {
+    background: rgba(108, 99, 255, 0.1);
+    border-color: var(--primary);
+}
+
+.option-text {
+    color: rgba(255, 255, 255, 0.95);
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.option.correct label {
+    background: rgba(76, 201, 240, 0.1);
+    border-color: var(--success);
+}
+
+.option.incorrect label {
+    background: rgba(255, 101, 132, 0.1);
+    border-color: var(--secondary);
+}
+
+.phishing-example {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 25px;
+    border: 1px solid rgba(255, 101, 132, 0.2);
+}
+
+.email-header {
+    color: var(--accent);
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.email-body {
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.7;
+}
+
+.fake-link {
+    color: var(--secondary);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.fake-link:hover {
+    text-decoration: underline;
+}
+
+.exercise-checklist {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.check-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.check-item input {
+    width: 20px;
+    height: 20px;
+}
+
+.check-item label {
+    color: rgba(255, 255, 255, 0.95);
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.matching-exercise {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.situations, .violation-types {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.situation, .violation {
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 20px;
+    cursor: move;
+    user-select: none;
+    transition: all 0.3s ease;
+    color: rgba(255, 255, 255, 0.95);
+}
+
+.situation:hover, .violation:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(108, 99, 255, 0.3);
+}
+
+.situation.dragging, .violation.dragging {
+    opacity: 0.5;
+}
+
+.violation {
+    text-align: center;
+    font-weight: 500;
+}
+
+.matches-container {
+    min-height: 150px;
+    border: 2px dashed rgba(108, 99, 255, 0.3);
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+}
+
+.match-item {
+    background: rgba(108, 99, 255, 0.1);
+    border-radius: 10px;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border: 2px solid rgba(108, 99, 255, 0.3);
+}
+
+.match-arrow {
+    color: var(--primary);
+    font-weight: bold;
+}
+
+.check-answer, .reset-matching {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-right: 15px;
+    margin-bottom: 15px;
+}
+
+.check-answer:hover, .reset-matching:hover {
+    background: var(--primary-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(108, 99, 255, 0.3);
+}
+
+.reset-matching {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.reset-matching:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.exercise-explanation {
+    background: rgba(54, 209, 220, 0.1);
+    border-radius: 15px;
+    padding: 25px;
+    margin-top: 25px;
+    border-left: 4px solid var(--accent);
+    display: none;
+}
+
+.exercise-explanation.show {
+    display: block;
+    animation: fadeIn 0.5s ease;
+}
+
+.exercise-explanation p {
+    color: rgba(255, 255, 255, 0.95);
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.exercise-explanation ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.exercise-explanation li {
+    color: rgba(255, 255, 255, 0.9);
+    padding: 8px 0;
+    padding-left: 25px;
+    position: relative;
+}
+
+.exercise-explanation li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: bold;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Адаптивность */
+@media (max-width: 992px) {
+    .hero .title-text {
+        font-size: 2.8rem;
+    }
+    
+    .scheme {
+        height: 450px;
+    }
+    
+    .main-node {
+        width: 150px;
+        height: 150px;
+        font-size: 0.9rem;
+    }
+    
+    .scheme-node {
+        width: 140px;
+        height: 140px;
+        font-size: 0.85rem;
+    }
+    
+    .line-right, .line-left {
+        width: 120px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero .title-text {
+        font-size: 2.2rem;
+    }
+    
+    .concepts-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .scheme {
+        height: 600px;
+        position: relative;
+    }
+    
+    /* На мобильных переделываем схему в вертикальный список */
+    .scheme-center {
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+        margin: 0 auto 40px;
+    }
+    
+    .scheme-node {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+        bottom: auto !important;
+        transform: none !important;
+        margin: 20px auto;
+        width: 80%;
+        max-width: 300px;
+        height: auto;
+        min-height: 120px;
+    }
+    
+    .connection-line {
+        display: none; /* Скрываем линии на мобильных */
+    }
+    
+    .scheme {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+    }
+    
+    .matching-exercise {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .law-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    
+    .threats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .hero .title-text {
+        font-size: 1.8rem;
+    }
+    
+    .main-node {
+        width: 130px;
+        height: 130px;
+        font-size: 0.8rem;
+        padding: 15px;
+    }
+    
+    .main-node i {
+        font-size: 2rem;
+    }
+    
+    .scheme-node {
+        width: 90%;
+        padding: 15px;
+    }
+    
+    .scheme-node i {
+        font-size: 1.5rem;
+    }
+    
+    .exercise-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    
+    .check-answer, .reset-matching {
+        width: 100%;
+        margin-right: 0;
+    }
+    
+    .threats-grid {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Конвертер единиц измерения - Информатика</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="converter-style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Orbitron:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Анимированный фон -->
+    <div class="animated-bg"></div>
+    
+    <!-- Нестандартное меню -->
+    <div id="navbar-container">
+        <nav class="circular-menu">
+            <div class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <div class="menu-items" id="menuItems">
+                <a href="../index.html" class="menu-item" data-tooltip="Главная">
+                    <i class="fas fa-home"></i>
+                </a>
+                <div class="menu-dropdown">
+                    <a href="#!" class="menu-item main-item" data-tooltip="Учащимся">
+                        <i class="fas fa-graduation-cap"></i>
+                    </a>
+                    <div class="dropdown-content">
+                        <a href="../uruki/uroki.html">Уроки</a>
+                        <a href="../pages/topics/literature.html">Литература</a>
+                        <a href="../pages/topics/uploads.html">Загрузка работ</a>
+                        <a href="../pages/topics/olympiads.html">Олимпиады</a>
+                    </div>
+                </div>
+                <a href="../ai/ai.html" class="menu-item" data-tooltip="Искусственный интеллект">
+                    <i class="fas fa-robot"></i>
+                </a>
+                <a href="../bez/bez.html" class="menu-item" data-tooltip="Безопасность">
+                    <i class="fas fa-shield-alt"></i>
+                </a>
+                <a href="../norma/index.html" class="menu-item" data-tooltip="Нормативные документы">
+                    <i class="fas fa-file-contract"></i>
+                </a>
+                <a href="../prog/prog.html" class="menu-item" data-tooltip="Программы">
+                    <i class="fas fa-laptop-code"></i>
+                </a>
+                <div class="menu-dropdown">
+                    <a href="#!" class="menu-item main-item" data-tooltip="Интересное">
+                        <i class="fas fa-star"></i>
+                    </a>
+                    <div class="dropdown-content">
+                        <a href="../pages/fun/typing.html">Тренажер печати</a>
+                        <a href="../pages/fun/telegram.html">Телеграмм бот</a>
+                        <a href="https://scratch.mit.edu/">Scratch</a>
+                    </div>
+                </div>
+                <a href="../contact/contact.html" class="menu-item" data-tooltip="Контакты">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Основной контент -->
+    <main class="container">
+        <!-- Заголовок с эффектом -->
+        <header class="hero">
+            <div class="title-container">
+                <h1 class="main-title">
+                    <span class="title-text">КОНВЕРТЕР ЕДИНИЦ</span>
+                    <span class="title-subtext">Преобразование между системами измерений</span>
+                </h1>
+                <div class="code-decoration">
+                    <pre><code>// Преобразование единиц
+1 Кбайт = 1024 байта
+1 Мбайт = 1024 Кбайта
+1 секунда = 1000 миллисекунд</code></pre>
+                </div>
+            </div>
+        </header>
+
+        <!-- Основной конвертер -->
+        <section class="content-section">
+            <div class="section-header">
+                <i class="fas fa-exchange-alt icon"></i>
+                <h2>Конвертер единиц измерения</h2>
+            </div>
+            
+            <div class="converter-container">
+                <!-- Выбор категории -->
+                <div class="category-selector">
+                    <div class="category-tabs" id="categoryTabs">
+                        <button class="category-tab active" data-category="information">
+                            <i class="fas fa-database"></i>
+                            Информация
+                        </button>
+                        <button class="category-tab" data-category="time">
+                            <i class="fas fa-clock"></i>
+                            Время
+                        </button>
+                        <button class="category-tab" data-category="frequency">
+                            <i class="fas fa-wave-square"></i>
+                            Частота
+                        </button>
+                        <button class="category-tab" data-category="data">
+                            <i class="fas fa-broadcast-tower"></i>
+                            Данные
+                        </button>
+                        <button class="category-tab" data-category="color">
+                            <i class="fas fa-palette"></i>
+                            Цвет
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Панель конвертации -->
+                <div class="conversion-panel" id="conversionPanel">
+                    <!-- Панель будет заполнена через JavaScript -->
+                </div>
+                
+                <!-- Быстрые преобразования -->
+                <div class="quick-conversions">
+                    <h3><i class="fas fa-bolt"></i> Быстрые преобразования</h3>
+                    <div class="quick-buttons" id="quickButtons">
+                        <!-- Быстрые кнопки будут заполнены через JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- История преобразований -->
+        <section class="content-section">
+            <div class="section-header">
+                <i class="fas fa-history icon"></i>
+                <h2>История преобразований</h2>
+            </div>
+            
+            <div class="history-container">
+                <div class="history-list" id="historyList">
+                    <!-- История будет заполняться через JavaScript -->
+                    <div class="empty-history">
+                        <i class="fas fa-exchange-alt"></i>
+                        <p>Здесь будет отображаться история ваших преобразований</p>
+                    </div>
+                </div>
+                
+                <div class="history-controls">
+                    <button id="clearHistoryBtn" class="action-btn small">
+                        <i class="fas fa-trash"></i>
+                        Очистить историю
+                    </button>
+                    <button id="exportHistoryBtn" class="action-btn small">
+                        <i class="fas fa-download"></i>
+                        Экспортировать историю
+                    </button>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Обучение и тест -->
+        <section class="content-section">
+            <div class="section-header">
+                <i class="fas fa-graduation-cap icon"></i>
+                <h2>Тест: Понимание единиц измерения</h2>
+            </div>
+            
+            <div class="test-container">
+                <div class="test-intro">
+                    <p>Проверьте свои знания о единицах измерения в информатике. Ответьте на вопросы и узнайте, насколько хорошо вы понимаете преобразования.</p>
+                    <div class="test-stats">
+                        <div class="stat">
+                            <span class="stat-value" id="questionCount">0</span>
+                            <span class="stat-label">вопросов</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-value" id="correctCount">0</span>
+                            <span class="stat-label">правильно</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-value" id="scorePercentage">0%</span>
+                            <span class="stat-label">результат</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="test-content" id="testContent">
+                    <!-- Тест будет заполнен через JavaScript -->
+                </div>
+                
+                <div class="test-controls">
+                    <button id="startTestBtn" class="action-btn primary">
+                        <i class="fas fa-play"></i>
+                        Начать тест
+                    </button>
+                    <button id="nextQuestionBtn" class="action-btn secondary" disabled>
+                        <i class="fas fa-forward"></i>
+                        Следующий вопрос
+                    </button>
+                    <button id="resetTestBtn" class="action-btn small">
+                        <i class="fas fa-redo"></i>
+                        Начать заново
+                    </button>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Справочная информация -->
+        <section class="content-section">
+            <div class="section-header">
+                <i class="fas fa-book icon"></i>
+                <h2>Справочник единиц измерения</h2>
+            </div>
+            
+            <div class="reference-container">
+                <div class="reference-tabs">
+                    <button class="ref-tab active" data-ref="information">
+                        <i class="fas fa-database"></i>
+                        Единицы информации
+                    </button>
+                    <button class="ref-tab" data-ref="prefixes">
+                        <i class="fas fa-sort-amount-up"></i>
+                        Приставки СИ
+                    </button>
+                    <button class="ref-tab" data-ref="comparison">
+                        <i class="fas fa-balance-scale"></i>
+                        Сравнения
+                    </button>
+                </div>
+                
+                <div class="reference-content">
+                    <div class="ref-section active" id="infoRef">
+                        <h3><i class="fas fa-database"></i> Единицы измерения информации</h3>
+                        
+                        <div class="units-table">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Единица</th>
+                                        <th>Сокращение</th>
+                                        <th>В битах</th>
+                                        <th>В байтах</th>
+                                        <th>Пример</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Бит</td>
+                                        <td>бит, b</td>
+                                        <td>1 бит</td>
+                                        <td>0.125 байта</td>
+                                        <td>0 или 1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Байт</td>
+                                        <td>Б, B</td>
+                                        <td>8 бит</td>
+                                        <td>1 байт</td>
+                                        <td>Один символ</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Килобайт</td>
+                                        <td>КБ, KB</td>
+                                        <td>8,192 бит</td>
+                                        <td>1,024 байта</td>
+                                        <td>½ страницы текста</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Мегабайт</td>
+                                        <td>МБ, MB</td>
+                                        <td>8,388,608 бит</td>
+                                        <td>1,048,576 байт</td>
+                                        <td>Небольшая фотография</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Гигабайт</td>
+                                        <td>ГБ, GB</td>
+                                        <td>8,589,934,592 бит</td>
+                                        <td>1,073,741,824 байт</td>
+                                        <td>Фильм в HD качестве</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Терабайт</td>
+                                        <td>ТБ, TB</td>
+                                        <td>8,796,093,022,208 бит</td>
+                                        <td>1,099,511,627,776 байт</td>
+                                        <td>250 часов видео HD</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <div class="important-note">
+                            <h4><i class="fas fa-exclamation-circle"></i> Важное замечание:</h4>
+                            <p>В информатике используются двоичные приставки: 1 КБ = 1024 байта, а не 1000. Это связано с двоичной системой счисления (2¹⁰ = 1024).</p>
+                        </div>
+                    </div>
+                    
+                    <div class="ref-section" id="prefixesRef">
+                        <h3><i class="fas fa-sort-amount-up"></i> Приставки системы СИ и двоичные</h3>
+                        
+                        <div class="prefixes-comparison">
+                            <div class="prefix-group">
+                                <h4>Десятичные приставки (СИ)</h4>
+                                <ul>
+                                    <li>кило (k) = 10³ = 1,000</li>
+                                    <li>мега (M) = 10⁶ = 1,000,000</li>
+                                    <li>гига (G) = 10⁹ = 1,000,000,000</li>
+                                    <li>тера (T) = 10¹² = 1,000,000,000,000</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="prefix-group">
+                                <h4>Двоичные приставки (IEC)</h4>
+                                <ul>
+                                    <li>киби (Ki) = 2¹⁰ = 1,024</li>
+                                    <li>меби (Mi) = 2²⁰ = 1,048,576</li>
+                                    <li>гиби (Gi) = 2³⁰ = 1,073,741,824</li>
+                                    <li>теби (Ti) = 2⁴⁰ = 1,099,511,627,776</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="usage-examples">
+                            <h4><i class="fas fa-laptop"></i> Где что используется:</h4>
+                            <div class="example-item">
+                                <div class="example-icon">
+                                    <i class="fas fa-hdd"></i>
+                                </div>
+                                <div class="example-content">
+                                    <h5>Жёсткие диски</h5>
+                                    <p>Производители используют десятичные приставки (1 ГБ = 1 млрд байт), поэтому реальная ёмкость меньше заявленной.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="example-item">
+                                <div class="example-icon">
+                                    <i class="fas fa-memory"></i>
+                                </div>
+                                <div class="example-content">
+                                    <h5>Оперативная память</h5>
+                                    <p>Использует двоичные приставки (1 ГБ ОЗУ = 1,073,741,824 байт).</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="ref-section" id="comparisonRef">
+                        <h3><i class="fas fa-balance-scale"></i> Сравнительные примеры</h3>
+                        
+                        <div class="comparison-examples">
+                            <div class="comparison-card">
+                                <div class="comparison-icon">
+                                    <i class="fas fa-file-alt"></i>
+                                </div>
+                                <div class="comparison-content">
+                                    <h4>Текстовые данные</h4>
+                                    <ul>
+                                        <li>1 символ ≈ 1 байт</li>
+                                        <li>Страница текста ≈ 2 КБ</li>
+                                        <li>Книга (300 стр.) ≈ 600 КБ</li>
+                                        <li>Библиотека (1000 книг) ≈ 600 МБ</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="comparison-card">
+                                <div class="comparison-icon">
+                                    <i class="fas fa-image"></i>
+                                </div>
+                                <div class="comparison-content">
+                                    <h4>Изображения</h4>
+                                    <ul>
+                                        <li>Иконка (32×32) ≈ 1 КБ</li>
+                                        <li>Фото (1024×768) ≈ 300 КБ</li>
+                                        <li>RAW фото (20 МП) ≈ 25 МБ</li>
+                                        <li>4K фото ≈ 50 МБ</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="comparison-card">
+                                <div class="comparison-icon">
+                                    <i class="fas fa-video"></i>
+                                </div>
+                                <div class="comparison-content">
+                                    <h4>Видео и аудио</h4>
+                                    <ul>
+                                        <li>Песня (MP3, 3 мин) ≈ 3 МБ</li>
+                                        <li>Фильм (DVD) ≈ 4.7 ГБ</li>
+                                        <li>Фильм (Blu-ray) ≈ 25 ГБ</li>
+                                        <li>Фильм (4K) ≈ 100 ГБ</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Футер -->
+        <footer class="site-footer">
+            <div class="footer-content">
+                <p>© 2025 Жосткин Иван Николаевич. Все права защищены.</p>
+                <p>Сайт разработан для образовательных целей</p>
+                <div class="footer-links">
+                    <a href="https://67minsk.schools.by/">Средняя школа №67 г.Минска</a>
+                    <span> | </span>
+                    <a href="https://edu.gov.by/">Министерство образования Республики Беларусь</a>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Кнопка "Наверх" -->
+    <button class="scroll-top" id="scrollTop">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script src="../script.js"></script>
+    <script src="converter-script.js"></script>
+</body>
+</html>

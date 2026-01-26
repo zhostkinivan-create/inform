@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакты - Информатика</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="contact-style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Orbitron:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css" />
+</head>
+<body>
+    <!-- Анимированный фон -->
+    <div class="animated-bg"></div>
+    
+    <!-- Меню -->
+    <nav class="circular-menu">
+    <div class="menu-toggle" id="menuToggle">
+        <i class="fas fa-bars"></i>
+    </div>
+    <div class="menu-items" id="menuItems">
+        <a href="../index.html" class="menu-item" data-tooltip="Главная">
+            <i class="fas fa-home"></i>
+        </a>
+        <div class="menu-dropdown">
+            <a href="#!" class="menu-item main-item" data-tooltip="Учащимся">
+                <i class="fas fa-graduation-cap"></i>
+            </a>
+            <div class="dropdown-content">
+                <a href="../uroki/uroki.html">Уроки</a>
+                <a href="pages/topics/literature.html">Литература</a>
+                <a href="pages/topics/uploads.html">Загрузка работ</a>
+                <a href="pages/topics/olympiads.html">Олимпиады</a>
+            </div>
+        </div>
+        <a href="../ai/ai.html" class="menu-item" data-tooltip="Искусственный интеллект">
+            <i class="fas fa-robot"></i>
+        </a>
+        <a href="../bez/bez.html" class="menu-item" data-tooltip="Безопасность">
+            <i class="fas fa-shield-alt"></i>
+        </a>
+        <a href="../norma/index.html" class="menu-item" data-tooltip="Нормативные документы">
+            <i class="fas fa-file-contract"></i>
+        </a>
+        <a href="pages/software.html" class="menu-item" data-tooltip="Программы">
+            <i class="fas fa-laptop-code"></i>
+        </a>
+        <div class="menu-dropdown">
+            <a href="#!" class="menu-item main-item" data-tooltip="Интересное">
+                <i class="fas fa-star"></i>
+            </a>
+            <div class="dropdown-content">
+                <a href="https://typerun.top/#rus_basic">Тренажер печати</a>
+                <a href="pages/fun/telegram.html">Телеграмм бот</a>
+                <a href="https://scratch.mit.edu/">Scratch</a>
+            </div>
+        </div>
+        <a href="../contact/contact.html" class="menu-item" data-tooltip="Контакты">
+            <i class="fas fa-envelope"></i>
+        </a>
+    </div>
+</nav>
+
+    <!-- Основной контент -->
+    <main class="container contact-container">
+        <!-- Заголовок -->
+        <header class="contact-header">
+            <h1 class="page-title">
+                <i class="fas fa-address-book"></i>
+                Контакты
+            </h1>
+           
+        </header>
+
+        <!-- Основная информация -->
+        <section class="contact-main">
+            <div class="teacher-info-card">
+                <div class="teacher-avatar">
+                    <div class="avatar-placeholder">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <div class="teacher-name">
+                        <h2>Жосткин Иван Николаевич</h2>
+                        <p>Учитель информатики</p>
+                    </div>
+                </div>
+                
+                <div class="contact-details">
+                    <!-- Контактная информация -->
+                    <div class="contact-item">
+                        <div class="contact-icon email">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-content">
+                            <h3>Электронная почта</h3>
+                            <a href="mailto:informatica@school.by" class="contact-link">
+                                informatica@school.by
+                            </a>
+                            
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon address">
+                            <i class="fas fa-school"></i>
+                        </div>
+                        <div class="contact-content">
+                            <h3>Адрес учреждения</h3>
+                            <p>г. Минск, ул. Алибегова, 15А<br>ГУО "Средняя школа №67"</p>
+                            <p class="contact-note">Кабинет информатики №205 (2 этаж)</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon time">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-content">
+                            <h3>Время работы</h3>
+                            <div class="schedule">
+                                <div class="day-time">
+                                    <span class="day">Понедельник:</span>
+                                    <span class="time">8:00 - 16:00</span>
+                                </div>
+                                <div class="day-time">
+                                    <span class="day">Вторник:</span>
+                                    <span class="time">15:00 - 17:00</span>
+                                </div>
+                                <div class="day-time">
+                                    <span class="day">Среда:</span>
+                                    <span class="time">9:00 - 13:00</span>
+                                </div>
+                                <div class="day-time">
+                                    <span class="day">Четверг:</span>
+                                    <span class="time">8:00 - 16:00</span>
+                                </div>
+                                <div class="day-time">
+                                    <span class="day">Пятница:</span>
+                                    <span class="time">8:00 - 16:00</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Важное -->
+        <div class="important-notice">
+            <i class="fas fa-info-circle"></i>
+            <p><strong>Важно:</strong> По учебным вопросам в первую очередь обращайтесь на уроке!</p>
+        </div>
+            <!-- Социальные сети -->
+            <div class="social-section">
+                <h3><i class="fas fa-hashtag"></i> Социальные сети</h3>
+                <div class="social-links">
+                    <a href="https://t.me/informatika_school" class="social-link telegram" target="_blank">
+                        <i class="fab fa-telegram"></i>
+                        <span>Telegram</span>
+                    </a>
+                    
+                    <a href="https://instagram.com/informatika_school" class="social-link instagram" target="_blank">
+                        <i class="fab fa-instagram"></i>
+                        <span>Instagram</span>
+                    </a>
+                    
+                </div>
+            </div>
+        </section>
+
+        <!-- Карта и обратная связь -->
+        <section class="map-feedback">
+            
+            
+            <!-- Обратная связь -->
+            <div class="feedback-section">
+                <h3><i class="fas fa-comment-dots"></i> Обратная связь</h3>
+                <div class="feedback-card">
+                    
+                    
+                    <a href="https://docs.google.com/forms/d/e/ШАБЛОН/viewform" 
+                       class="feedback-btn" 
+                       target="_blank">
+                        <i class="fab fa-google"></i>
+                        Перейти к форме обратной связи
+                    </a>
+                    
+                    <div class="alternative-contact">
+                        <h4>Или напишите напрямую:</h4>
+                        <a href="mailto:informatica@school.by?subject=Вопрос%20по%20информатике" 
+                           class="email-btn">
+                            <i class="fas fa-paper-plane"></i>
+                            Написать email
+                        </a>
+                    </div>
+                    
+                    
+                </div>
+            </div>
+        </section>
+
+        
+
+        
+    </main>
+
+    <!-- Футер -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <p>© 2025 Жосткин Иван Николаевич. Контактная информация</p>
+            <p>Все контакты актуальны на 2025/2026 учебный год</p>
+        </div>
+    </footer>
+
+    <!-- Кнопка "Наверх" -->
+    <button class="scroll-top" id="scrollTop">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Скрипты -->
+    <script src="../script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+    <script src="contact-script.js"></script>
+</body>
+</html>

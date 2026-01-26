@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Нормативные документы - Информатика</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="docs-style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Orbitron:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Анимированный фон -->
+    <div class="animated-bg"></div>
+    
+    <!-- Главное меню -->
+    <div id="navbar-container">
+        <nav class="circular-menu">
+    <div class="menu-toggle" id="menuToggle">
+        <i class="fas fa-bars"></i>
+    </div>
+    <div class="menu-items" id="menuItems">
+        <a href="../index.html" class="menu-item" data-tooltip="Главная">
+            <i class="fas fa-home"></i>
+        </a>
+        <div class="menu-dropdown">
+            <a href="#!" class="menu-item main-item" data-tooltip="Учащимся">
+                <i class="fas fa-graduation-cap"></i>
+            </a>
+            <div class="dropdown-content">
+                <a href="../uroki/uroki.html">Уроки</a>
+                <a href="pages/topics/literature.html">Литература</a>
+                <a href="pages/topics/uploads.html">Загрузка работ</a>
+                <a href="pages/topics/olympiads.html">Олимпиады</a>
+            </div>
+        </div>
+        <a href="../ai/ai.html" class="menu-item" data-tooltip="Искусственный интеллект">
+            <i class="fas fa-robot"></i>
+        </a>
+        <a href="../bez/bez.html" class="menu-item" data-tooltip="Безопасность">
+            <i class="fas fa-shield-alt"></i>
+        </a>
+        <a href="../norma/index.html" class="menu-item" data-tooltip="Нормативные документы">
+            <i class="fas fa-file-contract"></i>
+        </a>
+        <a href="pages/software.html" class="menu-item" data-tooltip="Программы">
+            <i class="fas fa-laptop-code"></i>
+        </a>
+        <div class="menu-dropdown">
+            <a href="#!" class="menu-item main-item" data-tooltip="Интересное">
+                <i class="fas fa-star"></i>
+            </a>
+            <div class="dropdown-content">
+                <a href="https://typerun.top/#rus_basic">Тренажер печати</a>
+                <a href="pages/fun/telegram.html">Телеграмм бот</a>
+                <a href="https://scratch.mit.edu/">Scratch</a>
+            </div>
+        </div>
+        <a href="../contact/contact.html" class="menu-item" data-tooltip="Контакты">
+            <i class="fas fa-envelope"></i>
+        </a>
+    </div>
+</nav>
+    </div>
+
+    <!-- Основной контент -->
+    <main class="container docs-container">
+        <!-- Заголовок страницы -->
+        <header class="docs-header">
+            <div class="header-content">
+                <h1 class="page-title">
+                    <i class="fas fa-folder-open"></i>
+                    Нормативные документы
+                </h1>
+                <p class="page-subtitle">Официальные документы, регламенты и методические материалы по информатике</p>
+                
+                
+            </div>
+        </header>
+
+        
+            
+            
+
+        
+        <!-- Сетка документов -->
+<section class="documents-grid" id="documentsGrid">
+    <h2 class="section-title">
+        <i class="fas fa-file-pdf"></i>
+        Нормативные документы Республики Беларусь
+        <span class="doc-count" id="docCount">15 документов</span>
+    </h2>
+    
+    <div class="docs-grid">
+        <!-- 1. Конституция -->
+        <div class="doc-card" data-category="fundamental" data-year="1994">
+            <div class="doc-header">
+                <div class="doc-icon fundamental">
+                    <i class="fas fa-balance-scale"></i>
+                </div>
+                <div class="doc-badge main">Основной</div>
+            </div>
+            <div class="doc-body">
+                <h3 class="doc-title">Конституция Республики Беларусь</h3>
+                <p class="doc-description">Основной Закон Республики Беларусь. Принята 15 марта 1994 года с изменениями и дополнениями</p>
+                <div class="doc-meta">
+                    <span class="meta-item">
+                        <i class="far fa-calendar"></i>
+                        1994 г. (ред. 2022)
+                    </span>
+                    <span class="meta-item">
+                        <i class="far fa-file"></i>
+                        45 стр.
+                    </span>
+                </div>
+            </div>
+            <div class="doc-footer">
+                <a href="pdf/konstituciya-rb.pdf" class="doc-btn preview-btn" target="_blank">
+                    <i class="far fa-eye"></i>
+                    Предпросмотр
+                </a>
+                <a href="pdf/konstituciya-rb.pdf" class="doc-btn download-btn" download>
+                    <i class="fas fa-download"></i>
+                    Скачать
+                </a>
+            </div>
+        </div>
+        
+        <!-- 2. Концепция национальной безопасности -->
+        <div class="doc-card" data-category="security" data-year="2021">
+            <div class="doc-header">
+                <div class="doc-icon security">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <div class="doc-badge">Обязательный</div>
+            </div>
+            <div class="doc-body">
+                <h3 class="doc-title">Концепция национальной безопасности Республики Беларусь</h3>
+                <p class="doc-description">Утверждена Указом Президента Республики Беларусь № 355 от 9 ноября 2021 года</p>
+                <div class="doc-meta">
+                    <span class="meta-item">
+                        <i class="far fa-calendar"></i>
+                        2021 г.
+                    </span>
+                    <span class="meta-item">
+                        <i class="far fa-file"></i>
+                        32 стр.
+                    </span>
+                </div>
+            </div>
+            <div class="doc-footer">
+                <a href="pdf/koncepciya-nacionalnoj-bezopasnosti.pdf" class="doc-btn preview-btn" target="_blank">
+                    <i class="far fa-eye"></i>
+                    Предпросмотр
+                </a>
+                <a href="pdf/koncepciya-nacionalnoj-bezopasnosti.pdf" class="doc-btn download-btn" download>
+                    <i class="fas fa-download"></i>
+                    Скачать
+                </a>
+            </div>
+        </div>
+        
+        <!-- 3. Закон о правах ребенка -->
+        <div class="doc-card" data-category="legal" data-year="1993">
+            <div class="doc-header">
+                <div class="doc-icon legal">
+                    <i class="fas fa-child"></i>
+                </div>
+                <div class="doc-badge new">Обновлён</div>
+            </div>
+            <div class="doc-body">
+                <h3 class="doc-title">Закон Республики Беларусь "О правах ребенка"</h3>
+                <p class="doc-description">Закон № 2570-XII от 19 ноября 1993 года (в редакции от 18 июля 2022 года)</p>
+                <div class="doc-meta">
+                    <span class="meta-item">
+                        <i class="far fa-calendar"></i>
+                        1993 г. (ред. 2022)
+                    </span>
+                    <span class="meta-item">
+                        <i class="far fa-file"></i>
+                        28 стр.
+                    </span>
+                </div>
+            </div>
+            <div class="doc-footer">
+                <a href="pdf/zakon-o-pravah-rebenka.pdf" class="doc-btn preview-btn" target="_blank">
+                    <i class="far fa-eye"></i>
+                    Предпросмотр
+                </a>
+                <a href="pdf/zakon-o-pravah-rebenka.pdf" class="doc-btn download-btn" download>
+                    <i class="fas fa-download"></i>
+                    Скачать
+                </a>
+            </div>
+        </div>
+        
+        <!-- 4. Кодекс об образовании -->
+        <div class="doc-card" data-category="education" data-year="2011">
+            <div class="doc-header">
+                <div class="doc-icon education">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div class="doc-badge main">Основной</div>
+            </div>
+            <div class="doc-body">
+                <h3 class="doc-title">Кодекс Республики Беларусь об образовании</h3>
+                <p class="doc-description">Кодекс № 243-З от 13 января 2011 года (в редакции от 6 января 2022 года)</p>
+                <div class="doc-meta">
+                    <span class="meta-item">
+                        <i class="far fa-calendar"></i>
+                        2011 г. (ред. 2022)
+                    </span>
+                    <span class="meta-item">
+                        <i class="far fa-file"></i>
+                        156 стр.
+                    </span>
+                </div>
+            </div>
+            <div class="doc-footer">
+                <a href="pdf/kodeks-ob-obrazovanii.pdf" class="doc-btn preview-btn" target="_blank">
+                    <i class="far fa-eye"></i>
+                    Предпросмотр
+                </a>
+                <a href="pdf/kodeks-ob-obrazovanii.pdf" class="doc-btn download-btn" download>
+                    <i class="fas fa-download"></i>
+                    Скачать
+                </a>
+            </div>
+        </div>
+        
+        <!-- 5. Трудовой кодекс -->
+        <div class="doc-card" data-category="legal" data-year="1999">
+            <div class="doc-header">
+                <div class="doc-icon legal">
+                    <i class="fas fa-briefcase"></i>
+                </div>
+                <div class="doc-badge">Обязательный</div>
+            </div>
+            <div class="doc-body">
+                <h3 class="doc-title">Трудовой кодекс Республики Беларусь</h3>
+                <p class="doc-description">Кодекс № 296-З от 26 июля 1999 года (в редакции от 24 октября 2022 года)</p>
+                <div class="doc-meta">
+                    <span class="meta-item">
+                        <i class="far fa-calendar"></i>
+                        1999 г. (ред. 2022)
+                    </span>
+                    <span class="meta-item">
+                        <i class="far fa-file"></i>
+                        189 стр.
+                    </span>
+                </div>
+            </div>
+            <div class="doc-footer">
+                <a href="pdf/trudovoj-kodeks.pdf" class="doc-btn preview-btn" target="_blank">
+                    <i class="far fa-eye"></i>
+                    Предпросмотр
+                </a>
+                <a href="pdf/trudovoj-kodeks.pdf" class="doc-btn download-btn" download>
+                    <i class="fas fa-download"></i>
+                    Скачать
+                </a>
+            </div>
+        </div>
+        
+        <!-- 6. КоАП -->
+        <div class="doc-card" data-category="legal" data-year="2021">
+            <div class="doc-header">
+                <div class="doc-icon legal">
+                    <i class="fas fa-gavel"></i>
+                </div>
+                <div class="doc-badge new">Новый</div>
+            </div>
+            <div class="doc-body">
+                <h3 class="doc-title">Кодекс Республики Беларусь об административных правонарушениях</h3>
+                <p class="doc-description">Кодекс № 194-З от 21 апреля 2021 года (вступил в силу 1 марта 2022 года)</p>
+                <div class="doc-meta">
+                    <span class="meta-item">
+                        <i class="far fa-calendar"></i>
+                        2021 г. (действ. с 2022)
+                    </span>
+                    <span class="meta-item">
+                        <i class="far fa-file"></i>
+                        287 стр.
+                    </span>
+                </div>
+            </div>
+            <div class="doc-footer">
+                <a href="pdf/kodeks-ob-administrativnyh-pravonarusheniyah.pdf" class="doc-btn preview-btn" target="_blank">
+                    <i class="far fa-eye"></i>
+                    Предпросмотр
+                </a>
+                <a href="pdf/kodeks-ob-administrativnyh-pravonarusheniyah.pdf" class="doc-btn download-btn" download>
+                    <i class="fas fa-download"></i>
+                    Скачать
+                </a>
+            </div>
+        </div>
+        
+        <!-- 7. Государственный школьный стандарт -->
+        <div class="doc-card" data-category="education" data-year="2022">
+            <div class="doc-header">
+                <div class="doc-icon education">
+                    <i class="fas fa-school"></i>
+                </div>
+                <div class="doc-badge new">Актуальный</div>
+            </div>
+            <div class="doc-body">
+                <h3 class="doc-title">Государственный школьный стандарт общего среднего образования</h3>
+                <p class="doc-description">Утверждён постановлением Министерства образования Республики Беларусь № 170 от 26.06.2022</p>
+                <div class="doc-meta">
+                    <span class="meta-item">
+                        <i class="far fa-calendar"></i>
+                        2022 г.
+                    </span>
+                    <span class="meta-item">
+                        <i class="far fa-file"></i>
+                        64 стр.
+                    </span>
+                </div>
+            </div>
+            <div class="doc-footer">
+                <a href="pdf/gosudarstvennyj-shkolnyj-standart.pdf" class="doc-btn preview-btn" target="_blank">
+                    <i class="far fa-eye"></i>
+                    Предпросмотр
+                </a>
+                <a href="pdf/gosudarstvennyj-shkolnyj-standart.pdf" class="doc-btn download-btn" download>
+                    <i class="fas fa-download"></i>
+                    Скачать
+                </a>
+            </div>
+        </div>
+        
+        <!-- 8. Учебная программа 6-9 класс -->
+        <div class="doc-card" data-category="program" data-year="2023">
+            <div class="doc-header">
+                <div class="doc-icon program">
+                    <i class="fas fa-laptop-code"></i>
+                </div>
+                <div class="doc-badge new">2023/2024</div>
+            </div>
+            <div class="doc-body">
+                <h3 class="doc-title">Учебная программа по учебному предмету "Информатика" для VI-IX классов</h3>
+                <p class="doc-description">Утверждена Министерством образования Республики Беларусь для 2023/2024 учебного года</p>
+                <div class="doc-meta">
+                    <span class="meta-item">
+                        <i class="far fa-calendar"></i>
+                        2023 г.
+                    </span>
+                    <span class="meta-item">
+                        <i class="far fa-file"></i>
+                        48 стр.
+                    </span>
+                </div>
+            </div>
+            <div class="doc-footer">
+                <a href="pdf/uchebnaya-programma-6-9-informatika.pdf" class="doc-btn preview-btn" target="_blank">
+                    <i class="far fa-eye"></i>
+                    Предпросмотр
+                </a>
+                <a href="pdf/uchebnaya-programma-6-9-informatika.pdf" class="doc-btn download-btn" download>
+                    <i class="fas fa-download"></i>
+                    Скачать
+                </a>
+            </div>
+        </div>
+        
+        <!-- 9. Учебная программа 10-11 класс -->
+        <div class="doc-card" data-category="program" data-year="2023">
+            <div class="doc-header">
+                <div class="doc-icon program">
+                    <i class="fas fa-laptop-code"></i>
+                </div>
+                <div class="doc-badge new">2023/2024</div>
+            </div>
+            <div class="doc-body">
+                <h3 class="doc-title">Учебная программа по учебному предмету "Информатика" для X-XI классов</h3>
+                <p class="doc-description">Утверждена Министерством образования Республики Беларусь для 2023/2024 учебного года</p>
+                <div class="doc-meta">
+                    <span class="meta-item">
+                        <i class="far fa-calendar"></i>
+                        2023 г.
+                    </span>
+                    <span class="meta-item">
+                        <i class="far fa-file"></i>
+                        52 стр.
+                    </span>
+                </div>
+            </div>
+            <div class="doc-footer">
+                <a href="pdf/uchebnaya-programma-10-11-informatika.pdf" class="doc-btn preview-btn" target="_blank">
+                    <i class="far fa-eye"></i>
+                    Предпросмотр
+                </a>
+                <a href="pdf/uchebnaya-programma-10-11-informatika.pdf" class="doc-btn download-btn" download>
+                    <i class="fas fa-download"></i>
+                    Скачать
+                </a>
+            </div>
+        </div>
+        
+        <!-- 10. Нормы отметок -->
+        <div class="doc-card" data-category="education" data-year="2022">
+            <div class="doc-header">
+                <div class="doc-icon education">
+                    <i class="fas fa-chart-bar"></i>
+                </div>
+                <div class="doc-badge popular">Часто используемый</div>
+            </div>
+            <div class="doc-body">
+                <h3 class="doc-title">Нормы оценки результатов учебной деятельности учащихся по информатике</h3>
+                <p class="doc-description">Методические рекомендации по оценке знаний учащихся по учебному предмету "Информатика"</p>
+                <div class="doc-meta">
+                    <span class="meta-item">
+                        <i class="far fa-calendar"></i>
+                        2022 г.
+                    </span>
+                    <span class="meta-item">
+                        <i class="far fa-file"></i>
+                        24 стр.
+                    </span>
+                </div>
+            </div>
+            <div class="doc-footer">
+                <a href="pdf/normy-otmetok-informatika.pdf" class="doc-btn preview-btn" target="_blank">
+                    <i class="far fa-eye"></i>
+                    Предпросмотр
+                </a>
+                <a href="pdf/normy-otmetok-informatika.pdf" class="doc-btn download-btn" download>
+                    <i class="fas fa-download"></i>
+                    Скачать
+                </a>
+            </div>
+        </div>
+        
+        <!-- 11. Инструктивно-методическое письмо -->
+        <div class="doc-card" data-category="education" data-year="2023">
+            <div class="doc-header">
+                <div class="doc-icon education">
+                    <i class="fas fa-file-alt"></i>
+                </div>
+                <div class="doc-badge new">2023/2024</div>
+            </div>
+            <div class="doc-body">
+                <h3 class="doc-title">Инструктивно-методическое письмо по преподаванию учебного предмета "Информатика"</h3>
+                <p class="doc-description">Методические рекомендации для 2023/2024 учебного года. Министерство образования Республики Беларусь</p>
+                <div class="doc-meta">
+                    <span class="meta-item">
+                        <i class="far fa-calendar"></i>
+                        2023 г.
+                    </span>
+                    <span class="meta-item">
+                        <i class="far fa-file"></i>
+                        36 стр.
+                    </span>
+                </div>
+            </div>
+            <div class="doc-footer">
+                <a href="pdf/instrukt-metod-pismo-informatika.pdf" class="doc-btn preview-btn" target="_blank">
+                    <i class="far fa-eye"></i>
+                    Предпросмотр
+                </a>
+                <a href="pdf/instrukt-metod-pismo-informatika.pdf" class="doc-btn download-btn" download>
+                    <i class="fas fa-download"></i>
+                    Скачать
+                </a>
+            </div>
+        </div>
+        
+        <!-- 12. Санитарные нормы -->
+        <div class="doc-card" data-category="health" data-year="2019">
+            <div class="doc-header">
+                <div class="doc-icon health">
+                    <i class="fas fa-heartbeat"></i>
+                </div>
+                <div class="doc-badge">Обязательный</div>
+            </div>
+            <div class="doc-body">
+                <h3 class="doc-title">Санитарные нормы и правила "Требования для учреждений общего среднего образования"</h3>
+                <p class="doc-description">Утверждены постановлением Министерства здравоохранения Республики Беларусь № 135 от 22.12.2019</p>
+                <div class="doc-meta">
+                    <span class="meta-item">
+                        <i class="far fa-calendar"></i>
+                        2019 г.
+                    </span>
+                    <span class="meta-item">
+                        <i class="far fa-file"></i>
+                        72 стр.
+                    </span>
+                </div>
+            </div>
+            <div class="doc-footer">
+                <a href="pdf/sanitarnye-normy.pdf" class="doc-btn preview-btn" target="_blank">
+                    <i class="far fa-eye"></i>
+                    Предпросмотр
+                </a>
+                <a href="pdf/sanitarnye-normy.pdf" class="doc-btn download-btn" download>
+                    <i class="fas fa-download"></i>
+                    Скачать
+                </a>
+            </div>
+        </div>
+        
+        <!-- 13. Постановление №950 -->
+        <div class="doc-card" data-category="government" data-year="2013">
+            <div class="doc-header">
+                <div class="doc-icon government">
+                    <i class="fas fa-landmark"></i>
+                </div>
+                <div class="doc-badge">Правительственный</div>
+            </div>
+            <div class="doc-body">
+                <h3 class="doc-title">Об основах деятельности по профилактике правонарушений</h3>
+                <p class="doc-description">Постановление Совета Министров Республики Беларусь №950 от 28.12.2013</p>
+                <div class="doc-meta">
+                    <span class="meta-item">
+                        <i class="far fa-calendar"></i>
+                        28.12.2013
+                    </span>
+                    <span class="meta-item">
+                        <i class="far fa-file"></i>
+                        18 стр.
+                    </span>
+                </div>
+            </div>
+            <div class="doc-footer">
+                <a href="pdf/postanovlenie-950.pdf" class="doc-btn preview-btn" target="_blank">
+                    <i class="far fa-eye"></i>
+                    Предпросмотр
+                </a>
+                <a href="pdf/postanovlenie-950.pdf" class="doc-btn download-btn" download>
+                    <i class="fas fa-download"></i>
+                    Скачать
+                </a>
+            </div>
+        </div>
+        
+        <!-- 14. Закон о персональных данных -->
+        <div class="doc-card" data-category="it" data-year="2021">
+            <div class="doc-header">
+                <div class="doc-icon it">
+                    <i class="fas fa-database"></i>
+                </div>
+                <div class="doc-badge new">Актуальный</div>
+            </div>
+            <div class="doc-body">
+                <h3 class="doc-title">Закон Республики Беларусь "О защите персональных данных"</h3>
+                <p class="doc-description">Закон № 99-З от 7 мая 2021 года (вступил в силу 15 ноября 2021 года)</p>
+                <div class="doc-meta">
+                    <span class="meta-item">
+                        <i class="far fa-calendar"></i>
+                        2021 г.
+                    </span>
+                    <span class="meta-item">
+                        <i class="far fa-file"></i>
+                        32 стр.
+                    </span>
+                </div>
+            </div>
+            <div class="doc-footer">
+                <a href="pdf/zakon-o-personalnyh-dannyh.pdf" class="doc-btn preview-btn" target="_blank">
+                    <i class="far fa-eye"></i>
+                    Предпросмотр
+                </a>
+                <a href="pdf/zakon-o-personalnyh-dannyh.pdf" class="doc-btn download-btn" download>
+                    <i class="fas fa-download"></i>
+                    Скачать
+                </a>
+            </div>
+        </div>
+        
+        <!-- 15. Закон о защите информации -->
+        <div class="doc-card" data-category="it" data-year="2018">
+            <div class="doc-header">
+                <div class="doc-icon it">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <div class="doc-badge">Кибербезопасность</div>
+            </div>
+            <div class="doc-body">
+                <h3 class="doc-title">Закон Республики Беларусь "Об информации, информатизации и защите информации"</h3>
+                <p class="doc-description">Закон № 455-З от 10 ноября 2008 года (в редакции Закона от 9 января 2018 года № 90-З)</p>
+                <div class="doc-meta">
+                    <span class="meta-item">
+                        <i class="far fa-calendar"></i>
+                        2008 г. (ред. 2018)
+                    </span>
+                    <span class="meta-item">
+                        <i class="far fa-file"></i>
+                        45 стр.
+                    </span>
+                </div>
+            </div>
+            <div class="doc-footer">
+                <a href="pdf/zakon-o-zashchite-informacii.pdf" class="doc-btn preview-btn" target="_blank">
+                    <i class="far fa-eye"></i>
+                    Предпросмотр
+                </a>
+                <a href="pdf/zakon-o-zashchite-informacii.pdf" class="doc-btn download-btn" download>
+                    <i class="fas fa-download"></i>
+                    Скачать
+                </a>
+            </div>
+        </div>
+        
+        
+    </div>
+</section>
+
+        
+
+        
+
+        <!-- Информация о документах -->
+        <div class="docs-info">
+            <div class="info-card">
+                <i class="fas fa-info-circle"></i>
+                <h4>Как пользоваться документами</h4>
+                <p>Все документы представлены в формате PDF. Для просмотра используйте встроенный предпросмотр или скачайте файл на компьютер.</p>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-exclamation-triangle"></i>
+                <h4>Важная информация</h4>
+                <p>Документы регулярно обновляются. Следите за датой публикации и статусом "Новый" для актуальных версий.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Футер -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <p>© 2025 Жосткин Иван Николаевич. Нормативные документы</p>
+            <p>Все документы носят ознакомительный характер</p>
+        </div>
+    </footer>
+
+    <!-- Кнопка "Наверх" -->
+    <button class="scroll-top" id="scrollTop">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Модальное окно для предпросмотра (упрощенное) -->
+    <div class="modal-overlay" id="previewModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Предпросмотр документа</h3>
+                <button class="modal-close" id="closeModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <iframe id="pdfViewer" src="" frameborder="0"></iframe>
+                <p class="modal-note">Для полного просмотра скачайте документ</p>
+            </div>
+        </div>
+    </div>
+
+    
+    <script src="../script.js"></script>
+    <script src="docs.js"></script>
+</body>
+</html>

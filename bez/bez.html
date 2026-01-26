@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Безопасность - Информатика</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="bez-style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Orbitron:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Анимированный фон -->
+    <div class="animated-bg"></div>
+    
+    <!-- Нестандартное меню -->
+    <div id="navbar-container">
+        <nav class="circular-menu">
+    <div class="menu-toggle" id="menuToggle">
+        <i class="fas fa-bars"></i>
+    </div>
+    <div class="menu-items" id="menuItems">
+        <a href="../index.html" class="menu-item" data-tooltip="Главная">
+            <i class="fas fa-home"></i>
+        </a>
+        <div class="menu-dropdown">
+            <a href="#!" class="menu-item main-item" data-tooltip="Учащимся">
+                <i class="fas fa-graduation-cap"></i>
+            </a>
+            <div class="dropdown-content">
+                <a href="../uroki/uroki.html">Уроки</a>
+                <a href="pages/topics/literature.html">Литература</a>
+                <a href="pages/topics/uploads.html">Загрузка работ</a>
+                <a href="pages/topics/olympiads.html">Олимпиады</a>
+            </div>
+        </div>
+        <a href="../ai/ai.html" class="menu-item" data-tooltip="Искусственный интеллект">
+            <i class="fas fa-robot"></i>
+        </a>
+        <a href="../bez/bez.html" class="menu-item" data-tooltip="Безопасность">
+            <i class="fas fa-shield-alt"></i>
+        </a>
+        <a href="../norma/index.html" class="menu-item" data-tooltip="Нормативные документы">
+            <i class="fas fa-file-contract"></i>
+        </a>
+        <a href="pages/software.html" class="menu-item" data-tooltip="Программы">
+            <i class="fas fa-laptop-code"></i>
+        </a>
+        <div class="menu-dropdown">
+            <a href="#!" class="menu-item main-item" data-tooltip="Интересное">
+                <i class="fas fa-star"></i>
+            </a>
+            <div class="dropdown-content">
+                <a href="https://typerun.top/#rus_basic">Тренажер печати</a>
+                <a href="pages/fun/telegram.html">Телеграмм бот</a>
+                <a href="https://scratch.mit.edu/">Scratch</a>
+            </div>
+        </div>
+        <a href="../contact/contact.html" class="menu-item" data-tooltip="Контакты">
+            <i class="fas fa-envelope"></i>
+        </a>
+    </div>
+</nav>
+    </div>
+
+    <!-- Основной контент -->
+    <main class="container">
+        <!-- Заголовок с эффектом -->
+        <header class="hero">
+            <div class="title-container">
+                <h1 class="main-title">
+                    <span class="title-text">ИНФОРМАЦИОННАЯ БЕЗОПАСНОСТЬ</span>
+                    <span class="title-subtext">Защити себя в цифровом мире</span>
+                </h1>
+                
+            </div>
+        </header>
+
+        <!-- Основные понятия безопасности -->
+        <section class="content-section">
+            <div class="section-header">
+                <i class="fas fa-book icon"></i>
+                <h2>Основные понятия информационной безопасности</h2>
+            </div>
+            
+            <div class="concepts-grid">
+                <div class="concept-card" data-concept="infosec">
+                    <div class="concept-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Информационная безопасность</h3>
+                    <p class="concept-definition">Защита информации и информационных систем от несанкционированного доступа, использования, раскрытия, нарушения, модификации или уничтожения.</p>
+                    <div class="concept-details">
+                        <h4><i class="fas fa-cube"></i> Основные принципы:</h4>
+                        <ul>
+                            <li>Конфиденциальность</li>
+                            <li>Целостность</li>
+                            <li>Доступность</li>
+                            <li>Аутентичность</li>
+                            <li>Неотказуемость</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="concept-card" data-concept="cybersec">
+                    <div class="concept-icon">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <h3>Кибербезопасность</h3>
+                    <p class="concept-definition">Защита компьютерных систем, сетей и данных от кибератак, кражи или повреждения.</p>
+                    <div class="concept-details">
+                        <h4><i class="fas fa-cube"></i> Области защиты:</h4>
+                        <ul>
+                            <li>Сетевая безопасность</li>
+                            <li>Безопасность приложений</li>
+                            <li>Безопасность конечных точек</li>
+                            <li>Безопасность данных</li>
+                            <li>Управление доступом</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="concept-card" data-concept="netiket">
+                    <div class="concept-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Сетевой этикет</h3>
+                    <p class="concept-definition">Правила поведения, общения в сети, традиции и культура интернет-сообщества.</p>
+                    <div class="concept-details">
+                        <h4><i class="fas fa-cube"></i> Основные правила:</h4>
+                        <ul>
+                            <li>Уважение к другим пользователям</li>
+                            <li>Соблюдение законов</li>
+                            <li>Конфиденциальность личной информации</li>
+                            <li>Корректное общение</li>
+                            <li>Ответственность за свои действия</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="concept-card" data-concept="privacy">
+                    <div class="concept-icon">
+                        <i class="fas fa-user-secret"></i>
+                    </div>
+                    <h3>Цифровая гигиена</h3>
+                    <p class="concept-definition">Набор привычек и правил для защиты личных данных и устройств в цифровой среде.</p>
+                    <div class="concept-details">
+                        <h4><i class="fas fa-cube"></i> Элементы гигиены:</h4>
+                        <ul>
+                            <li>Регулярное обновление ПО</li>
+                            <li>Использование сложных паролей</li>
+                            <li>Осторожность с публикациями</li>
+                            <li>Проверка источников информации</li>
+                            <li>Резервное копирование данных</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Схема взаимосвязи понятий -->
+        <!-- Схема взаимосвязи понятий -->
+<section class="content-section">
+    <div class="section-header">
+        <i class="fas fa-project-diagram icon"></i>
+        <h2>Взаимосвязь понятий информационной безопасности</h2>
+    </div>
+    
+    <div class="scheme-container">
+        <div class="scheme">
+            <!-- Центральный элемент -->
+            <div class="scheme-center">
+                <div class="main-node">
+                    <i class="fas fa-user-shield"></i>
+                    <span>Безопасность пользователя</span>
+                </div>
+            </div>
+            
+            <!-- Линии соединений -->
+            <div class="connection-line line-top"></div>
+            <div class="connection-line line-right"></div>
+            <div class="connection-line line-bottom"></div>
+            <div class="connection-line line-left"></div>
+            
+            <!-- Внешние узлы -->
+            <!-- Внешние узлы -->
+<div class="scheme-node node-top">
+    <i class="fas fa-shield-alt"></i>
+    <span>Информационная безопасность</span>
+</div>
+
+<div class="scheme-node node-right">
+    <i class="fas fa-network-wired"></i>
+    <span>Кибербезопасность</span>
+</div>
+
+<div class="scheme-node node-bottom">
+    <i class="fas fa-handshake"></i>
+    <span>Сетевой этикет</span>
+</div>
+
+<div class="scheme-node node-left">
+    <i class="fas fa-user-secret"></i>
+    <span>Цифровая гигиена</span>
+</div>
+        </div>
+        
+        <div class="scheme-explanation">
+            <p><strong>Все понятия взаимосвязаны</strong> и направлены на обеспечение комплексной защиты в цифровой среде. Информационная безопасность — наиболее широкое понятие, включающее в себя кибербезопасность как техническую составляющую.</p>
+            <p><strong>Сетевой этикет и цифровая гигиена</strong> — это практические аспекты, которые каждый пользователь может применять ежедневно для защиты себя и других.</p>
+        </div>
+    </div>
+</section>
+
+        <!-- Нормативные документы -->
+        <section class="content-section">
+            <div class="section-header">
+                <i class="fas fa-gavel icon"></i>
+                <h2>Нормативно-правовая база Республики Беларусь</h2>
+            </div>
+            
+            <!-- Конституция РБ -->
+            <div class="law-section">
+                <div class="law-header">
+                    <h3><i class="fas fa-file-contract"></i> Конституция Республики Беларусь</h3>
+                    <span class="law-badge">Основной закон</span>
+                </div>
+                
+                <div class="law-articles">
+                    <div class="article-card">
+                        <div class="article-number">Статья 28</div>
+                        <div class="article-content">
+                            <p>"Каждый имеет право на защиту от незаконного вмешательства в его личную жизнь, в том числе от посягательства на тайну его корреспонденции, телефонных и иных сообщений, на его честь и достоинство."</p>
+                        </div>
+                    </div>
+                    
+                    <div class="article-card">
+                        <div class="article-number">Статья 34</div>
+                        <div class="article-content">
+                            <p>"Гражданам Республики Беларусь гарантируется право на получение, хранение и распространение полной, достоверной и своевременной информации о деятельности государственных органов, общественных объединений, о политической, экономической и международной жизни, состоянии окружающей среды."</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Уголовный кодекс РБ -->
+            <div class="law-section">
+                <div class="law-header">
+                    <h3><i class="fas fa-balance-scale"></i> Уголовный кодекс Республики Беларусь</h3>
+                    <span class="law-badge">Уголовная ответственность</span>
+                </div>
+                
+                <div class="law-articles">
+                    <div class="article-card">
+                        <div class="article-number">Статья 212. Хищение путем модификации компьютерной информации</div>
+                        <div class="article-content">
+                            <p>"Хищение имущества путем модификации компьютерной информации, если это деяние совершено в крупном размере, наказывается..."</p>
+                            <div class="article-penalty">
+                                <i class="fas fa-exclamation-triangle"></i>
+                                <strong>Наказание:</strong> Штраф, арест, лишение свободы до 7 лет
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="article-card">
+                        <div class="article-number">Статья 349. Несанкционированный доступ к компьютерной информации</div>
+                        <div class="article-content">
+                            <p>"Несанкционированный доступ к информации, хранящейся в компьютерной системе, сети или на машинных носителях, сопровождающийся нарушением системы защиты..."</p>
+                            <div class="article-penalty">
+                                <i class="fas fa-exclamation-triangle"></i>
+                                <strong>Наказание:</strong> Штраф, исправительные работы, арест, лишение свободы до 5 лет
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="article-card">
+                        <div class="article-number">Статья 351. Изготовление либо сбыт специальных средств получения неправомерного доступа</div>
+                        <div class="article-content">
+                            <p>"Изготовление с целью сбыта либо сбыт специальных программных или аппаратных средств для получения неправомерного доступа к защищенной компьютерной системе или сети..."</p>
+                            <div class="article-penalty">
+                                <i class="fas fa-exclamation-triangle"></i>
+                                <strong>Наказание:</strong> Штраф, арест, лишение свободы до 3 лет
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- КоАП РБ -->
+            <div class="law-section">
+                <div class="law-header">
+                    <h3><i class="fas fa-file-alt"></i> Кодекс об административных правонарушениях</h3>
+                    <span class="law-badge">Административная ответственность</span>
+                </div>
+                
+                <div class="law-articles">
+                    <div class="article-card">
+                        <div class="article-number">Статья 22.6. Нарушение порядка распространения информации</div>
+                        <div class="article-content">
+                            <p>"Нарушение установленного порядка распространения информации посредством глобальной компьютерной сети Интернет..."</p>
+                            <div class="article-penalty">
+                                <i class="fas fa-exclamation-triangle"></i>
+                                <strong>Наказание:</strong> Штраф до 50 базовых величин
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="article-card">
+                        <div class="article-number">Статья 23.34. Нарушение правил пользования средствами связи</div>
+                        <div class="article-content">
+                            <p>"Нарушение правил пользования средствами связи компьютерных сетей, повлекшее причинение вреда..."</p>
+                            <div class="article-penalty">
+                                <i class="fas fa-exclamation-triangle"></i>
+                                <strong>Наказание:</strong> Штраф до 30 базовых величин
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Концепция информационной безопасности -->
+            <div class="law-section">
+                <div class="law-header">
+                    <h3><i class="fas fa-chess-board"></i> Концепция информационной безопасности Республики Беларусь</h3>
+                    <span class="law-badge">Стратегический документ</span>
+                </div>
+                
+                <div class="law-articles">
+                    <div class="article-card">
+                        <div class="article-number">Основные положения</div>
+                        <div class="article-content">
+                            <p>"Информационная безопасность является неотъемлемой частью национальной безопасности Республики Беларусь и включает защиту национальных интересов в информационной сфере..."</p>
+                        </div>
+                    </div>
+                    
+                    <div class="article-card">
+                        <div class="article-number">Цели информационной безопасности</div>
+                        <div class="article-content">
+                            <ul class="concept-list">
+                                <li>Защита конституционных прав и свобод граждан в информационной сфере</li>
+                                <li>Обеспечение информационного суверенитета Республики Беларусь</li>
+                                <li>Развитие отечественной индустрии информационных технологий</li>
+                                <li>Противодействие информационным угрозам и вызовам</li>
+                                <li>Обеспечение устойчивого функционирования информационной инфраструктуры</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="article-card">
+                        <div class="article-number">Угрозы информационной безопасности</div>
+                        <div class="article-content">
+                            <div class="threats-grid">
+                                <div class="threat-item">
+                                    <i class="fas fa-virus"></i>
+                                    <span>Киберпреступность</span>
+                                </div>
+                                <div class="threat-item">
+                                    <i class="fas fa-user-secret"></i>
+                                    <span>Кибершпионаж</span>
+                                </div>
+                                <div class="threat-item">
+                                    <i class="fas fa-bomb"></i>
+                                    <span>Кибертерроризм</span>
+                                </div>
+                                <div class="threat-item">
+                                    <i class="fas fa-comments"></i>
+                                    <span>Информационные войны</span>
+                                </div>
+                                <div class="threat-item">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                    <span>Техногенные угрозы</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Практические упражнения -->
+        <section class="content-section">
+            <div class="section-header">
+                <i class="fas fa-puzzle-piece icon"></i>
+                <h2>Практические упражнения</h2>
+            </div>
+            
+            <div class="exercises-container">
+                <!-- Упражнение 1: Выбор пароля -->
+                <div class="exercise-card" id="exercise1">
+                    <div class="exercise-header">
+                        <h3><i class="fas fa-key"></i> Упражнение 1: Выбор безопасного пароля</h3>
+                        <span class="exercise-difficulty easy">Лёгкое</span>
+                    </div>
+                    
+                    <div class="exercise-content">
+                        <p class="exercise-question">Выберите наиболее безопасный пароль из предложенных вариантов:</p>
+                        
+                        <div class="exercise-options">
+                            <div class="option" data-correct="false">
+                                <input type="radio" name="password" id="pass1">
+                                <label for="pass1">
+                                    <span class="option-text">123456</span>
+                                    <span class="option-feedback"></span>
+                                </label>
+                            </div>
+                            
+                            <div class="option" data-correct="false">
+                                <input type="radio" name="password" id="pass2">
+                                <label for="pass2">
+                                    <span class="option-text">qwerty</span>
+                                    <span class="option-feedback"></span>
+                                </label>
+                            </div>
+                            
+                            <div class="option" data-correct="false">
+                                <input type="radio" name="password" id="pass3">
+                                <label for="pass3">
+                                    <span class="option-text">password</span>
+                                    <span class="option-feedback"></span>
+                                </label>
+                            </div>
+                            
+                            <div class="option" data-correct="true">
+                                <input type="radio" name="password" id="pass4">
+                                <label for="pass4">
+                                    <span class="option-text">M1nSk@2025#Secure</span>
+                                    <span class="option-feedback"></span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <button class="check-answer" data-exercise="1">Проверить ответ</button>
+                        
+                        <div class="exercise-explanation">
+                            <p><strong>Правильный ответ:</strong> M1nSk@2025#Secure</p>
+                            <p><strong>Почему:</strong> Безопасный пароль должен содержать не менее 12 символов, включать заглавные и строчные буквы, цифры и специальные символы. Не должен содержать личной информации или простых последовательностей.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Упражнение 2: Распознавание фишинга -->
+                <div class="exercise-card" id="exercise2">
+                    <div class="exercise-header">
+                        <h3><i class="fas fa-fish"></i> Упражнение 2: Распознавание фишингового письма</h3>
+                        <span class="exercise-difficulty medium">Среднее</span>
+                    </div>
+                    
+                    <div class="exercise-content">
+                        <p class="exercise-question">Какие признаки указывают на то, что это письмо является фишинговым?</p>
+                        
+                        <div class="phishing-example">
+                            <div class="email-header">
+                                <strong>От:</strong> security@bank-belarus.by<br>
+                                <strong>Тема:</strong> СРОЧНО! Ваш аккаунт будет заблокирован
+                            </div>
+                            <div class="email-body">
+                                <p>Уважаемый клиент!</p>
+                                <p>Наша система безопасности обнаружила подозрительную активность в вашем аккаунте. Для предотвращения блокировки необходимо срочно подтвердить ваши данные по ссылке:</p>
+                                <p><a href="#!" class="fake-link">http://bank-security-update.com/confirm</a></p>
+                                <p>Если вы не подтвердите данные в течение 24 часов, ваш аккаунт будет заблокирован.</p>
+                                <p>С уважением, Служба безопасности Банка Беларуси</p>
+                            </div>
+                        </div>
+                        
+                        <div class="exercise-checklist">
+                            <div class="check-item">
+                                <input type="checkbox" id="check1">
+                                <label for="check1">Панический заголовок и срочность</label>
+                            </div>
+                            <div class="check-item">
+                                <input type="checkbox" id="check2">
+                                <label for="check2">Неофициальный адрес отправителя</label>
+                            </div>
+                            <div class="check-item">
+                                <input type="checkbox" id="check3">
+                                <label for="check3">Ссылка ведет на подозрительный домен</label>
+                            </div>
+                            <div class="check-item">
+                                <input type="checkbox" id="check4">
+                                <label for="check4">Требование личных данных по ссылке</label>
+                            </div>
+                            <div class="check-item">
+                                <input type="checkbox" id="check5">
+                                <label for="check5">Угроза блокировки аккаунта</label>
+                            </div>
+                        </div>
+                        
+                        <button class="check-answer" data-exercise="2">Проверить ответ</button>
+                        
+                        <div class="exercise-explanation">
+                            <p><strong>Все признаки являются показателями фишинга!</strong> Настоящие банки никогда не просят подтвердить данные по ссылке в письме, не используют панические заголовки и не угрожают немедленной блокировкой.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Упражнение 3: Классификация нарушений -->
+                <div class="exercise-card" id="exercise3">
+                    <div class="exercise-header">
+                        <h3><i class="fas fa-balance-scale"></i> Упражнение 3: Классификация правонарушений</h3>
+                        <span class="exercise-difficulty hard">Сложное</span>
+                    </div>
+                    
+                    <div class="exercise-content">
+                        <p class="exercise-question">Соотнесите ситуации с типами правонарушений:</p>
+                        
+                        <div class="matching-exercise">
+                            <div class="situations">
+                                <div class="situation" data-id="1">Взлом школьного электронного журнала для изменения оценок</div>
+                                <div class="situation" data-id="2">Публикация чужих фотографий без согласия</div>
+                                <div class="situation" data-id="3">Отправка спам-писем одноклассникам</div>
+                                <div class="situation" data-id="4">Создание фиктивного аккаунта учителя</div>
+                            </div>
+                            
+                            <div class="violation-types">
+                                <div class="violation" data-type="criminal">Уголовное преступление</div>
+                                <div class="violation" data-type="administrative">Административное правонарушение</div>
+                                <div class="violation" data-type="ethical">Нарушение сетевого этикета</div>
+                                <div class="violation" data-type="civil">Гражданско-правовое нарушение</div>
+                            </div>
+                        </div>
+                        
+                        <div class="matches-container">
+                            <!-- Здесь будут отображаться связи -->
+                        </div>
+                        
+                        <button class="check-answer" data-exercise="3">Проверить ответ</button>
+                        <button class="reset-matching" data-exercise="3">Сбросить</button>
+                        
+                        <div class="exercise-explanation">
+   
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Футер -->
+        <footer class="site-footer">
+            <div class="footer-content">
+                <p>© 2025 Жосткин Иван Николаевич. Компьютерная безопасность.</p>
+                <p>Сайт разработан для образовательных целей</p>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Кнопка "Наверх" -->
+    <button class="scroll-top" id="scrollTop">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script src="../script.js"></script>
+    <script src="bez-script.js"></script>
+</body>
+</html>

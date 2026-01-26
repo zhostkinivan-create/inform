@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Искусственный интеллект - Информатика</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="ai-style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Orbitron:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Анимированный фон -->
+    <div class="animated-bg"></div>
+    
+    <!-- Нестандартное меню -->
+    <div id="navbar-container">
+        <nav class="circular-menu">
+            <div class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <div class="menu-items" id="menuItems">
+                <a href="../index.html" class="menu-item" data-tooltip="Главная">
+                    <i class="fas fa-home"></i>
+                </a>
+                <div class="menu-dropdown">
+                    <a href="#!" class="menu-item main-item" data-tooltip="Учащимся">
+                        <i class="fas fa-graduation-cap"></i>
+                    </a>
+                    <div class="dropdown-content">
+                        <a href="../uruki/uroki.html">Уроки</a>
+                        <a href="../pages/topics/literature.html">Литература</a>
+                        <a href="../pages/topics/uploads.html">Загрузка работ</a>
+                        <a href="../pages/topics/olympiads.html">Олимпиады</a>
+                    </div>
+                </div>
+                <a href="../ai/ai.html" class="menu-item active" data-tooltip="Искусственный интеллект">
+                    <i class="fas fa-robot"></i>
+                </a>
+                <a href="../bez/bez.html" class="menu-item" data-tooltip="Безопасность">
+                    <i class="fas fa-shield-alt"></i>
+                </a>
+                <a href="../norma/index.html" class="menu-item" data-tooltip="Нормативные документы">
+                    <i class="fas fa-file-contract"></i>
+                </a>
+                <a href="../pages/software.html" class="menu-item" data-tooltip="Программы">
+                    <i class="fas fa-laptop-code"></i>
+                </a>
+                <div class="menu-dropdown">
+                    <a href="#!" class="menu-item main-item" data-tooltip="Интересное">
+                        <i class="fas fa-star"></i>
+                    </a>
+                    <div class="dropdown-content">
+                        <a href="../pages/fun/typing.html">Тренажер печати</a>
+                        <a href="../pages/fun/telegram.html">Телеграмм бот</a>
+                        <a href="https://scratch.mit.edu/">Scratch</a>
+                    </div>
+                </div>
+                <a href="../contact/contact.html" class="menu-item" data-tooltip="Контакты">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Основной контент -->
+    <main class="container">
+        <!-- Заголовок с эффектом -->
+        <header class="hero">
+            <div class="title-container">
+                <h1 class="main-title">
+                    <span class="title-text">ИСКУССТВЕННЫЙ ИНТЕЛЛЕКТ</span>
+                </h1>
+                </div>
+            </div>
+        </header>
+
+        <!-- Раздел "Что такое ИИ" с раскрывающимся текстом -->
+        <section class="content-section">
+            <div class="section-header">
+                <i class="fas fa-brain icon"></i>
+                <h2>Что такое искусственный интеллект?</h2>
+            </div>
+            <div class="text-collapse">
+                <div class="text-collapse-content" id="aiText">
+                    <p>Искусственный интеллект (ИИ) — это область компьютерных наук, занимающаяся созданием машин и систем, способных выполнять задачи, требующие человеческого интеллекта. Эти задачи включают обучение, восприятие, решение проблем, понимание естественного языка и распознавание образов.</p>
+                    
+                    <p>ИИ можно разделить на два основных типа:</p>
+                    
+                    <div class="info-grid">
+                        <div class="info-item-card">
+                            <h3><i class="fas fa-robot"></i> Слабый ИИ (Narrow AI)</h3>
+                            <p>Системы, предназначенные для выполнения конкретных задач. Примеры: голосовые помощники, рекомендательные системы, спам-фильтры.</p>
+                        </div>
+                        <div class="info-item-card">
+                            <h3><i class="fas fa-robot"></i> Сильный ИИ (General AI)</h3>
+                            <p>Гипотетические системы, способные выполнять любые интеллектуальные задачи, доступные человеку. Пока не существуют.</p>
+                        </div>
+                    </div>
+                    
+                    <p>Современные технологии ИИ основаны на машинном обучении и глубоком обучении — методах, позволяющих компьютерам обучаться на данных без явного программирования.</p>
+                    
+                    <p>ИИ уже сейчас применяется в медицине (диагностика заболеваний), финансах (обнаружение мошенничества), транспорте (беспилотные автомобили), образовании (адаптивное обучение) и многих других сферах.</p>
+                </div>
+                <button class="collapse-toggle" id="collapseToggle">
+                    <span class="toggle-text">Читать далее</span>
+                    <i class="fas fa-chevron-down toggle-icon"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- Популярные нейросети -->
+        <section class="content-section">
+            <div class="section-header">
+                <i class="fas fa-network-wired icon"></i>
+                <h2>Популярные нейросети и ИИ-инструменты</h2>
+            </div>
+            <div class="ai-cards-container" id="neuralNetworks">
+                <!-- Блоки нейросетей будут добавляться динамически или вручную -->
+                <!-- Пример блока - можно копировать и редактировать -->
+                <div class="ai-card">
+                    <div class="ai-card-header">
+                        <div class="ai-card-icon">
+                            <i class="fas fa-comment-dots"></i>
+                        </div>
+                        <h3>ChatGPT</h3>
+                        <span class="ai-card-category">Текстовый ИИ</span>
+                    </div>
+                    <div class="ai-card-body">
+                        <p class="ai-card-description">Мощная языковая модель для генерации текста, ответов на вопросы, написания кода и творческих задач.</p>
+                        <div class="ai-card-features">
+                            <h4><i class="fas fa-star"></i> Особенности:</h4>
+                            <ul>
+                                <li>Понимание контекста диалога</li>
+                                <li>Поддержка множества языков</li>
+                                <li>Генерация кода на разных языках программирования</li>
+                                <li>Обучение на данных до 2023 года</li>
+                            </ul>
+                        </div>
+                        <a href="#!" class="ai-card-link">
+                            <i class="fas fa-external-link-alt"></i>
+                            Перейти к нейросети
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Второй блок - пример для копирования -->
+                <div class="ai-card">
+                    <div class="ai-card-header">
+                        <div class="ai-card-icon">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <h3>Midjourney</h3>
+                        <span class="ai-card-category">Генерация изображений</span>
+                    </div>
+                    <div class="ai-card-body">
+                        <p class="ai-card-description">Нейросеть для создания изображений по текстовым описаниям с высоким качеством и художественным стилем.</p>
+                        <div class="ai-card-features">
+                            <h4><i class="fas fa-star"></i> Особенности:</h4>
+                            <ul>
+                                <li>Создание изображений в различных стилях</li>
+                                <li>Высокое разрешение результатов</li>
+                                <li>Возможность доработки и вариаций</li>
+                                <li>Интеграция с Discord</li>
+                            </ul>
+                        </div>
+                        <a href="#!" class="ai-card-link">
+                            <i class="fas fa-external-link-alt"></i>
+                            Перейти к нейросети
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Третий блок - пример для копирования -->
+                <div class="ai-card">
+                    <div class="ai-card-header">
+                        <div class="ai-card-icon">
+                            <i class="fas fa-music"></i>
+                        </div>
+                        <h3>Suno AI</h3>
+                        <span class="ai-card-category">Генерация музыки</span>
+                    </div>
+                    <div class="ai-card-body">
+                        <p class="ai-card-description">ИИ для создания музыкальных композиций с вокалом по текстовым запросам.</p>
+                        <div class="ai-card-features">
+                            <h4><i class="fas fa-star"></i> Особенности:</h4>
+                            <ul>
+                                <li>Генерация музыки с вокалом</li>
+                                <li>Разные музыкальные стили</li>
+                                <li>Создание полных песен</li>
+                                <li>Редактирование и ремиксы</li>
+                            </ul>
+                        </div>
+                        <a href="#!" class="ai-card-link">
+                            <i class="fas fa-external-link-alt"></i>
+                            Перейти к нейросети
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Шаблон для новых блоков (можно копировать) -->
+                <!--
+                <div class="ai-card">
+                    <div class="ai-card-header">
+                        <div class="ai-card-icon">
+                            <i class="fas fa-icon-name"></i>
+                        </div>
+                        <h3>Название нейросети</h3>
+                        <span class="ai-card-category">Категория</span>
+                    </div>
+                    <div class="ai-card-body">
+                        <p class="ai-card-description">Краткое описание нейросети.</p>
+                        <div class="ai-card-features">
+                            <h4><i class="fas fa-star"></i> Особенности:</h4>
+                            <ul>
+                                <li>Особенность 1</li>
+                                <li>Особенность 2</li>
+                                <li>Особенность 3</li>
+                                <li>Особенность 4</li>
+                            </ul>
+                        </div>
+                        <a href="#!" class="ai-card-link">
+                            <i class="fas fa-external-link-alt"></i>
+                            Перейти к нейросети
+                        </a>
+                    </div>
+                </div>
+                -->
+            </div>
+        </section>
+
+        <!-- Применение ИИ в образовании -->
+        <section class="content-section">
+            <div class="section-header">
+                <i class="fas fa-chalkboard icon"></i>
+                <h2>ИИ в образовании</h2>
+            </div>
+            <div class="education-grid">
+                <div class="edu-card">
+                    <div class="edu-icon">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <h3>Персонализация</h3>
+                    <p>Адаптация учебных материалов под уровень и темп каждого ученика.</p>
+                </div>
+                <div class="edu-card">
+                    <div class="edu-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3>Проверка работ</h3>
+                    <p>Автоматическая проверка заданий и тестов с обратной связью.</p>
+                </div>
+                <div class="edu-card">
+                    <div class="edu-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>Виртуальные ассистенты</h3>
+                    <p>Чат-боты для ответов на вопросы студентов 24/7.</p>
+                </div>
+                <div class="edu-card">
+                    <div class="edu-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Анализ успеваемости</h3>
+                    <p>Выявление трудностей и прогнозирование успехов учеников.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Футер -->
+        <footer class="site-footer">
+            <div class="footer-content">
+                <p>© 2025 Жосткин Иван Николаевич. Искусственный интеллект.</p>
+                <p>Список имеет рекомендательный характер</p>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Кнопка "Наверх" -->
+    <button class="scroll-top" id="scrollTop">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script src="../script.js"></script>
+    <script src="ai-script.js"></script>
+</body>
+</html>

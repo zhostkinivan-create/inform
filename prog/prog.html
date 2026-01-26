@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Программы и инструменты - Информатика</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="prog-style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Orbitron:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Анимированный фон -->
+    <div class="animated-bg"></div>
+    
+    <!-- Нестандартное меню -->
+    <div id="navbar-container">
+        <nav class="circular-menu">
+            <div class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <div class="menu-items" id="menuItems">
+                <a href="../index.html" class="menu-item" data-tooltip="Главная">
+                    <i class="fas fa-home"></i>
+                </a>
+                <div class="menu-dropdown">
+                    <a href="#!" class="menu-item main-item" data-tooltip="Учащимся">
+                        <i class="fas fa-graduation-cap"></i>
+                    </a>
+                    <div class="dropdown-content">
+                        <a href="../uruki/uroki.html">Уроки</a>
+                        <a href="../pages/topics/literature.html">Литература</a>
+                        <a href="../pages/topics/uploads.html">Загрузка работ</a>
+                        <a href="../pages/topics/olympiads.html">Олимпиады</a>
+                    </div>
+                </div>
+                <a href="../ai/ai.html" class="menu-item" data-tooltip="Искусственный интеллект">
+                    <i class="fas fa-robot"></i>
+                </a>
+                <a href="../bez/bez.html" class="menu-item" data-tooltip="Безопасность">
+                    <i class="fas fa-shield-alt"></i>
+                </a>
+                <a href="../norma/index.html" class="menu-item" data-tooltip="Нормативные документы">
+                    <i class="fas fa-file-contract"></i>
+                </a>
+                <a href="prog.html" class="menu-item active" data-tooltip="Программы">
+                    <i class="fas fa-laptop-code"></i>
+                </a>
+                <div class="menu-dropdown">
+                    <a href="#!" class="menu-item main-item" data-tooltip="Интересное">
+                        <i class="fas fa-star"></i>
+                    </a>
+                    <div class="dropdown-content">
+                        <a href="../pages/fun/typing.html">Тренажер печати</a>
+                        <a href="../pages/fun/telegram.html">Телеграмм бот</a>
+                        <a href="https://scratch.mit.edu/">Scratch</a>
+                    </div>
+                </div>
+                <a href="../contact/contact.html" class="menu-item" data-tooltip="Контакты">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Основной контент -->
+    <main class="container">
+        <!-- Заголовок с эффектом -->
+        <header class="hero">
+            <div class="title-container">
+                <h1 class="main-title">
+                    <span class="title-text">ПРОГРАММЫ И ИНСТРУМЕНТЫ</span>
+                    <span class="title-subtext">Интерактивные обучающие инструменты по информатике</span>
+                </h1>
+                <div class="code-decoration">
+                    <pre><code>// Все инструменты работают в браузере
+// Без установки, без регистрации
+// Просто открой и учись!</code></pre>
+                </div>
+            </div>
+        </header>
+
+        <!-- Поиск и фильтры -->
+        <section class="content-section">
+            <div class="search-filter-container">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="searchInput" placeholder="Поиск программ по названию или описанию...">
+                </div>
+                
+                <div class="filter-controls">
+                    <div class="filter-group">
+                        <label for="categoryFilter">
+                            <i class="fas fa-filter"></i>
+                            Категория:
+                        </label>
+                        <select id="categoryFilter">
+                            <option value="all">Все категории</option>
+                            <option value="math">Математические</option>
+                            <option value="programming">Программирование</option>
+                            <option value="algorithms">Алгоритмы</option>
+                            <option value="security">Безопасность</option>
+                            <option value="creative">Творческие</option>
+                            <option value="games">Обучающие игры</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="difficultyFilter">
+                            <i class="fas fa-chart-line"></i>
+                            Сложность:
+                        </label>
+                        <select id="difficultyFilter">
+                            <option value="all">Любая сложность</option>
+                            <option value="easy">Легкая</option>
+                            <option value="medium">Средняя</option>
+                            <option value="hard">Сложная</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Карточки программ -->
+        <section class="content-section">
+            <div class="section-header">
+                <i class="fas fa-th-large icon"></i>
+                <h2>Все программы</h2>
+                <span class="programs-count" id="programsCount">18 программ</span>
+            </div>
+            
+            <div class="programs-grid" id="programsGrid">
+                <!-- Карточки программ будут заполнены через JavaScript -->
+            </div>
+        </section>
+
+        <!-- Категории -->
+        <section class="content-section">
+            <div class="section-header">
+                <i class="fas fa-folder icon"></i>
+                <h2>По категориям</h2>
+            </div>
+            
+            <div class="categories-grid">
+                <a href="#math" class="category-card" data-category="math">
+                    <div class="category-icon">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <h3>Математические</h3>
+                    <p>Калькуляторы, системы счисления, конвертеры</p>
+                    <span class="category-count">3 инструмента</span>
+                </a>
+                
+                <a href="#programming" class="category-card" data-category="programming">
+                    <div class="category-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Программирование</h3>
+                    <p>Структуры данных, алгоритмы, визуализация</p>
+                    <span class="category-count">5 инструментов</span>
+                </a>
+                
+                <a href="#algorithms" class="category-card" data-category="algorithms">
+                    <div class="category-icon">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <h3>Алгоритмы</h3>
+                    <p>Сортировка, поиск, логические схемы</p>
+                    <span class="category-count">4 инструмента</span>
+                </a>
+                
+                <a href="#security" class="category-card" data-category="security">
+                    <div class="category-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Безопасность</h3>
+                    <p>Криптография, генераторы паролей</p>
+                    <span class="category-count">2 инструмента</span>
+                </a>
+                
+                <a href="#creative" class="category-card" data-category="creative">
+                    <div class="category-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>Творческие</h3>
+                    <p>Редакторы, генераторы, визуализаторы</p>
+                    <span class="category-count">6 инструментов</span>
+                </a>
+                
+                <a href="#games" class="category-card" data-category="games">
+                    <div class="category-icon">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <h3>Обучающие игры</h3>
+                    <p>Игры для закрепления знаний</p>
+                    <span class="category-count">3 инструмента</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Как пользоваться -->
+        <section class="content-section">
+            <div class="section-header">
+                <i class="fas fa-question-circle icon"></i>
+                <h2>Как пользоваться инструментами</h2>
+            </div>
+            
+            <div class="instructions-container">
+                <div class="instruction-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3><i class="fas fa-search"></i> Найдите нужный инструмент</h3>
+                        <p>Используйте поиск или фильтры по категориям для быстрого нахождения нужной программы.</p>
+                    </div>
+                </div>
+                
+                <div class="instruction-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3><i class="fas fa-mouse-pointer"></i> Откройте программу</h3>
+                        <p>Нажмите на карточку программы, чтобы открыть её в новой вкладке браузера.</p>
+                    </div>
+                </div>
+                
+                <div class="instruction-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3><i class="fas fa-play-circle"></i> Начните работать</h3>
+                        <p>Все инструменты готовы к использованию сразу после открытия. Не требуется установка или регистрация.</p>
+                    </div>
+                </div>
+                
+                <div class="instruction-step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3><i class="fas fa-save"></i> Сохраняйте прогресс</h3>
+                        <p>Многие инструменты сохраняют ваши результаты и прогресс в памяти браузера.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Футер -->
+        <footer class="site-footer">
+            <div class="footer-content">
+                <p>© 2025 Жосткин Иван Николаевич. Все права защищены.</p>
+                <p>Сайт разработан для образовательных целей</p>
+                <div class="footer-links">
+                    <a href="https://67minsk.schools.by/">Средняя школа №67 г.Минска</a>
+                    <span> | </span>
+                    <a href="https://edu.gov.by/">Министерство образования Республики Беларусь</a>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Кнопка "Наверх" -->
+    <button class="scroll-top" id="scrollTop">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script src="../script.js"></script>
+    <script src="prog-script.js"></script>
+</body>
+</html>

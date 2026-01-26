@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор систем счисления - Информатика</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="sistemu-style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Orbitron:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Анимированный фон -->
+    <div class="animated-bg"></div>
+    
+    <!-- Нестандартное меню -->
+    <div id="navbar-container">
+        <nav class="circular-menu">
+            <div class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <div class="menu-items" id="menuItems">
+                <a href="../index.html" class="menu-item" data-tooltip="Главная">
+                    <i class="fas fa-home"></i>
+                </a>
+                <div class="menu-dropdown">
+                    <a href="#!" class="menu-item main-item" data-tooltip="Учащимся">
+                        <i class="fas fa-graduation-cap"></i>
+                    </a>
+                    <div class="dropdown-content">
+                        <a href="../uruki/uroki.html">Уроки</a>
+                        <a href="../pages/topics/literature.html">Литература</a>
+                        <a href="../pages/topics/uploads.html">Загрузка работ</a>
+                        <a href="../pages/topics/olympiads.html">Олимпиады</a>
+                    </div>
+                </div>
+                <a href="../ai/ai.html" class="menu-item" data-tooltip="Искусственный интеллект">
+                    <i class="fas fa-robot"></i>
+                </a>
+                <a href="../bez/bez.html" class="menu-item" data-tooltip="Безопасность">
+                    <i class="fas fa-shield-alt"></i>
+                </a>
+                <a href="../norma/index.html" class="menu-item" data-tooltip="Нормативные документы">
+                    <i class="fas fa-file-contract"></i>
+                </a>
+                <a href="../pages/software.html" class="menu-item" data-tooltip="Программы">
+                    <i class="fas fa-laptop-code"></i>
+                </a>
+                <div class="menu-dropdown">
+                    <a href="#!" class="menu-item main-item" data-tooltip="Интересное">
+                        <i class="fas fa-star"></i>
+                    </a>
+                    <div class="dropdown-content">
+                        <a href="../pages/fun/typing.html">Тренажер печати</a>
+                        <a href="../pages/fun/telegram.html">Телеграмм бот</a>
+                        <a href="https://scratch.mit.edu/">Scratch</a>
+                    </div>
+                </div>
+                <a href="../contact/contact.html" class="menu-item" data-tooltip="Контакты">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Основной контент -->
+    <main class="container">
+        <!-- Заголовок с эффектом -->
+        <header class="hero">
+            <div class="title-container">
+                <h1 class="main-title">
+                    <span class="title-text">СИСТЕМЫ СЧИСЛЕНИЯ</span>
+                    <span class="title-subtext">Перевод и вычисления в различных системах</span>
+                </h1>
+                <div class="code-decoration">
+                    <pre><code>1010₂ + 1101₂ = 10111₂
+A₁₆ × 3₁₆ = 1E₁₆
+255₁₀ = 11111111₂</code></pre>
+                </div>
+            </div>
+        </header>
+
+        <!-- Основной калькулятор -->
+        <section class="content-section">
+            <div class="section-header">
+                <i class="fas fa-calculator icon"></i>
+                <h2>Калькулятор систем счисления</h2>
+            </div>
+            
+            <div class="calculator-container">
+                <!-- Панель ввода -->
+                <div class="input-panel">
+                    <div class="input-group">
+                        <label for="inputValue">
+                            <i class="fas fa-keyboard"></i>
+                            Введите число:
+                        </label>
+                        <input type="text" id="inputValue" placeholder="Пример: 1010, FF, 255" autocomplete="off">
+                        <div class="input-hint" id="inputHint">
+                            Введите число в любой системе
+                        </div>
+                    </div>
+                    
+                    <div class="systems-selector">
+                        <div class="selector-group">
+                            <label for="inputSystem">
+                                <i class="fas fa-arrow-right"></i>
+                                Из системы:
+                            </label>
+                            <select id="inputSystem">
+                                <option value="2">Двоичная (2)</option>
+                                <option value="8">Восьмеричная (8)</option>
+                                <option value="10" selected>Десятичная (10)</option>
+                                <option value="16">Шестнадцатеричная (16)</option>
+                            </select>
+                        </div>
+                        
+                        <div class="convert-btn-container">
+                            <button id="convertBtn" class="action-btn primary">
+                                <i class="fas fa-exchange-alt"></i>
+                                Преобразовать
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Результаты преобразования -->
+                <div class="results-container">
+                    <div class="results-header">
+                        <h3><i class="fas fa-list-alt"></i> Результаты преобразования</h3>
+                    </div>
+                    
+                    <div class="results-grid">
+                        <div class="result-card">
+                            <div class="result-label">
+                                <i class="fas fa-hashtag"></i>
+                                <span>Двоичная (2)</span>
+                            </div>
+                            <div class="result-value" id="resultBinary">00000000</div>
+                            <div class="result-bits">
+                                <span class="bit" data-bit="0">0</span>
+                                <span class="bit" data-bit="1">0</span>
+                                <span class="bit" data-bit="2">0</span>
+                                <span class="bit" data-bit="3">0</span>
+                                <span class="bit" data-bit="4">0</span>
+                                <span class="bit" data-bit="5">0</span>
+                                <span class="bit" data-bit="6">0</span>
+                                <span class="bit" data-bit="7">0</span>
+                            </div>
+                        </div>
+                        
+                        <div class="result-card">
+                            <div class="result-label">
+                                <i class="fas fa-hashtag"></i>
+                                <span>Восьмеричная (8)</span>
+                            </div>
+                            <div class="result-value" id="resultOctal">0</div>
+                        </div>
+                        
+                        <div class="result-card">
+                            <div class="result-label">
+                                <i class="fas fa-hashtag"></i>
+                                <span>Десятичная (10)</span>
+                            </div>
+                            <div class="result-value" id="resultDecimal">0</div>
+                        </div>
+                        
+                        <div class="result-card">
+                            <div class="result-label">
+                                <i class="fas fa-hashtag"></i>
+                                <span>Шестнадцатеричная (16)</span>
+                            </div>
+                            <div class="result-value" id="resultHexadecimal">0</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Арифметические операции -->
+                <div class="operations-container">
+                    <div class="operations-header">
+                        <h3><i class="fas fa-plus-circle"></i> Арифметические операции</h3>
+                    </div>
+                    
+                    <div class="operations-panel">
+                        <div class="operand-inputs">
+                            <div class="operand-group">
+                                <label>Первое число:</label>
+                                <input type="text" id="operand1" placeholder="1010" class="operand-input">
+                                <select id="opSystem1" class="operand-system">
+                                    <option value="2">2</option>
+                                    <option value="8">8</option>
+                                    <option value="10" selected>10</option>
+                                    <option value="16">16</option>
+                                </select>
+                            </div>
+                            
+                            <div class="operator-selector">
+                                <select id="operator">
+                                    <option value="+">+ (Сложение)</option>
+                                    <option value="-">- (Вычитание)</option>
+                                    <option value="*">× (Умножение)</option>
+                                    <option value="/">÷ (Деление)</option>
+                                    <option value="&">AND (&)</option>
+                                    <option value="|">OR (|)</option>
+                                    <option value="^">XOR (^)</option>
+                                </select>
+                            </div>
+                            
+                            <div class="operand-group">
+                                <label>Второе число:</label>
+                                <input type="text" id="operand2" placeholder="1101" class="operand-input">
+                                <select id="opSystem2" class="operand-system">
+                                    <option value="2">2</option>
+                                    <option value="8">8</option>
+                                    <option value="10" selected>10</option>
+                                    <option value="16">16</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="calculate-btn-container">
+                            <button id="calculateBtn" class="action-btn secondary">
+                                <i class="fas fa-equals"></i>
+                                Вычислить
+                            </button>
+                        </div>
+                        
+                        <div class="operation-result">
+                            <div class="result-label">Результат:</div>
+                            <div class="result-display" id="operationResult">0</div>
+                            <div class="result-details" id="operationDetails">
+                                Выберите операцию и введите числа
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Таблица соответствий -->
+        <section class="content-section">
+            <div class="section-header">
+                <i class="fas fa-table icon"></i>
+                <h2>Таблица соответствий систем счисления</h2>
+            </div>
+            
+            <div class="table-container">
+                <table class="conversion-table">
+                    <thead>
+                        <tr>
+                            <th>Десятичная</th>
+                            <th>Двоичная</th>
+                            <th>Восьмеричная</th>
+                            <th>Шестнадцатеричная</th>
+                            <th>ASCII</th>
+                        </tr>
+                    </thead>
+                    <tbody id="conversionTable">
+                        <!-- Заполнится через JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="table-controls">
+                <div class="range-control">
+                    <label for="tableRange">
+                        <i class="fas fa-sliders-h"></i>
+                        Диапазон чисел: 
+                        <span id="rangeValue">0-15</span>
+                    </label>
+                    <input type="range" id="tableRange" min="0" max="255" value="15">
+                </div>
+                
+                <button id="generateTableBtn" class="action-btn small">
+                    <i class="fas fa-sync-alt"></i>
+                    Обновить таблицу
+                </button>
+            </div>
+        </section>
+        
+        <!-- Обучение -->
+        <section class="content-section">
+            <div class="section-header">
+                <i class="fas fa-graduation-cap icon"></i>
+                <h2>Основы систем счисления</h2>
+            </div>
+            
+            <div class="learning-cards">
+                <div class="learning-card">
+                    <div class="learning-icon">
+                        <i class="fas fa-binary"></i>
+                    </div>
+                    <h3>Двоичная система</h3>
+                    <p>Основание: 2, цифры: 0, 1. Используется в компьютерах для представления данных.</p>
+                    <div class="example">
+                        <code>1010₂ = 1×2³ + 0×2² + 1×2¹ + 0×2⁰ = 8 + 0 + 2 + 0 = 10₁₀</code>
+                    </div>
+                </div>
+                
+                <div class="learning-card">
+                    <div class="learning-icon">
+                        <i class="fas fa-digital-tachograph"></i>
+                    </div>
+                    <h3>Восьмеричная система</h3>
+                    <p>Основание: 8, цифры: 0-7. Удобна для представления двоичных данных.</p>
+                    <div class="example">
+                        <code>377₈ = 3×8² + 7×8¹ + 7×8⁰ = 192 + 56 + 7 = 255₁₀</code>
+                    </div>
+                </div>
+                
+                <div class="learning-card">
+                    <div class="learning-icon">
+                        <i class="fas fa-hashtag"></i>
+                    </div>
+                    <h3>Шестнадцатеричная система</h3>
+                    <p>Основание: 16, цифры: 0-9, A-F. Широко используется в программировании.</p>
+                    <div class="example">
+                        <code>FF₁₆ = 15×16¹ + 15×16⁰ = 240 + 15 = 255₁₀</code>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- История вычислений -->
+        <section class="content-section">
+            <div class="section-header">
+                <i class="fas fa-history icon"></i>
+                <h2>История вычислений</h2>
+            </div>
+            
+            <div class="history-container">
+                <div class="history-list" id="historyList">
+                    <!-- История будет заполняться через JavaScript -->
+                    <div class="empty-history">
+                        <i class="fas fa-clock"></i>
+                        <p>Здесь будет отображаться история ваших вычислений</p>
+                    </div>
+                </div>
+                
+                <div class="history-controls">
+                    <button id="clearHistoryBtn" class="action-btn small">
+                        <i class="fas fa-trash"></i>
+                        Очистить историю
+                    </button>
+                    <button id="saveHistoryBtn" class="action-btn small">
+                        <i class="fas fa-download"></i>
+                        Сохранить историю
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Футер -->
+        <footer class="site-footer">
+            <div class="footer-content">
+                <p>© 2025 Жосткин Иван Николаевич. Все права защищены.</p>
+                <p>Сайт разработан для образовательных целей</p>
+                <div class="footer-links">
+                    <a href="https://67minsk.schools.by/">Средняя школа №67 г.Минска</a>
+                    <span> | </span>
+                    <a href="https://edu.gov.by/">Министерство образования Республики Беларусь</a>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Кнопка "Наверх" -->
+    <button class="scroll-top" id="scrollTop">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script src="../script.js"></script>
+    <script src="sistemu-script.js"></script>
+</body>

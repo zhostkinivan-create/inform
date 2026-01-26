@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тренажёр бинарной арифметики</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="binar-style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Orbitron:wght@400;500&family=Source+Code+Pro:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Анимированный фон -->
+    <div class="animated-bg"></div>
+    
+    <!-- Навигация -->
+    <div class="circular-menu">
+        <div class="menu-toggle" id="menuToggle">
+            <i class="fas fa-bars"></i>
+        </div>
+        <div class="menu-items" id="menuItems">
+            <a href="../index.html" class="menu-item" data-tooltip="Главная">
+                <i class="fas fa-home"></i>
+            </a>
+            <a href="binar.html" class="menu-item active" data-tooltip="Бинарный тренажёр">
+                <i class="fas fa-calculator"></i>
+            </a>
+            <a href="../ai/ai.html" class="menu-item" data-tooltip="Искусственный интеллект">
+                <i class="fas fa-robot"></i>
+            </a>
+            <a href="../bez/bez.html" class="menu-item" data-tooltip="Безопасность">
+                <i class="fas fa-shield-alt"></i>
+            </a>
+            <a href="../norma/index.html" class="menu-item" data-tooltip="Нормативные документы">
+                <i class="fas fa-file-contract"></i>
+            </a>
+            <a href="../prog/prog.html" class="menu-item" data-tooltip="Программы">
+                <i class="fas fa-laptop-code"></i>
+            </a>
+            <div class="menu-dropdown">
+                <a href="#!" class="menu-item main-item" data-tooltip="Интересное">
+                    <i class="fas fa-star"></i>
+                </a>
+                <div class="dropdown-content">
+                    <a href="../pages/fun/typing.html">Тренажер печати</a>
+                    <a href="../pages/fun/telegram.html">Телеграмм бот</a>
+                    <a href="https://scratch.mit.edu/">Scratch</a>
+                </div>
+            </div>
+            <a href="../contact/contact.html" class="menu-item" data-tooltip="Контакты">
+                <i class="fas fa-envelope"></i>
+            </a>
+        </div>
+    </div>
+
+    <!-- Основной контент -->
+    <main class="container">
+        <!-- Заголовок с эффектом -->
+        <header class="hero">
+            <div class="title-container">
+                <h1 class="main-title">
+                    <span class="title-text">ТРЕНАЖЁР БИНАРНОЙ АРИФМЕТИКИ</span>
+                    <span class="title-subtext">Изучай двоичную систему счёта играючи</span>
+                </h1>
+                <div class="code-decoration">
+                    <pre><code>10101101₂ + 11011010₂ = 110000111₂
+8-bit binary operations | signed numbers | floating point</code></pre>
+                </div>
+            </div>
+        </header>
+
+        <!-- Выбор уровня -->
+        <section class="content-section">
+            <div class="section-header">
+                <i class="fas fa-layer-group icon"></i>
+                <h2>Выберите уровень сложности</h2>
+            </div>
+            
+            <div class="levels-container">
+                <div class="level-card" data-level="basic">
+                    <div class="level-icon">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <h3>Основы</h3>
+                    <ul class="level-features">
+                        <li>Перевод чисел 0-15</li>
+                        <li>Побитовые операции</li>
+                        <li>Базовые понятия</li>
+                    </ul>
+                    <button class="level-select-btn">Выбрать</button>
+                </div>
+                
+                <div class="level-card" data-level="operations">
+                    <div class="level-icon">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <h3>Операции</h3>
+                    <ul class="level-features">
+                        <li>Сложение/вычитание</li>
+                        <li>Умножение/деление</li>
+                        <li>8-битные числа</li>
+                    </ul>
+                    <button class="level-select-btn">Выбрать</button>
+                </div>
+                
+                <div class="level-card" data-level="advanced">
+                    <div class="level-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>Продвинутые</h3>
+                    <ul class="level-features">
+                        <li>Числа со знаком</li>
+                        <li>Числа с плавающей точкой</li>
+                        <li>Шестнадцатеричные операции</li>
+                    </ul>
+                    <button class="level-select-btn">Выбрать</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Тренажёр -->
+        <section class="content-section" id="trainerSection">
+            <div class="section-header">
+                <i class="fas fa-brain icon"></i>
+                <h2>Тренажёр</h2>
+            </div>
+            
+            <div class="trainer-container">
+                <!-- Панель управления -->
+                <div class="controls-panel">
+                    <div class="control-group">
+                        <h3><i class="fas fa-sliders-h"></i> Настройки</h3>
+                        
+                        <div class="settings-row">
+                            <div class="setting-item">
+                                <label for="operationType">
+                                    <i class="fas fa-cogs"></i>
+                                    Тип операции:
+                                </label>
+                                <select id="operationType">
+                                    <option value="conversion">Перевод чисел</option>
+                                    <option value="addition">Сложение</option>
+                                    <option value="subtraction">Вычитание</option>
+                                    <option value="multiplication">Умножение</option>
+                                    <option value="division">Деление</option>
+                                    <option value="bitwise">Побитовые операции</option>
+                                </select>
+                            </div>
+                            
+                            <div class="setting-item">
+                                <label for="bitLength">
+                                    <i class="fas fa-ruler"></i>
+                                    Разрядность:
+                                </label>
+                                <select id="bitLength">
+                                    <option value="4">4-бита (0-15)</option>
+                                    <option value="8" selected>8-бит (0-255)</option>
+                                    <option value="16">16-бит</option>
+                                </select>
+                            </div>
+                            
+                            <div class="setting-item">
+                                <label for="numberType">
+                                    <i class="fas fa-hashtag"></i>
+                                    Тип чисел:
+                                </label>
+                                <select id="numberType">
+                                    <option value="unsigned">Беззнаковые</option>
+                                    <option value="signed">Со знаком</option>
+                                    <option value="float">С плавающей точкой</option>
+                                    <option value="hex">Шестнадцатеричные</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="control-buttons">
+                            <button id="generateTaskBtn" class="control-btn primary">
+                                <i class="fas fa-random"></i>
+                                Новая задача
+                            </button>
+                            <button id="showHintBtn" class="control-btn">
+                                <i class="fas fa-lightbulb"></i>
+                                Подсказка
+                            </button>
+                            <button id="resetBtn" class="control-btn">
+                                <i class="fas fa-redo"></i>
+                                Сброс
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Прогресс пользователя -->
+                    <div class="progress-panel">
+                        <h3><i class="fas fa-chart-line"></i> Ваш прогресс</h3>
+                        <div class="progress-stats">
+                            <div class="stat-item">
+                                <span class="stat-label">Выполнено:</span>
+                                <span class="stat-value" id="completedCount">0</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Правильно:</span>
+                                <span class="stat-value" id="correctCount">0%</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Уровень:</span>
+                                <span class="stat-value" id="userLevel">Новичок</span>
+                            </div>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progressFill"></div>
+                        </div>
+                        <button id="resetProgressBtn" class="control-btn small">
+                            <i class="fas fa-trash"></i>
+                            Сбросить прогресс
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Область задачи -->
+                <div class="task-area">
+                    <div class="task-header">
+                        <h3 id="currentTaskTitle">Задача</h3>
+                        <div class="task-stats">
+                            <span class="stat"><i class="fas fa-history"></i> Время: <strong id="timer">00:00</strong></span>
+                            <span class="stat"><i class="fas fa-bolt"></i> Сложность: <strong id="taskDifficulty">Легкая</strong></span>
+                        </div>
+                    </div>
+                    
+                    <!-- Отображение задачи -->
+                    <div class="task-display">
+                        <div class="binary-representation" id="binaryRepresentation">
+                            <!-- Бинарное представление будет здесь -->
+                        </div>
+                        
+                        <div class="task-formula" id="taskFormula">
+                            <!-- Формула задачи будет здесь -->
+                        </div>
+                        
+                        <!-- Ввод ответа -->
+                        <div class="answer-input">
+                            <div class="input-group">
+                                <label for="binaryAnswer">
+                                    <i class="fas fa-binary"></i>
+                                    Ответ в двоичной системе:
+                                </label>
+                                <input type="text" id="binaryAnswer" placeholder="Введите двоичное число...">
+                            </div>
+                            
+                            <div class="input-group">
+                                <label for="decimalAnswer">
+                                    <i class="fas fa-hashtag"></i>
+                                    Ответ в десятичной системе:
+                                </label>
+                                <input type="text" id="decimalAnswer" placeholder="Введите десятичное число...">
+                            </div>
+                            
+                            <div class="input-group">
+                                <label for="hexAnswer">
+                                    <i class="fas fa-hashtag"></i>
+                                    Ответ в шестнадцатеричной:
+                                </label>
+                                <input type="text" id="hexAnswer" placeholder="Введите hex число...">
+                            </div>
+                        </div>
+                        
+                        <!-- Кнопки проверки -->
+                        <div class="answer-controls">
+                            <button id="checkAnswerBtn" class="control-btn primary large">
+                                <i class="fas fa-check"></i>
+                                Проверить ответ
+                            </button>
+                            <button id="skipTaskBtn" class="control-btn">
+                                <i class="fas fa-forward"></i>
+                                Пропустить
+                            </button>
+                        </div>
+                        
+                        <!-- Результат проверки -->
+                        <div class="result-display" id="resultDisplay">
+                            <!-- Результат будет отображаться здесь -->
+                        </div>
+                    </div>
+                    
+                   
+                    
+                </div>
+                
+                <!-- Панель объяснений -->
+                <div class="explanation-panel">
+                    <h3><i class="fas fa-graduation-cap"></i> Объяснение</h3>
+                    <div class="explanation-content" id="explanationContent">
+                        <!-- Объяснение будет здесь -->
+                        <p>Выберите задачу для начала тренировки. После генерации задачи здесь появится подробное объяснение операции.</p>
+                    </div>
+                    
+                    <div class="bit-operations-guide">
+                        <h4><i class="fas fa-book"></i> Побитовые операции</h4>
+                        <div class="bit-operations">
+                            <div class="bit-operation">
+                                <span class="bit-symbol">&</span>
+                                <span class="bit-name">AND</span>
+                                <span class="bit-desc">Логическое И</span>
+                            </div>
+                            <div class="bit-operation">
+                                <span class="bit-symbol">|</span>
+                                <span class="bit-name">OR</span>
+                                <span class="bit-desc">Логическое ИЛИ</span>
+                            </div>
+                            <div class="bit-operation">
+                                <span class="bit-symbol">^</span>
+                                <span class="bit-name">XOR</span>
+                                <span class="bit-desc">Исключающее ИЛИ</span>
+                            </div>
+                            <div class="bit-operation">
+                                <span class="bit-symbol">~</span>
+                                <span class="bit-name">NOT</span>
+                                <span class="bit-desc">Отрицание</span>
+                            </div>
+                            <div class="bit-operation">
+                                <span class="bit-symbol"><<</span>
+                                <span class="bit-name">SHL</span>
+                                <span class="bit-desc">Сдвиг влево</span>
+                            </div>
+                            <div class="bit-operation">
+                                <span class="bit-symbol">>></span>
+                                <span class="bit-name">SHR</span>
+                                <span class="bit-desc">Сдвиг вправо</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Справочник -->
+        <section class="content-section">
+            <div class="section-header">
+                <i class="fas fa-book icon"></i>
+                <h2>Справочник по бинарной арифметике</h2>
+            </div>
+            
+            <div class="reference-container">
+                <div class="reference-tabs">
+                    <button class="ref-tab active" data-tab="basics">
+                        <i class="fas fa-info-circle"></i>
+                        Основы
+                    </button>
+                    <button class="ref-tab" data-tab="conversion">
+                        <i class="fas fa-exchange-alt"></i>
+                        Перевод
+                    </button>
+                    <button class="ref-tab" data-tab="operations">
+                        <i class="fas fa-calculator"></i>
+                        Операции
+                    </button>
+                    <button class="ref-tab" data-tab="signed">
+                        <i class="fas fa-plus-minus"></i>
+                        Со знаком
+                    </button>
+                    <button class="ref-tab" data-tab="float">
+                        <i class="fas fa-water"></i>
+                        Плавающая точка
+                    </button>
+                </div>
+                
+                <div class="reference-content" id="referenceContent">
+    <!-- Будет заполнено через JavaScript -->
+</div>
+            </div>
+        </section>
+
+        <!-- Тест на проверку знаний -->
+        <section class="content-section">
+            <div class="section-header">
+                <i class="fas fa-graduation-cap icon"></i>
+                <h2>Тест: Проверка знаний</h2>
+            </div>
+            
+            <div class="test-container">
+                <div class="test-intro">
+                    <p>Пройдите тест для проверки знаний бинарной арифметики. Тест состоит из 10 вопросов разной сложности.</p>
+                    <div class="test-stats">
+                        <div class="stat-item">
+                            <span class="stat-label">Вопросов:</span>
+                            <span class="stat-value" id="testQuestionCount">10</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Сложность:</span>
+                            <span class="stat-value">Смешанная</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Время:</span>
+                            <span class="stat-value">Без ограничений</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="test-content" id="testContent">
+                    <!-- Тест будет заполнен через JavaScript -->
+                </div>
+                
+                <div class="test-controls">
+                    <button id="startTestBtn" class="control-btn primary">
+                        <i class="fas fa-play"></i>
+                        Начать тест
+                    </button>
+                    <button id="nextTestQuestionBtn" class="control-btn" disabled>
+                        <i class="fas fa-forward"></i>
+                        Следующий вопрос
+                    </button>
+                    <button id="finishTestBtn" class="control-btn" disabled>
+                        <i class="fas fa-flag-checkered"></i>
+                        Завершить
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Футер -->
+        <footer class="site-footer">
+            <div class="footer-content">
+                <p>© 2025 Жосткин Иван Николаевич. Все права защищены.</p>
+                <p>Сайт разработан для образовательных целей</p>
+                <div class="footer-links">
+                    <a href="https://67minsk.schools.by/">Средняя школа №67 г.Минска</a>
+                    <span> | </span>
+                    <a href="https://edu.gov.by/">Министерство образования Республики Беларусь</a>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Кнопка "Наверх" -->
+    <button class="scroll-top" id="scrollTop">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script src="../script.js"></script>
+    <script src="binar-script.js"></script>
+</body>
+</html>

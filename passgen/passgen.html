@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Генератор паролей - Информатика</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="passgen-style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Orbitron:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Анимированный фон -->
+    <div class="animated-bg"></div>
+    
+    <!-- Нестандартное меню -->
+    <div id="navbar-container">
+        <nav class="circular-menu">
+            <div class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <div class="menu-items" id="menuItems">
+                <a href="../index.html" class="menu-item" data-tooltip="Главная">
+                    <i class="fas fa-home"></i>
+                </a>
+                <div class="menu-dropdown">
+                    <a href="#!" class="menu-item main-item" data-tooltip="Учащимся">
+                        <i class="fas fa-graduation-cap"></i>
+                    </a>
+                    <div class="dropdown-content">
+                        <a href="../uruki/uroki.html">Уроки</a>
+                        <a href="../pages/topics/literature.html">Литература</a>
+                        <a href="../pages/topics/uploads.html">Загрузка работ</a>
+                        <a href="../pages/topics/olympiads.html">Олимпиады</a>
+                    </div>
+                </div>
+                <a href="../ai/ai.html" class="menu-item" data-tooltip="Искусственный интеллект">
+                    <i class="fas fa-robot"></i>
+                </a>
+                <a href="../bez/bez.html" class="menu-item" data-tooltip="Безопасность">
+                    <i class="fas fa-shield-alt"></i>
+                </a>
+                <a href="../norma/index.html" class="menu-item" data-tooltip="Нормативные документы">
+                    <i class="fas fa-file-contract"></i>
+                </a>
+                <a href="../prog/prog.html" class="menu-item" data-tooltip="Программы">
+                    <i class="fas fa-laptop-code"></i>
+                </a>
+                <div class="menu-dropdown">
+                    <a href="#!" class="menu-item main-item" data-tooltip="Интересное">
+                        <i class="fas fa-star"></i>
+                    </a>
+                    <div class="dropdown-content">
+                        <a href="../pages/fun/typing.html">Тренажер печати</a>
+                        <a href="../pages/fun/telegram.html">Телеграмм бот</a>
+                        <a href="https://scratch.mit.edu/">Scratch</a>
+                    </div>
+                </div>
+                <a href="../contact/contact.html" class="menu-item" data-tooltip="Контакты">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Основной контент -->
+    <main class="container">
+        <!-- Заголовок с эффектом -->
+        <header class="hero">
+            <div class="title-container">
+                <h1 class="main-title">
+                    <span class="title-text">ГЕНЕРАТОР ПАРОЛЕЙ</span>
+                    <span class="title-subtext">Создание и анализ безопасных паролей</span>
+                </h1>
+                <div class="code-decoration">
+                    <pre><code>// Безопасность начинается с пароля
+password = generate(16, true, true, true, true);
+checkStrength(password); // → "Очень сильный"</code></pre>
+                </div>
+            </div>
+        </header>
+
+        <!-- Основной генератор -->
+        <section class="content-section">
+            <div class="section-header">
+                <i class="fas fa-key icon"></i>
+                <h2>Генерация пароля</h2>
+            </div>
+            
+            <div class="generator-container">
+                <!-- Настройки генерации -->
+                <div class="settings-panel">
+                    <div class="settings-group">
+                        <h3><i class="fas fa-sliders-h"></i> Настройки пароля</h3>
+                        
+                        <div class="setting">
+                            <div class="setting-label">
+                                <label for="lengthSlider">Длина пароля:</label>
+                                <span id="lengthValue" class="value-display">16 символов</span>
+                            </div>
+                            <input type="range" id="lengthSlider" min="8" max="64" value="16">
+                        </div>
+                        
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="uppercase" checked>
+                                <label for="uppercase">
+                                    <i class="fas fa-font-case"></i>
+                                    Заглавные буквы (A-Z)
+                                </label>
+                            </div>
+                            
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="lowercase" checked>
+                                <label for="lowercase">
+                                    <i class="fas fa-font"></i>
+                                    Строчные буквы (a-z)
+                                </label>
+                            </div>
+                            
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="numbers" checked>
+                                <label for="numbers">
+                                    <i class="fas fa-hashtag"></i>
+                                    Цифры (0-9)
+                                </label>
+                            </div>
+                            
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="symbols" checked>
+                                <label for="symbols">
+                                    <i class="fas fa-asterisk"></i>
+                                    Спецсимволы (!@#$%^&*)
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="advanced-settings">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="excludeSimilar">
+                                <label for="excludeSimilar">
+                                    <i class="fas fa-ban"></i>
+                                    Исключить похожие символы (0O, 1lI)
+                                </label>
+                            </div>
+                            
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="noRepeating">
+                                <label for="noRepeating">
+                                    <i class="fas fa-repeat"></i>
+                                    Не повторять символы подряд
+                                </label>
+                            </div>
+                            
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="excludeAmbiguous">
+                                <label for="excludeAmbiguous">
+                                    <i class="fas fa-eye-slash"></i>
+                                    Исключить неоднозначные символы ({ } [ ] ( ) / \ ' " ` ~ , ; : . < >)
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="generate-btn-container">
+                        <button id="generateBtn" class="action-btn primary">
+                            <i class="fas fa-bolt"></i>
+                            Сгенерировать пароль
+                        </button>
+                        <button id="generateMultipleBtn" class="action-btn secondary">
+                            <i class="fas fa-layer-group"></i>
+                            5 вариантов
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Результаты генерации -->
+                <div class="results-panel">
+                    <div class="password-display-container">
+                        <div class="password-display" id="passwordDisplay">
+                            <span id="passwordText">Нажмите "Сгенерировать пароль"</span>
+                        </div>
+                        <div class="password-actions">
+                            <button id="copyBtn" class="icon-btn" title="Копировать">
+                                <i class="far fa-copy"></i>
+                            </button>
+                            <button id="refreshBtn" class="icon-btn" title="Обновить">
+                                <i class="fas fa-redo"></i>
+                            </button>
+                            <button id="saveBtn" class="icon-btn" title="Сохранить">
+                                <i class="far fa-save"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="multiple-passwords" id="multiplePasswords">
+                        <!-- Несколько паролей будут отображаться здесь -->
+                    </div>
+                    
+                    <div class="password-info">
+                        <div class="info-item">
+                            <i class="fas fa-ruler"></i>
+                            <span>Длина: <strong id="infoLength">0</strong></span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Надёжность: <strong id="infoStrength">Не оценена</strong></span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-brain"></i>
+                            <span>Энтропия: <strong id="infoEntropy">0 бит</strong></span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-clock"></i>
+                            <span>Время подбора: <strong id="infoCrackTime">мгновенно</strong></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Анализ надёжности -->
+        <section class="content-section">
+            <div class="section-header">
+                <i class="fas fa-chart-line icon"></i>
+                <h2>Анализ надёжности пароля</h2>
+            </div>
+            
+            <div class="analysis-container">
+                <div class="analysis-input">
+                    <div class="input-group">
+                        <label for="analyzePassword">
+                            <i class="fas fa-search"></i>
+                            Проверить свой пароль:
+                        </label>
+                        <input type="password" id="analyzePassword" placeholder="Введите пароль для анализа" autocomplete="off">
+                        <button id="toggleVisibility" class="visibility-btn">
+                            <i class="far fa-eye"></i>
+                        </button>
+                    </div>
+                    <button id="analyzeBtn" class="action-btn">
+                        <i class="fas fa-search"></i>
+                        Проанализировать
+                    </button>
+                </div>
+                
+                <div class="analysis-results">
+                    <div class="strength-meter">
+                        <div class="strength-label">Уровень надёжности:</div>
+                        <div class="strength-bar">
+                            <div class="strength-fill" id="strengthFill" data-strength="0"></div>
+                        </div>
+                        <div class="strength-text" id="strengthText">Не оценено</div>
+                    </div>
+                    
+                    <div class="strength-details">
+                        <div class="detail-item" id="detailLength">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Длина: <strong>0/12</strong></span>
+                        </div>
+                        <div class="detail-item" id="detailCharset">
+                            <i class="fas fa-times-circle"></i>
+                            <span>Набор символов: <strong>0/4</strong></span>
+                        </div>
+                        <div class="detail-item" id="detailPattern">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Паттерны: <strong>Не обнаружено</strong></span>
+                        </div>
+                        <div class="detail-item" id="detailDictionary">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Словарные слова: <strong>Не обнаружено</strong></span>
+                        </div>
+                    </div>
+                    
+                    <div class="crack-time">
+                        <h4><i class="fas fa-user-secret"></i> Время подбора пароля:</h4>
+                        <div class="time-estimates">
+                            <div class="time-estimate">
+                                <span class="time-label">Онлайн-атака (10 попыток/сек)</span>
+                                <span class="time-value" id="timeOnline">мгновенно</span>
+                            </div>
+                            <div class="time-estimate">
+                                <span class="time-label">Офлайн-атака (10K хешей/сек)</span>
+                                <span class="time-value" id="timeOffline">мгновенно</span>
+                            </div>
+                            <div class="time-estimate">
+                                <span class="time-label">Brute-force (1 млрд/сек)</span>
+                                <span class="time-value" id="timeBruteforce">мгновенно</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Хеширование -->
+        <section class="content-section">
+            <div class="section-header">
+                <i class="fas fa-fingerprint icon"></i>
+                <h2>Хеширование паролей</h2>
+            </div>
+            
+            <div class="hashing-container">
+                <div class="hashing-input">
+                    <div class="input-group">
+                        <label for="hashInput">
+                            <i class="fas fa-keyboard"></i>
+                            Текст для хеширования:
+                        </label>
+                        <input type="text" id="hashInput" placeholder="Введите пароль или текст" value="MySecretPassword123">
+                    </div>
+                    
+                    <div class="salt-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="useSalt" checked>
+                            <label for="useSalt">
+                                <i class="fas fa-pepper-hot"></i>
+                                Добавить "соль"
+                            </label>
+                        </div>
+                        <input type="text" id="saltInput" placeholder="Соль (опционально)" value="RandomSalt123">
+                    </div>
+                </div>
+                
+                <div class="hash-results">
+                    <div class="hash-algorithms">
+                        <div class="algorithm active" data-algo="md5">
+                            <i class="fas fa-hashtag"></i>
+                            MD5
+                        </div>
+                        <div class="algorithm" data-algo="sha1">
+                            <i class="fas fa-hashtag"></i>
+                            SHA-1
+                        </div>
+                        <div class="algorithm" data-algo="sha256">
+                            <i class="fas fa-hashtag"></i>
+                            SHA-256
+                        </div>
+                        <div class="algorithm" data-algo="sha512">
+                            <i class="fas fa-hashtag"></i>
+                            SHA-512
+                        </div>
+                    </div>
+                    
+                    <div class="hash-output">
+                        <div class="hash-result" id="hashResult">
+                            d8578edf8458ce06fbc5bb76a58c5ca4
+                        </div>
+                        <div class="hash-info" id="hashInfo">
+                            MD5 хеш (32 символа)
+                        </div>
+                    </div>
+                    
+                    <div class="hash-actions">
+                        <button id="computeHashBtn" class="action-btn">
+                            <i class="fas fa-calculator"></i>
+                            Вычислить хеш
+                        </button>
+                        <button id="compareHashBtn" class="action-btn secondary">
+                            <i class="fas fa-balance-scale"></i>
+                            Сравнить хеши
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="hash-comparison" id="hashComparison">
+                    <h4><i class="fas fa-code-compare"></i> Сравнение хешей</h4>
+                    <div class="comparison-inputs">
+                        <input type="text" id="hash1" placeholder="Первый хеш" value="d8578edf8458ce06fbc5bb76a58c5ca4">
+                        <input type="text" id="hash2" placeholder="Второй хеш" value="d8578edf8458ce06fbc5bb76a58c5ca4">
+                    </div>
+                    <div class="comparison-result" id="comparisonResult">
+                        Хеши идентичны
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Проверка утечек -->
+        <section class="content-section">
+            <div class="section-header">
+                <i class="fas fa-exclamation-triangle icon"></i>
+                <h2>Проверка на утечки данных</h2>
+            </div>
+            
+            <div class="leak-check-container">
+                <div class="leak-info">
+                    <p>Локальная проверка пароля на соответствие наиболее распространённым утекшим паролям. <strong>Внимание:</strong> Проверка выполняется только локально в вашем браузере, пароли никуда не отправляются.</p>
+                </div>
+                
+                <div class="leak-check">
+                    <div class="input-group">
+                        <label for="leakCheckInput">
+                            <i class="fas fa-user-shield"></i>
+                            Проверить пароль:
+                        </label>
+                        <input type="password" id="leakCheckInput" placeholder="Введите пароль для проверки">
+                    </div>
+                    
+                    <button id="checkLeakBtn" class="action-btn">
+                        <i class="fas fa-search"></i>
+                        Проверить на утечки
+                    </button>
+                    
+                    <div class="leak-result" id="leakResult">
+                        <div class="leak-status safe">
+                            <i class="fas fa-shield-alt"></i>
+                            <div>
+                                <h4>Пароль безопасен</h4>
+                                <p>Не обнаружен в локальной базе утекших паролей</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="leak-stats">
+                    <div class="stat-item">
+                        <i class="fas fa-database"></i>
+                        <div>
+                            <span class="stat-value" id="leakDBcount">1000+</span>
+                            <span class="stat-label">паролей в базе</span>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-exclamation-circle"></i>
+                        <div>
+                            <span class="stat-value" id="commonLeaks">23</span>
+                            <span class="stat-label">общих утечек</span>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-user-friends"></i>
+                        <div>
+                            <span class="stat-value" id="totalChecks">0</span>
+                            <span class="stat-label">проверок выполнено</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Советы по безопасности -->
+        <section class="content-section">
+            <div class="section-header">
+                <i class="fas fa-lightbulb icon"></i>
+                <h2>Советы по созданию безопасных паролей</h2>
+            </div>
+            
+            <div class="tips-container">
+                <div class="tip-card">
+                    <div class="tip-icon">
+                        <i class="fas fa-ruler-combined"></i>
+                    </div>
+                    <h3>Длина имеет значение</h3>
+                    <p>Используйте пароли длиной не менее 12 символов. Каждый дополнительный символ экспоненциально увеличивает сложность подбора.</p>
+                </div>
+                
+                <div class="tip-card">
+                    <div class="tip-icon">
+                        <i class="fas fa-random"></i>
+                    </div>
+                    <h3>Разнообразие символов</h3>
+                    <p>Комбинируйте заглавные и строчные буквы, цифры и специальные символы. Избегайте предсказуемых последовательностей.</p>
+                </div>
+                
+                <div class="tip-card">
+                    <div class="tip-icon">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <h3>Уникальность для каждого сервиса</h3>
+                    <p>Никогда не используйте один и тот же пароль на разных сайтах. При утечке одного пароля все ваши аккаунты останутся защищены.</p>
+                </div>
+                
+                <div class="tip-card">
+                    <div class="tip-icon">
+                        <i class="fas fa-user-secret"></i>
+                    </div>
+                    <h3>Менеджеры паролей</h3>
+                    <p>Используйте менеджеры паролей (KeePass, Bitwarden, LastPass) для хранения и генерации сложных паролей.</p>
+                </div>
+                
+                <div class="tip-card">
+                    <div class="tip-icon">
+                        <i class="fas fa-history"></i>
+                    </div>
+                    <h3>Регулярная смена паролей</h3>
+                    <p>Меняйте важные пароли каждые 3-6 месяцев, особенно для банковских сервисов и электронной почты.</p>
+                </div>
+                
+                <div class="tip-card">
+                    <div class="tip-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Двухфакторная аутентификация</h3>
+                    <p>Включайте 2FA везде, где это возможно. Даже если пароль будет украден, аккаунт останется защищённым.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- История паролей -->
+        <section class="content-section">
+            <div class="section-header">
+                <i class="fas fa-history icon"></i>
+                <h2>История сгенерированных паролей</h2>
+            </div>
+            
+            <div class="history-container">
+                <div class="history-list" id="passwordHistory">
+                    <!-- История будет заполняться через JavaScript -->
+                    <div class="empty-history">
+                        <i class="fas fa-key"></i>
+                        <p>Здесь будет отображаться история сгенерированных паролей</p>
+                        <p>Пароли сохраняются только локально в вашем браузере</p>
+                    </div>
+                </div>
+                
+                <div class="history-controls">
+                    <button id="clearHistoryBtn" class="action-btn small">
+                        <i class="fas fa-trash"></i>
+                        Очистить историю
+                    </button>
+                    <button id="exportHistoryBtn" class="action-btn small">
+                        <i class="fas fa-download"></i>
+                        Экспортировать историю
+                    </button>
+                    <div class="security-warning">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <span>Внимание: История хранится только в этом браузере</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Футер -->
+        <footer class="site-footer">
+            <div class="footer-content">
+                <p>© 2025 Жосткин Иван Николаевич. Все права защищены.</p>
+                <p>Сайт разработан для образовательных целей</p>
+                <div class="footer-links">
+                    <a href="https://67minsk.schools.by/">Средняя школа №67 г.Минска</a>
+                    <span> | </span>
+                    <a href="https://edu.gov.by/">Министерство образования Республики Беларусь</a>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Кнопка "Наверх" -->
+    <button class="scroll-top" id="scrollTop">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script src="../script.js"></script>
+    <script src="passgen-script.js"></script>
+</body>
+</html>

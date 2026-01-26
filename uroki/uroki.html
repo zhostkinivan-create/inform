@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Уроки информатики</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="uroki-style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Orbitron:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Анимированный фон -->
+    <div class="animated-bg"></div>
+    
+    <!-- Меню -->
+    <nav class="circular-menu">
+    <div class="menu-toggle" id="menuToggle">
+        <i class="fas fa-bars"></i>
+    </div>
+    <div class="menu-items" id="menuItems">
+        <a href="../index.html" class="menu-item" data-tooltip="Главная">
+            <i class="fas fa-home"></i>
+        </a>
+        <div class="menu-dropdown">
+            <a href="#!" class="menu-item main-item" data-tooltip="Учащимся">
+                <i class="fas fa-graduation-cap"></i>
+            </a>
+            <div class="dropdown-content">
+                <a href="../uroki/uroki.html">Уроки</a>
+                <a href="pages/topics/literature.html">Литература</a>
+                <a href="pages/topics/uploads.html">Загрузка работ</a>
+                <a href="pages/topics/olympiads.html">Олимпиады</a>
+            </div>
+        </div>
+        <a href="../ai/ai.html" class="menu-item" data-tooltip="Искусственный интеллект">
+            <i class="fas fa-robot"></i>
+        </a>
+        <a href="../bez/bez.html" class="menu-item" data-tooltip="Безопасность">
+            <i class="fas fa-shield-alt"></i>
+        </a>
+        <a href="../norma/index.html" class="menu-item" data-tooltip="Нормативные документы">
+            <i class="fas fa-file-contract"></i>
+        </a>
+        <a href="pages/software.html" class="menu-item" data-tooltip="Программы">
+            <i class="fas fa-laptop-code"></i>
+        </a>
+        <div class="menu-dropdown">
+            <a href="#!" class="menu-item main-item" data-tooltip="Интересное">
+                <i class="fas fa-star"></i>
+            </a>
+            <div class="dropdown-content">
+                <a href="https://typerun.top/#rus_basic">Тренажер печати</a>
+                <a href="pages/fun/telegram.html">Телеграмм бот</a>
+                <a href="https://scratch.mit.edu/">Scratch</a>
+            </div>
+        </div>
+        <a href="../contact/contact.html" class="menu-item" data-tooltip="Контакты">
+            <i class="fas fa-envelope"></i>
+        </a>
+    </div>
+</nav>
+
+    <!-- Основной контент -->
+    <main class="container uroki-container">
+        <!-- Заголовок -->
+        <header class="uroki-header">
+            <h1 class="page-title">
+                <i class="fas fa-laptop-code"></i>
+                Уроки информатики
+            </h1>
+            <p class="page-subtitle">Выберите класс, затем тему и урок</p>
+        </header>
+
+        <!-- Выбор класса -->
+        <section class="classes-section">
+            <h2><i class="fas fa-graduation-cap"></i> Выберите класс</h2>
+            <div class="classes-grid">
+                <div class="class-card active" data-class="6">
+                    <h3>6 класс</h3>
+                    <p>35 уроков</p>
+                </div>
+                <div class="class-card" data-class="7">
+                    <h3>7 класс</h3>
+                    <p>35 уроков</p>
+                </div>
+                <div class="class-card" data-class="8">
+                    <h3>8 класс</h3>
+                    <p>35 уроков</p>
+                </div>
+                <div class="class-card" data-class="9">
+                    <h3>9 класс</h3>
+                    <p>34 урока</p>
+                </div>
+                <div class="class-card" data-class="10">
+                    <h3>10 класс</h3>
+                    <p>34 урока</p>
+                </div>
+                <div class="class-card" data-class="11">
+                    <h3>11 класс</h3>
+                    <p>34 урока</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Выбор темы (показывается после выбора класса) -->
+        <section class="themes-section" style="display: none;">
+    <h2><i class="fas fa-folder-open"></i> Темы для 6 класса</h2>
+    <div class="themes-grid">
+        <!-- Темы будут добавляться через JS -->
+    </div>
+</section>
+
+        <!-- Выбор урока (показывается после выбора темы) -->
+        <section class="lessons-section" style="display: none;">
+    <h2><i class="fas fa-book-open"></i> Уроки по теме</h2>
+    <div class="lessons-grid">
+        <!-- Уроки будут добавляться через JS -->
+    </div>
+            
+            
+        </section>
+    </main>
+
+    <!-- Футер -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <p>© 2025 Жосткин Иван Николаевич. Учебные материалы</p>
+        </div>
+    </footer>
+
+    <!-- Кнопка "Наверх" -->
+    <button class="scroll-top" id="scrollTop">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Скрипты -->
+    <script src="../script.js"></script>
+    <script src="uroki-script.js"></script>
+</body>
+</html>

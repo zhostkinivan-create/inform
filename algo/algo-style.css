@@ -1,0 +1,1076 @@
+/* algo-style.css - Полный файл стилей для визуализатора алгоритмов */
+
+/* Импорт переменных из основного стиля */
+:root {
+    --primary: #6c63ff;
+    --primary-dark: #524fd5;
+    --secondary: #ff6584;
+    --dark: #2a2d43;
+    --light: #f8f9fa;
+    --gray: #e9ecef;
+    --accent: #36d1dc;
+    --success: #4cc9f0;
+    --warning: #ff9e00;
+    --info: #9d4edd;
+    --danger: #ff4d6d;
+}
+
+/* Анимация градиента для заголовков */
+@keyframes gradient-shift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Герой-заголовок */
+.hero .title-text {
+    font-size: 2.8rem;
+    background: linear-gradient(90deg, #6c63ff, #36d1dc, #4cc9f0);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: gradient-shift 4s ease infinite;
+    color: transparent;
+}
+
+.code-decoration pre {
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* Контейнер управления */
+.controls-container {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 30px;
+    border: 1px solid rgba(108, 99, 255, 0.2);
+    margin-bottom: 40px;
+}
+
+/* Выбор алгоритма */
+.algorithm-selector {
+    margin-bottom: 30px;
+}
+
+.algorithm-selector h3 {
+    color: white;
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.algorithm-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.algo-tab {
+    padding: 12px 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    color: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.algo-tab:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.algo-tab.active {
+    background: rgba(108, 99, 255, 0.2);
+    border-color: var(--primary);
+    color: white;
+}
+
+/* Управление данными */
+.data-controls {
+    margin-bottom: 30px;
+    padding: 25px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+}
+
+.control-group h3 {
+    color: white;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.control-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    margin-bottom: 25px;
+}
+
+.control-item {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.control-item label {
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.95rem;
+}
+
+.slider-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+input[type="range"] {
+    flex: 1;
+    height: 8px;
+    -webkit-appearance: none;
+    background: rgba(108, 99, 255, 0.2);
+    border-radius: 4px;
+    outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    background: var(--primary);
+    border-radius: 50%;
+    cursor: pointer;
+    border: 3px solid var(--dark);
+}
+
+input[type="range"]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: var(--primary);
+    border-radius: 50%;
+    cursor: pointer;
+    border: 3px solid var(--dark);
+}
+
+.value-display {
+    color: var(--accent);
+    font-weight: 600;
+    min-width: 40px;
+    text-align: right;
+}
+
+.data-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.control-btn {
+    padding: 12px 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    color: rgba(255, 255, 255, 0.9);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.control-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.control-btn.primary {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+}
+
+.control-btn.primary:hover {
+    background: var(--primary-dark);
+}
+
+.control-btn.secondary {
+    background: rgba(54, 209, 220, 0.2);
+    color: var(--accent);
+    border-color: var(--accent);
+}
+
+.control-btn.secondary:hover {
+    background: rgba(54, 209, 220, 0.3);
+}
+
+.control-btn.small {
+    padding: 8px 15px;
+    font-size: 0.85rem;
+}
+
+.custom-array {
+    margin-top: 20px;
+}
+
+.custom-array label {
+    display: block;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 10px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.input-with-button {
+    display: flex;
+    gap: 10px;
+}
+
+#customArrayInput {
+    flex: 1;
+    padding: 12px 15px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 2px solid rgba(108, 99, 255, 0.3);
+    border-radius: 8px;
+    color: white;
+    font-size: 1rem;
+}
+
+#customArrayInput:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+
+/* Управление визуализацией */
+.visualization-controls {
+    padding-top: 25px;
+    border-top: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.visualization-controls h3 {
+    color: white;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.control-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+/* Основная визуализация */
+.visualization-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+@media (max-width: 992px) {
+    .visualization-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+.main-visualization {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 25px;
+    border: 1px solid rgba(108, 99, 255, 0.2);
+}
+
+.visualization-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.visualization-header h3 {
+    color: white;
+    font-size: 1.4rem;
+}
+
+.algorithm-stats {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.stat {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.stat i {
+    color: var(--accent);
+}
+
+.stat strong {
+    color: white;
+    font-weight: 600;
+}
+
+/* Визуализация массива */
+.array-visualization {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 4px;
+    height: 300px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    margin-bottom: 25px;
+    position: relative;
+    overflow: hidden;
+}
+
+.array-element {
+    background: var(--primary);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    position: relative;
+    border-radius: 4px 4px 0 0;
+    min-width: 30px;
+}
+
+.array-element .value {
+    position: absolute;
+    top: -25px;
+    font-size: 0.8rem;
+    color: white;
+}
+
+.array-element.comparing {
+    background: var(--warning);
+    transform: scale(1.05);
+}
+
+.array-element.swapping {
+    background: var(--secondary);
+    transform: scale(1.05);
+}
+
+.array-element.sorted {
+    background: var(--success);
+}
+
+.array-element.pivot {
+    background: var(--info);
+}
+
+.array-element.target {
+    background: #ff9e00;
+    transform: scale(1.1);
+}
+
+/* Легенда */
+.legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.color-box {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+}
+
+.color-box.normal {
+    background: var(--primary);
+}
+
+.color-box.comparing {
+    background: var(--warning);
+}
+
+.color-box.swapping {
+    background: var(--secondary);
+}
+
+.color-box.sorted {
+    background: var(--success);
+}
+
+.color-box.pivot {
+    background: var(--info);
+}
+
+.color-box.target {
+    background: #ff9e00;
+}
+
+.legend-item span {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.9rem;
+}
+
+/* Панель с кодом */
+.code-panel {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 25px;
+    border: 1px solid rgba(108, 99, 255, 0.2);
+}
+
+.code-panel h3 {
+    color: white;
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.code-container {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    overflow-x: auto;
+}
+
+.code-container pre {
+    margin: 0;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.code-container code {
+    color: var(--success);
+}
+
+.code-highlight {
+    background: rgba(108, 99, 255, 0.1);
+    border-left: 3px solid var(--primary);
+    padding: 10px 15px;
+    border-radius: 5px;
+    color: white;
+    font-family: 'Courier New', monospace;
+}
+
+/* Сравнение алгоритмов */
+.comparison-container {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 30px;
+    border: 1px solid rgba(108, 99, 255, 0.2);
+}
+
+.comparison-controls h3 {
+    color: white;
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.comparison-settings {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.setting-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.setting-group label {
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.setting-group select {
+    padding: 10px 15px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 2px solid rgba(108, 99, 255, 0.3);
+    border-radius: 8px;
+    color: white;
+    font-size: 1rem;
+}
+
+.setting-group select:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+
+.comparison-results {
+    margin-top: 30px;
+}
+
+.results-table-container {
+    overflow-x: auto;
+    margin-bottom: 30px;
+}
+
+.results-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.results-table th,
+.results-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.results-table th {
+    background: rgba(108, 99, 255, 0.2);
+    color: white;
+    font-weight: 600;
+}
+
+.results-table td {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.results-table tr:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.charts-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.chart {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    padding: 20px;
+}
+
+.chart h4 {
+    color: white;
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.chart-bars {
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+    height: 200px;
+    padding: 20px;
+}
+
+.chart-bar {
+    flex: 1;
+    background: var(--primary);
+    border-radius: 4px 4px 0 0;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.chart-bar:hover {
+    background: var(--accent);
+    transform: scale(1.05);
+}
+
+.chart-bar-label {
+    position: absolute;
+    bottom: -25px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.8rem;
+}
+
+/* Тест */
+.test-container {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 30px;
+    border: 1px solid rgba(108, 99, 255, 0.2);
+}
+
+.test-intro {
+    margin-bottom: 30px;
+}
+
+.test-intro p {
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.test-stats {
+    display: flex;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.test-stats .stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.stat-value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--accent);
+}
+
+.stat-label {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+}
+
+.test-content {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    padding: 30px;
+    margin-bottom: 30px;
+}
+
+.test-ready {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.ready-icon {
+    font-size: 4rem;
+    color: var(--accent);
+    margin-bottom: 20px;
+}
+
+.test-ready h3 {
+    color: white;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.test-ready p {
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 10px;
+}
+
+.question {
+    margin-bottom: 30px;
+}
+
+.question h4 {
+    color: white;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.option {
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.option:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.option.selected {
+    background: rgba(108, 99, 255, 0.2);
+    border-color: var(--primary);
+}
+
+.option.correct {
+    background: rgba(76, 201, 240, 0.2);
+    border-color: var(--success);
+}
+
+.option.incorrect {
+    background: rgba(255, 77, 109, 0.2);
+    border-color: var(--danger);
+}
+
+.option input[type="radio"] {
+    display: none;
+}
+
+.option-label {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.option.selected .option-label {
+    background: var(--primary);
+    border-color: var(--primary);
+}
+
+.option-text {
+    color: rgba(255, 255, 255, 0.9);
+    flex: 1;
+}
+
+.test-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+}
+
+/* Справочник */
+.reference-container {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 30px;
+    border: 1px solid rgba(108, 99, 255, 0.2);
+}
+
+.reference-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.ref-tab {
+    padding: 12px 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    color: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.ref-tab:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.ref-tab.active {
+    background: rgba(108, 99, 255, 0.2);
+    border-color: var(--primary);
+    color: white;
+}
+
+.reference-content {
+    min-height: 400px;
+}
+
+.ref-section {
+    display: none;
+}
+
+.ref-section.active {
+    display: block;
+    animation: fadeIn 0.5s ease;
+}
+
+.algorithm-info {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    padding: 30px;
+}
+
+.info-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.info-header h3 {
+    color: white;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.complexity-badges {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.badge {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.badge.worst {
+    background: rgba(255, 77, 109, 0.2);
+    color: #ff4d6d;
+    border: 1px solid rgba(255, 77, 109, 0.3);
+}
+
+.badge.average {
+    background: rgba(255, 158, 0, 0.2);
+    color: #ff9e00;
+    border: 1px solid rgba(255, 158, 0, 0.3);
+}
+
+.badge.best {
+    background: rgba(76, 201, 240, 0.2);
+    color: #4cc9f0;
+    border: 1px solid rgba(76, 201, 240, 0.3);
+}
+
+.badge.space {
+    background: rgba(108, 99, 255, 0.2);
+    color: #6c63ff;
+    border: 1px solid rgba(108, 99, 255, 0.3);
+}
+
+.info-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.description h4,
+.how-it-works h4,
+.pros-cons h4,
+.visual-example h4 {
+    color: white;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.description p {
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
+}
+
+.how-it-works ol {
+    padding-left: 20px;
+}
+
+.how-it-works li {
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+.pros-cons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.pros ul,
+.cons ul {
+    padding-left: 20px;
+}
+
+.pros li,
+.cons li {
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+.pros li::marker {
+    color: var(--success);
+}
+
+.cons li::marker {
+    color: var(--danger);
+}
+
+.visual-example {
+    grid-column: 1 / -1;
+}
+
+.example-array {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.array-step {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.array-label {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+}
+
+.array-visual.small {
+    display: flex;
+    gap: 8px;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+
+.array-visual.small .array-element {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--primary);
+    color: white;
+    font-weight: 600;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.array-visual.small .array-element.sorted {
+    background: var(--success);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .hero .title-text {
+        font-size: 2rem;
+    }
+    
+    .visualization-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .algorithm-stats {
+        justify-content: flex-start;
+    }
+    
+    .control-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .charts-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .info-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .complexity-badges {
+        justify-content: flex-start;
+    }
+}
+
+@media (max-width: 480px) {
+    .controls-container,
+    .main-visualization,
+    .code-panel,
+    .comparison-container,
+    .test-container,
+    .reference-container {
+        padding: 20px;
+    }
+    
+    .algorithm-tabs,
+    .reference-tabs {
+        justify-content: center;
+    }
+    
+    .algo-tab,
+    .ref-tab {
+        flex: 1;
+        min-width: 120px;
+        justify-content: center;
+    }
+    
+    .input-with-button {
+        flex-direction: column;
+    }
+    
+    .test-stats {
+        flex-direction: column;
+        gap: 15px;
+    }
+}

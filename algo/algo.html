@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Визуализатор алгоритмов - Информатика</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="algo-style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Orbitron:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Анимированный фон -->
+    <div class="animated-bg"></div>
+    
+    <!-- Нестандартное меню -->
+    <div id="navbar-container">
+        <nav class="circular-menu">
+            <div class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <div class="menu-items" id="menuItems">
+                <a href="../index.html" class="menu-item" data-tooltip="Главная">
+                    <i class="fas fa-home"></i>
+                </a>
+                <div class="menu-dropdown">
+                    <a href="#!" class="menu-item main-item" data-tooltip="Учащимся">
+                        <i class="fas fa-graduation-cap"></i>
+                    </a>
+                    <div class="dropdown-content">
+                        <a href="../uruki/uroki.html">Уроки</a>
+                        <a href="../pages/topics/literature.html">Литература</a>
+                        <a href="../pages/topics/uploads.html">Загрузка работ</a>
+                        <a href="../pages/topics/olympiads.html">Олимпиады</a>
+                    </div>
+                </div>
+                <a href="../ai/ai.html" class="menu-item" data-tooltip="Искусственный интеллект">
+                    <i class="fas fa-robot"></i>
+                </a>
+                <a href="../bez/bez.html" class="menu-item" data-tooltip="Безопасность">
+                    <i class="fas fa-shield-alt"></i>
+                </a>
+                <a href="../norma/index.html" class="menu-item" data-tooltip="Нормативные документы">
+                    <i class="fas fa-file-contract"></i>
+                </a>
+                <a href="../prog/prog.html" class="menu-item" data-tooltip="Программы">
+                    <i class="fas fa-laptop-code"></i>
+                </a>
+                <div class="menu-dropdown">
+                    <a href="#!" class="menu-item main-item" data-tooltip="Интересное">
+                        <i class="fas fa-star"></i>
+                    </a>
+                    <div class="dropdown-content">
+                        <a href="../pages/fun/typing.html">Тренажер печати</a>
+                        <a href="../pages/fun/telegram.html">Телеграмм бот</a>
+                        <a href="https://scratch.mit.edu/">Scratch</a>
+                    </div>
+                </div>
+                <a href="../contact/contact.html" class="menu-item" data-tooltip="Контакты">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Основной контент -->
+    <main class="container">
+        <!-- Заголовок с эффектом -->
+        <header class="hero">
+            <div class="title-container">
+                <h1 class="main-title">
+                    <span class="title-text">ВИЗУАЛИЗАТОР АЛГОРИТМОВ</span>
+                    <span class="title-subtext">Смотри как работают алгоритмы сортировки и поиска</span>
+                </h1>
+                <div class="code-decoration">
+                    <pre><code>function bubbleSort(arr) {
+    for (let i = 0; i < arr.length; i++) {
+        for (let j = 0; j < arr.length - i - 1; j++) {
+            if (arr[j] > arr[j + 1]) {
+                [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
+            }
+        }
+    }
+}</code></pre>
+                </div>
+            </div>
+        </header>
+
+        <!-- Выбор алгоритма и настроек -->
+        <section class="content-section">
+            <div class="section-header">
+                <i class="fas fa-sliders-h icon"></i>
+                <h2>Настройка визуализации</h2>
+            </div>
+            
+            <div class="controls-container">
+                <div class="algorithm-selector">
+                    <h3><i class="fas fa-project-diagram"></i> Выберите алгоритм:</h3>
+                    <div class="algorithm-tabs" id="algorithmTabs">
+                        <button class="algo-tab active" data-algorithm="bubble">
+                            <i class="fas fa-sort-amount-down"></i>
+                            Пузырьковая
+                        </button>
+                        <button class="algo-tab" data-algorithm="selection">
+                            <i class="fas fa-mouse-pointer"></i>
+                            Выбором
+                        </button>
+                        <button class="algo-tab" data-algorithm="insertion">
+                            <i class="fas fa-arrow-right-to-bracket"></i>
+                            Вставками
+                        </button>
+                        <button class="algo-tab" data-algorithm="quick">
+                            <i class="fas fa-bolt"></i>
+                            Быстрая
+                        </button>
+                        <button class="algo-tab" data-algorithm="merge">
+                            <i class="fas fa-code-branch"></i>
+                            Слиянием
+                        </button>
+                        <button class="algo-tab" data-algorithm="linear">
+                            <i class="fas fa-search"></i>
+                            Линейный поиск
+                        </button>
+                        <button class="algo-tab" data-algorithm="binary">
+                            <i class="fas fa-binary"></i>
+                            Бинарный поиск
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="data-controls">
+                    <div class="control-group">
+                        <h3><i class="fas fa-database"></i> Данные для сортировки:</h3>
+                        
+                        <div class="control-row">
+                            <div class="control-item">
+                                <label for="arraySize">
+                                    <i class="fas fa-ruler"></i>
+                                    Размер массива:
+                                </label>
+                                <div class="slider-container">
+                                    <input type="range" id="arraySize" min="5" max="50" value="20">
+                                    <span id="arraySizeValue" class="value-display">20</span>
+                                </div>
+                            </div>
+                            
+                            <div class="control-item">
+                                <label for="animationSpeed">
+                                    <i class="fas fa-tachometer-alt"></i>
+                                    Скорость анимации:
+                                </label>
+                                <div class="slider-container">
+                                    <input type="range" id="animationSpeed" min="1" max="10" value="5">
+                                    <span id="speedValue" class="value-display">5</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="data-buttons">
+                            <button id="generateRandomBtn" class="control-btn">
+                                <i class="fas fa-random"></i>
+                                Случайный массив
+                            </button>
+                            <button id="generateNearlySortedBtn" class="control-btn">
+                                <i class="fas fa-sort-amount-up"></i>
+                                Почти отсортированный
+                            </button>
+                            <button id="generateReverseBtn" class="control-btn">
+                                <i class="fas fa-sort-amount-down-alt"></i>
+                                Обратный порядок
+                            </button>
+                            <button id="generateFewUniqueBtn" class="control-btn">
+                                <i class="fas fa-clone"></i>
+                                                Мало уникальных
+                            </button>
+                        </div>
+                        
+                        <div class="custom-array">
+                            <label for="customArrayInput">
+                                <i class="fas fa-edit"></i>
+                                Свой массив (через запятую):
+                            </label>
+                            <div class="input-with-button">
+                                <input type="text" id="customArrayInput" placeholder="Например: 5, 3, 8, 1, 9">
+                                <button id="useCustomArrayBtn" class="control-btn small">
+                                    Использовать
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="visualization-controls">
+                    <h3><i class="fas fa-play-circle"></i> Управление визуализацией:</h3>
+                    
+                    <div class="control-buttons">
+                        <button id="startBtn" class="control-btn primary">
+                            <i class="fas fa-play"></i>
+                            Старт
+                        </button>
+                        <button id="pauseBtn" class="control-btn" disabled>
+                            <i class="fas fa-pause"></i>
+                            Пауза
+                        </button>
+                        <button id="stepBtn" class="control-btn" disabled>
+                            <i class="fas fa-forward"></i>
+                            Шаг
+                        </button>
+                        <button id="resetBtn" class="control-btn">
+                            <i class="fas fa-redo"></i>
+                            Сброс
+                        </button>
+                        <button id="compareBtn" class="control-btn secondary">
+                            <i class="fas fa-balance-scale"></i>
+                            Сравнить алгоритмы
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Основная визуализация -->
+        <section class="content-section">
+            <div class="section-header">
+                <i class="fas fa-chart-bar icon"></i>
+                <h2>Визуализация алгоритма</h2>
+            </div>
+            
+            <div class="visualization-container">
+                <div class="main-visualization">
+                    <div class="visualization-header">
+                        <h3 id="currentAlgorithm">Пузырьковая сортировка</h3>
+                        <div class="algorithm-stats">
+                            <span class="stat"><i class="fas fa-exchange-alt"></i> Сравнения: <strong id="comparisonCount">0</strong></span>
+                            <span class="stat"><i class="fas fa-arrows-alt-h"></i> Перестановки: <strong id="swapCount">0</strong></span>
+                            <span class="stat"><i class="fas fa-clock"></i> Время: <strong id="timeElapsed">0 мс</strong></span>
+                        </div>
+                    </div>
+                    
+                    <div class="array-visualization" id="arrayVisualization">
+                        <!-- Массив будет отображаться здесь -->
+                    </div>
+                    
+                    <div class="legend">
+                        <div class="legend-item">
+                            <div class="color-box normal"></div>
+                            <span>Обычный элемент</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="color-box comparing"></div>
+                            <span>Сравнивается</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="color-box swapping"></div>
+                            <span>Меняется местами</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="color-box sorted"></div>
+                            <span>Отсортирован</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="color-box pivot"></div>
+                            <span>Опорный элемент</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="code-panel">
+                    <h3><i class="fas fa-code"></i> Псевдокод алгоритма</h3>
+                    <div class="code-container">
+                        <pre id="pseudocode"><code>procedure bubbleSort(A: list)
+    n = length(A)
+    for i = 0 to n-1
+        for j = 0 to n-i-2
+            if A[j] > A[j+1]
+                swap(A[j], A[j+1])
+            end if
+        end for
+    end for
+end procedure</code></pre>
+                    </div>
+                    <div class="code-highlight" id="codeHighlight">
+                        <!-- Подсветка текущей строки будет здесь -->
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Сравнение алгоритмов -->
+        <section class="content-section" id="comparisonSection" style="display: none;">
+            <div class="section-header">
+                <i class="fas fa-balance-scale icon"></i>
+                <h2>Сравнение алгоритмов сортировки</h2>
+            </div>
+            
+            <div class="comparison-container">
+                <div class="comparison-controls">
+                    <h3><i class="fas fa-cogs"></i> Настройки сравнения:</h3>
+                    
+                    <div class="comparison-settings">
+                        <div class="setting-group">
+                            <label for="comparisonSize">
+                                <i class="fas fa-ruler-combined"></i>
+                                Размер массива для сравнения:
+                            </label>
+                            <select id="comparisonSize">
+                                <option value="10">10 элементов</option>
+                                <option value="20" selected>20 элементов</option>
+                                <option value="30">30 элементов</option>
+                                <option value="50">50 элементов</option>
+                            </select>
+                        </div>
+                        
+                        <div class="setting-group">
+                            <label for="comparisonDataType">
+                                <i class="fas fa-database"></i>
+                                Тип данных:
+                            </label>
+                            <select id="comparisonDataType">
+                                <option value="random">Случайные</option>
+                                <option value="nearlySorted">Почти отсортированные</option>
+                                <option value="reverse">Обратный порядок</option>
+                                <option value="fewUnique">Мало уникальных</option>
+                            </select>
+                        </div>
+                        
+                        <button id="runComparisonBtn" class="control-btn primary">
+                            <i class="fas fa-play"></i>
+                            Запустить сравнение
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="comparison-results">
+                    <div class="results-table-container">
+                        <table class="results-table">
+                            <thead>
+                                <tr>
+                                    <th>Алгоритм</th>
+                                    <th><i class="fas fa-exchange-alt"></i> Сравнения</th>
+                                    <th><i class="fas fa-arrows-alt-h"></i> Перестановки</th>
+                                    <th><i class="fas fa-clock"></i> Время</th>
+                                    <th><i class="fas fa-chart-line"></i> Сложность</th>
+                                </tr>
+                            </thead>
+                            <tbody id="comparisonResults">
+                                <!-- Результаты сравнения будут здесь -->
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="charts-container">
+                        <div class="chart">
+                            <h4><i class="fas fa-exchange-alt"></i> Количество сравнений</h4>
+                            <div class="chart-bars" id="comparisonChart">
+                                <!-- График сравнений -->
+                            </div>
+                        </div>
+                        
+                        <div class="chart">
+                            <h4><i class="fas fa-clock"></i> Время выполнения (мс)</h4>
+                            <div class="chart-bars" id="timeChart">
+                                <!-- График времени -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Тест на понимание алгоритмов -->
+        <section class="content-section">
+            <div class="section-header">
+                <i class="fas fa-graduation-cap icon"></i>
+                <h2>Тест: Понимание алгоритмов сортировки</h2>
+            </div>
+            
+            <div class="test-container">
+                <div class="test-intro">
+                    <p>Пройдите тест, чтобы проверить понимание алгоритмов сортировки. Посмотрите анимацию, ответьте на вопросы и узнайте, насколько хорошо вы понимаете, как работают алгоритмы.</p>
+                    <div class="test-stats">
+                        <div class="stat">
+                            <span class="stat-value" id="questionCount">0</span>
+                            <span class="stat-label">вопросов</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-value" id="correctCount">0</span>
+                            <span class="stat-label">правильно</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-value" id="scorePercentage">0%</span>
+                            <span class="stat-label">результат</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="test-content" id="testContent">
+                    <!-- Тест будет заполнен через JavaScript -->
+                    <div class="test-ready">
+                        <div class="ready-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3>Готовы проверить знания?</h3>
+                        <p>Тест состоит из 10 вопросов по алгоритмам сортировки и поиска.</p>
+                        <p>Вы сможете увидеть анимацию алгоритма перед каждым вопросом.</p>
+                    </div>
+                </div>
+                
+                <div class="test-controls">
+                    <button id="startTestBtn" class="control-btn primary">
+                        <i class="fas fa-play"></i>
+                        Начать тест
+                    </button>
+                    <button id="nextQuestionBtn" class="control-btn secondary" disabled>
+                        <i class="fas fa-forward"></i>
+                        Следующий вопрос
+                    </button>
+                    <button id="resetTestBtn" class="control-btn small">
+                        <i class="fas fa-redo"></i>
+                        Начать заново
+                    </button>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Справочник по алгоритмам -->
+        <section class="content-section">
+            <div class="section-header">
+                <i class="fas fa-book icon"></i>
+                <h2>Справочник по алгоритмам</h2>
+            </div>
+            
+            <div class="reference-container">
+                <div class="reference-tabs">
+                    <button class="ref-tab active" data-algo="bubble">
+                        <i class="fas fa-sort-amount-down"></i>
+                        Пузырьковая
+                    </button>
+                    <button class="ref-tab" data-algo="selection">
+                        <i class="fas fa-mouse-pointer"></i>
+                        Выбором
+                    </button>
+                    <button class="ref-tab" data-algo="insertion">
+                        <i class="fas fa-arrow-right-to-bracket"></i>
+                        Вставками
+                    </button>
+                    <button class="ref-tab" data-algo="quick">
+                        <i class="fas fa-bolt"></i>
+                        Быстрая
+                    </button>
+                    <button class="ref-tab" data-algo="merge">
+                        <i class="fas fa-code-branch"></i>
+                        Слиянием
+                    </button>
+                </div>
+                
+                <div class="reference-content">
+                    <div class="ref-section active" id="bubbleRef">
+                        <div class="algorithm-info">
+                            <div class="info-header">
+                                <h3><i class="fas fa-sort-amount-down"></i> Пузырьковая сортировка</h3>
+                                <div class="complexity-badges">
+                                    <span class="badge worst">O(n²)</span>
+                                    <span class="badge average">O(n²)</span>
+                                    <span class="badge best">O(n)</span>
+                                    <span class="badge space">O(1)</span>
+                                </div>
+                            </div>
+                            
+                            <div class="info-content">
+                                <div class="description">
+                                    <h4><i class="fas fa-info-circle"></i> Описание</h4>
+                                    <p>Самый простой алгоритм сортировки. Последовательно сравнивает соседние элементы и меняет их местами, если они находятся в неправильном порядке. Процесс повторяется до тех пор, пока массив не будет отсортирован.</p>
+                                </div>
+                                
+                                <div class="how-it-works">
+                                    <h4><i class="fas fa-cogs"></i> Как работает</h4>
+                                    <ol>
+                                        <li>Начиная с первого элемента, сравниваем его со следующим</li>
+                                        <li>Если текущий элемент больше следующего, меняем их местами</li>
+                                        <li>Переходим к следующей паре элементов</li>
+                                        <li>Повторяем процесс для всего массива</li>
+                                        <li>После каждого прохода наибольший элемент "всплывает" в конец</li>
+                                        <li>Повторяем для оставшейся части массива</li>
+                                    </ol>
+                                </div>
+                                
+                                <div class="pros-cons">
+                                    <div class="pros">
+                                        <h4><i class="fas fa-thumbs-up"></i> Преимущества</h4>
+                                        <ul>
+                                            <li>Простота реализации</li>
+                                            <li>Не требует дополнительной памяти</li>
+                                            <li>Устойчивая сортировка</li>
+                                            <li>Хорошо работает на почти отсортированных массивах</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="cons">
+                                        <h4><i class="fas fa-thumbs-down"></i> Недостатки</h4>
+                                        <ul>
+                                            <li>Очень медленная для больших массивов</li>
+                                            <li>Делает много лишних сравнений и перестановок</li>
+                                            <li>Плохая производительность в худшем случае</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="visual-example">
+                                    <h4><i class="fas fa-eye"></i> Визуальный пример</h4>
+                                    <div class="example-array">
+                                        <div class="array-step">
+                                            <span class="array-label">Исходный массив:</span>
+                                            <div class="array-visual small">
+                                                <div class="array-element">5</div>
+                                                <div class="array-element">3</div>
+                                                <div class="array-element">8</div>
+                                                <div class="array-element">1</div>
+                                                <div class="array-element">2</div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="array-step">
+                                            <span class="array-label">После 1 прохода:</span>
+                                            <div class="array-visual small">
+                                                <div class="array-element">3</div>
+                                                <div class="array-element">5</div>
+                                                <div class="array-element">1</div>
+                                                <div class="array-element">2</div>
+                                                <div class="array-element sorted">8</div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="array-step">
+                                            <span class="array-label">После 2 прохода:</span>
+                                            <div class="array-visual small">
+                                                <div class="array-element">3</div>
+                                                <div class="array-element">1</div>
+                                                <div class="array-element">2</div>
+                                                <div class="array-element sorted">5</div>
+                                                <div class="array-element sorted">8</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Остальные разделы будут заполнены через JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Футер -->
+        <footer class="site-footer">
+            <div class="footer-content">
+                <p>© 2025 Жосткин Иван Николаевич. Все права защищены.</p>
+                <p>Сайт разработан для образовательных целей</p>
+                <div class="footer-links">
+                    <a href="https://67minsk.schools.by/">Средняя школа №67 г.Минска</a>
+                    <span> | </span>
+                    <a href="https://edu.gov.by/">Министерство образования Республики Беларусь</a>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Кнопка "Наверх" -->
+    <button class="scroll-top" id="scrollTop">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script src="../script.js"></script>
+    <script src="algo-script.js"></script>
+</body>
+</html>
