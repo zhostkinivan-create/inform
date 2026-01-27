@@ -90,10 +90,10 @@ document.addEventListener('DOMContentLoaded', function() {
         const skillsChart = new Chart(skillsCtx, {
             type: 'radar',
             data: {
-                labels: ['Цифровая грамотность', 'Методика преподавания', 'Работа с одарёнными', 'ИИ-технологии', 'Веб-разработка', 'Проектная деятельность'],
+                labels: ['', '', '', '', ''],
                 datasets: [{
                     label: 'Уровень владения',
-                    data: [95, 88, 82, 90, 85, 78],
+                    data: [95, 80, 72, 90, 85],
                     backgroundColor: 'rgba(108, 99, 255, 0.2)',
                     borderColor: 'rgba(108, 99, 255, 1)',
                     borderWidth: 2,
