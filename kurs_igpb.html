@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Эволюция кодификации Беларуси</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --accent: #e74c3c;
+            --gold: #d4af37;
+            --light: #ecf0f1;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 20px;
+            color: var(--primary);
+        }
+        .header {
+            text-align: center;
+            padding: 40px 0;
+            background: var(--primary);
+            color: white;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: var(--primary);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+        .container {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        .container::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: -17px;
+            background-color: white;
+            border: 4px solid var(--accent);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        .left { left: 0; }
+        .right { left: 50%; }
+        .right::after { left: -17px; }
+
+        .content {
+            padding: 20px;
+            background-color: white;
+            position: relative;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: 0.3s;
+        }
+        .content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+        .date {
+            font-weight: bold;
+            color: var(--accent);
+            display: block;
+            margin-bottom: 5px;
+        }
+        h3 { margin-top: 0; color: var(--primary); border-bottom: 2px solid var(--light); padding-bottom: 5px; }
+        .fact-box {
+            background: #fff9e6;
+            border-left: 4px solid var(--gold);
+            padding: 10px;
+            margin-top: 10px;
+            font-size: 0.9em;
+            font-style: italic;
+        }
+        .tag {
+            display: inline-block;
+            background: var(--light);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            margin-top: 5px;
+        }
+        @media screen and (max-width: 600px) {
+            .timeline::after { left: 31px; }
+            .container { width: 100%; padding-left: 70px; padding-right: 25px; }
+            .container::after { left: 15px; }
+            .right { left: 0%; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>Интерактивная хронология кодификации законодательства Беларуси</h1>
+   
+</div>
+
+<div class="timeline">
+    
+    <div class="container left">
+        <div class="content">
+            <span class="date">1468 год</span>
+            <h3>Судебник Казимира</h3>
+            <p>Первый опыт систематизации норм уголовного и процессуального права в ВКЛ.</p>
+            <div class="fact-box">
+                <strong>Интересный факт:</strong> Впервые была установлена персональная ответственность (судили только виновного, а не весь род).
+            </div>
+            <span class="tag">Начало традиций</span>
+        </div>
+    </div>
+
+    <div class="container right">
+        <div class="content">
+            <span class="date">1529, 1566, 1588 гг.</span>
+            <h3>Статуты ВКЛ</h3>
+            <p>Вершина европейской юридической мысли. Статут 1588 года действовал более 250 лет.</p>
+            <div class="fact-box">
+                <strong>Интересный факт:</strong> Статут 1588 г. был напечатан на старобелорусском языке и содержал идею разделения властей задолго до Монтескье.
+            </div>
+            <span class="tag">Золотой век</span>
+        </div>
+    </div>
+
+    <div class="container left">
+        <div class="content">
+            <span class="date">1922 – 1923 гг.</span>
+            <h3>Первая волна кодификации БССР</h3>
+            <p>Принятие первых советских кодексов (ГК, УК, КЗоТ) в условиях новой экономической политики (НЭП).</p>
+            <div class="fact-box">
+                <strong>Интересный факт:</strong> Кодексы БССР того времени были более либеральными в вопросах семейного права, чем законы Европы.
+            </div>
+            <span class="tag">Советский модернизм</span>
+        </div>
+    </div>
+
+    <div class="container right">
+        <div class="content">
+            <span class="date">1998 – 1999 гг.</span>
+            <h3>Суверенный фундамент</h3>
+            <p>Принятие базовых национальных кодексов независимой Беларуси.</p>
+            <div class="fact-box">
+                <strong>Интересный факт:</strong> Гражданский кодекс 1998 года содержит более 1100 статей и до сих пор считается «экономической конституцией».
+            </div>
+            <span class="tag">Государственный суверенитет</span>
+        </div>
+    </div>
+
+    <div class="container left">
+        <div class="content">
+            <span class="date">2011, 2016 гг.</span>
+            <h3>Социальные инновации</h3>
+            <p>Создание уникальных Кодекса об образовании и Кодекса о культуре.</p>
+            <div class="fact-box">
+                <strong>Интересный факт:</strong> Кодекс о культуре Беларуси — единственный в мире акт такого масштаба, объединивший все творческие сферы.
+            </div>
+            <span class="tag">Мировой приоритет</span>
+        </div>
+    </div>
+
+    <div class="container right">
+        <div class="content">
+            <span class="date">2021 – 2026 гг.</span>
+            <h3>Цифра и Гуманизация</h3>
+            <p>Новый КоАП и переход к электронным базам данных (Эталон-online).</p>
+            <div class="fact-box">
+                <strong>Интересный факт:</strong> Современная кодификация в РБ ориентирована на «профилактику вместо наказания».
+            </div>
+            <span class="tag">Будущее права</span>
+        </div>
+    </div>
+
+</div>
+
+<div style="text-align: center; margin-top: 30px; color: #7f8c8d;">
+    <p>© 2026 Жосткин И.Н.</p>
+</div>
+
+</body>
+</html>
