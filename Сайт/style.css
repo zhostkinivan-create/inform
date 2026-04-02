@@ -1,0 +1,419 @@
+/* RESET И БАЗОВЫЕ СТИЛИ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f8fafc;
+    color: #1e293b;
+    line-height: 1.5;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ========== ШАПКА И НАВИГАЦИЯ ========== */
+.header {
+    background-color: #ffffff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: #0f3b5c;
+}
+
+.logo-icon {
+    font-size: 1.8rem;
+}
+
+.nav-list {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+}
+
+.nav-link {
+    text-decoration: none;
+    font-weight: 500;
+    color: #334155;
+    transition: color 0.2s;
+    padding: 6px 0;
+    border-bottom: 2px solid transparent;
+}
+
+.nav-link:hover {
+    color: #2c7da0;
+}
+
+.nav-link.active {
+    color: #1f7b4d;
+    border-bottom-color: #1f7b4d;
+}
+
+.mobile-menu-btn {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+}
+
+.mobile-menu-btn span {
+    width: 25px;
+    height: 2px;
+    background-color: #1e293b;
+    transition: 0.2s;
+}
+
+/* ========== ГЕРО ========== */
+.hero {
+    background: linear-gradient(135deg, #e9f5f0 0%, #d4e9e2 100%);
+    padding: 60px 0 50px;
+    text-align: center;
+}
+
+.hero-title {
+    font-size: 1.9rem;
+    font-weight: 600;
+    color: #0a2f44;
+    margin-bottom: 16px;
+}
+
+.hero-title span {
+    font-weight: 400;
+    font-size: 1.4rem;
+    display: block;
+    margin-top: 10px;
+}
+
+.hero-subtitle {
+    font-size: 1.1rem;
+    color: #2c553d;
+    margin-bottom: 28px;
+}
+
+.hero-tagline {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+    font-weight: 500;
+    color: #1e4d6b;
+}
+
+.hero-tagline span {
+    background: rgba(255,255,240,0.7);
+    padding: 6px 16px;
+    border-radius: 40px;
+}
+
+/* ========== КАРТОЧКА АВТОРА ========== */
+.author-section {
+    margin-top: -30px;
+    margin-bottom: 40px;
+}
+
+.author-card {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    padding: 24px 30px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.author-avatar {
+    font-size: 3.8rem;
+    background: #eef2ff;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.author-name {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: #0f3b5c;
+}
+
+.author-desc, .author-uni, .author-year {
+    color: #475569;
+}
+
+/* ========== СЕКЦИИ ========== */
+.section-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-title {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #1e4d6b;
+}
+
+.section-divider {
+    width: 80px;
+    height: 4px;
+    background: #2c7da0;
+    margin: 16px auto 0;
+    border-radius: 4px;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 28px;
+}
+
+.info-card {
+    background: white;
+    border-radius: 20px;
+    padding: 28px 22px;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.05);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.info-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+}
+
+.card-icon {
+    font-size: 2.5rem;
+    margin-bottom: 16px;
+}
+
+.card-title {
+    font-size: 1.3rem;
+    margin-bottom: 12px;
+    color: #1f7b4d;
+}
+
+.card-text {
+    color: #334155;
+    font-size: 0.95rem;
+}
+
+/* Научная новизна и значимость */
+.science-section {
+    background: #f1f5f9;
+    margin: 48px 0;
+    padding: 48px 0;
+}
+
+.science-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 28px;
+}
+
+.science-block {
+    background: white;
+    border-radius: 20px;
+    padding: 24px;
+    border-left: 6px solid #2c7da0;
+}
+
+.science-title {
+    font-size: 1.3rem;
+    margin-bottom: 14px;
+    color: #0f3b5c;
+}
+
+/* База исследования */
+.base-section {
+    margin-bottom: 48px;
+}
+
+.base-wrapper {
+    background: #e2f0e8;
+    border-radius: 24px;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.base-icon {
+    font-size: 3rem;
+}
+
+.base-title {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    color: #1a5a3e;
+}
+
+/* Методы */
+.methods-section {
+    background: white;
+    padding: 40px 0;
+    border-radius: 32px;
+    margin: 20px 0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+}
+
+.methods-title {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 28px;
+    color: #1e4d6b;
+}
+
+.methods-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
+}
+
+.methods-list span {
+    background: #eef2ff;
+    padding: 8px 20px;
+    border-radius: 40px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* Карточки-ссылки на разделы */
+.nav-links-section {
+    margin: 56px 0 48px;
+}
+
+.nav-links-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    justify-content: center;
+}
+
+.nav-link-card {
+    background: white;
+    border-radius: 24px;
+    padding: 28px 20px;
+    text-align: center;
+    text-decoration: none;
+    flex: 1;
+    min-width: 200px;
+    transition: all 0.2s;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.05);
+    border: 1px solid #e2e8f0;
+}
+
+.nav-link-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 28px rgba(0,0,0,0.1);
+    border-color: #cbd5e1;
+}
+
+.nav-link-icon {
+    font-size: 2.5rem;
+    margin-bottom: 12px;
+}
+
+.nav-link-card h4 {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+    color: #1f7b4d;
+}
+
+.nav-link-card p {
+    font-size: 0.85rem;
+    color: #475569;
+}
+
+/* Футер */
+.footer {
+    background: #0f2f3f;
+    color: #cbd5e1;
+    text-align: center;
+    padding: 32px 0;
+    margin-top: 40px;
+}
+
+.footer p {
+    margin: 6px 0;
+}
+
+/* ========== АДАПТИВ ========== */
+@media (max-width: 768px) {
+    .nav-list {
+        display: none;
+        flex-direction: column;
+        gap: 16px;
+        background: white;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        padding: 20px;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    .nav-list.open {
+        display: flex;
+    }
+    .mobile-menu-btn {
+        display: flex;
+    }
+    .hero-title {
+        font-size: 1.5rem;
+    }
+    .hero-title span {
+        font-size: 1.1rem;
+    }
+    .hero-tagline {
+        gap: 12px;
+    }
+    .author-card {
+        flex-direction: column;
+        text-align: center;
+    }
+    .section-title {
+        font-size: 1.5rem;
+    }
+    .science-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 16px;
+    }
+    .info-card {
+        padding: 20px;
+    }
+    .hero-tagline span {
+        font-size: 0.8rem;
+    }
+}

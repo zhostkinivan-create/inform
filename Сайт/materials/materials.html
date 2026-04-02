@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Материалы исследования | Межпредметные связи</title>
+    <link rel="stylesheet" href="materials-style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="page-wrapper">
+        <!-- ШАПКА С НАВИГАЦИЕЙ -->
+        <header class="header">
+            <div class="container header-container">
+                <div class="logo">
+                    <span class="logo-icon">📚</span>
+                    <span class="logo-text">Межпредметные связи</span>
+                </div>
+                <nav class="nav">
+                    <ul class="nav-list">
+                        <li><a href="../index.html" class="nav-link">Главная</a></li>
+                        <li><a href="../materials/materials.html" class="nav-link active">Материалы</a></li>
+                        <li><a href="../theory/theory.html" class="nav-link">Теория</a></li>
+                        <li><a href="../tasks/tasks.html" class="nav-link">Задания</a></li>
+                    </ul>
+                </nav>
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Меню">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </header>
+
+        <main>
+            <!-- ЗАГОЛОВОК СТРАНИЦЫ -->
+            <section class="page-header">
+                <div class="container">
+                    <h1 class="page-title">Материалы исследования</h1>
+                </div>
+            </section>
+
+            <!-- 1. МЕНТАЛЬНАЯ КАРТА -->
+            <section class="mindmap-section">
+                <div class="container">
+                    <div class="section-header">
+                        <h2 class="section-title">🧠 Модель реализации межпредметных связей в процессе проектной деятельности</h2>
+                        <div class="section-divider"></div>
+                    </div>
+                    <div class="mindmap-wrapper">
+                        <a href="#" id="mindmapLink" target="_blank" class="mindmap-link">
+                            <img src="images/model.jpg" alt="Ментальная карта" id="mindmapImg" class="mindmap-img">
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2. ПРЕЗЕНТАЦИИ (редактируемая + нередактируемая) -->
+            <section class="presentation-section">
+                <div class="container">
+                    <div class="section-header">
+                        <h2 class="section-title">📽️ Презентация</h2>
+                        <div class="section-divider"></div>
+                    </div>
+                    <div class="files-grid two-cols">
+                        <div class="file-card">
+                            <div class="file-icon">✏️</div>
+                            <h3 class="file-title">Редактируемая версия</h3>
+                            <p class="file-desc">Презентация в формате PowerPoint (PPTX)</p>
+                            <a href="#" class="file-btn" id="editablePptLink">Скачать PPTX</a>
+                        </div>
+                        <div class="file-card">
+                            <div class="file-icon">📄</div>
+                            <h3 class="file-title">Нередактируемая версия</h3>
+                            <p class="file-desc">Готовая презентация в формате PDF для просмотра</p>
+                            <a href="#" class="file-btn" id="pdfPresentationLink">Смотреть PDF</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3. ДИССЕРТАЦИЯ (DOCX + PDF) -->
+            <section class="thesis-section">
+                <div class="container">
+                    <div class="section-header">
+                        <h2 class="section-title">📑 Реферат</h2>
+                        <div class="section-divider"></div>
+                    </div>
+                    <div class="files-grid two-cols">
+                        <div class="file-card">
+                            <div class="file-icon">📝</div>
+                            <h3 class="file-title">Редактируемая версия</h3>
+                            <p class="file-desc">Текст реферата в формате DOCX</p>
+                            <a href="#" class="file-btn" id="thesisDocxLink">Скачать DOCX</a>
+                        </div>
+                        <div class="file-card">
+                            <div class="file-icon">📕</div>
+                            <h3 class="file-title">Финальная версия</h3>
+                            <p class="file-desc">Реферат в формате PDF</p>
+                            <a href="#" class="file-btn" id="thesisPdfLink">Смотреть PDF</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 4. СТАТЬИ (динамический список, можно добавлять карточки) -->
+            <section class="articles-section">
+                <div class="container">
+                    <div class="section-header">
+                        <h2 class="section-title">📌 Статьи и публикации</h2>
+                        <div class="section-divider"></div>
+                        <p class="section-subtitle">Научные работы по теме исследования</p>
+                    </div>
+                    <div class="articles-grid" id="articlesContainer">
+                        <!-- Сюда будут добавляться статьи через JS или вы можете прописать их вручную -->
+                        <!-- Каждая статья имеет структуру:
+                            <div class="article-card">
+                                <div class="article-icon">📄</div>
+                                <div class="article-info">
+                                    <h3 class="article-title">Название статьи</h3>
+                                    <p class="article-meta">Автор, год, конференция/журнал</p>
+                                    <a href="#" class="article-link">Скачать / Подробнее</a>
+                                </div>
+                            </div>
+                        -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- 5. ГАЛЕРЕЯ ФОТОГРАФИЙ (интерактивная, lightbox) -->
+            <section class="gallery-section">
+                <div class="container">
+                    <div class="section-header">
+                        <h2 class="section-title">📸 Фотогалерея</h2>
+                        <div class="section-divider"></div>
+                        <p class="section-subtitle">Моменты апробации и проектной деятельности (нажмите на фото для увеличения)</p>
+                    </div>
+                    <div class="gallery-grid" id="galleryGrid">
+                        <!-- Изображения будут подгружены из JS-массива -->
+                    </div>
+                    <!-- Lightbox (модальное окно) -->
+                    <div id="lightbox" class="lightbox">
+                        <span class="close-lightbox">&times;</span>
+                        <img class="lightbox-img" id="lightboxImg" alt="Увеличенное фото">
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <div class="container">
+                <p>© 2026 | Магистерская диссертация В.А. Солошко</p>
+                <p>БГПУ им. Максима Танка, Минск</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="materials-script.js"></script>
+</body>
+</html>
