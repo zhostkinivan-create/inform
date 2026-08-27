@@ -429,8 +429,15 @@ document.addEventListener('DOMContentLoaded', function() {
             // Обработчик клика
             lessonCard.addEventListener('click', function(e) {
                 e.preventDefault();
-                // Здесь будет переход на страницу урока
-                console.log(`Выбран: ${selectedClass} класс, тема ${selectedTheme}, урок ${lessonNumber}: ${lesson}`);
+                 // Формируем путь к странице урока
+                // Структура: uroki/класс/ur{номер темы}{номер урока}/
+                // Например: uroki/6/ur11/ur11.html
+                const classPath = selectedClass;
+                const lessonPath = `ur${selectedTheme}${lessonNumber}`;
+                const fullPath = `./${classPath}/${lessonPath}/${lessonPath}.html`;
+                
+                // Переход на страницу урока
+                window.location.href = fullPath;
             });
             
             lessonsGrid.appendChild(lessonCard);
