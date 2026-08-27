@@ -1,4 +1,4 @@
-// === Тест для самоконтроля ===
+// === ТЕСТ ДЛЯ САМОКОНТРОЛЯ ===
 document.addEventListener('DOMContentLoaded', function() {
     const checkBtn = document.getElementById('check-test');
     const testForm = document.getElementById('test-form');
@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const resultMessage = document.getElementById('result-message');
     const resultDetails = document.getElementById('result-details');
 
-    // Правильные ответы (индексы правильных вариантов)
+    // ПРАВИЛЬНЫЕ ОТВЕТЫ (индексы от 0)
     const correctAnswers = {
         q1: 1, // Информация - сведения об объектах и событиях
         q2: 2, // Достоверность
@@ -17,57 +17,61 @@ document.addEventListener('DOMContentLoaded', function() {
         q6: 1  // Знания и понимание
     };
 
-    // Сообщения для каждого вопроса (для пояснения)
-    const questionExplanations = {
+    // Пояснения к вопросам
+    const explanations = {
         q1: 'Информация — это сведения об объектах и событиях окружающего мира.',
         q2: 'Достоверность означает, что информация должна быть верной и правдивой.',
-        q3: 'Данные — это сведения, представленные в формализованном виде (на формальном языке).',
-        q4: 'Формальные языки: математическая символика, нотная грамота, шрифт Брайля и др.',
-        q5: 'Актуальность — свойство информации быть важной в текущий момент времени.',
-        q6: 'Человек извлекает информацию из данных благодаря своим знаниям и пониманию языка.'
+        q3: 'Данные — это сведения, представленные в формализованном виде.',
+        q4: 'Формальные языки: математическая символика, нотная грамота, шрифт Брайля.',
+        q5: 'Актуальность — свойство информации быть важной в текущий момент.',
+        q6: 'Человек извлекает информацию из данных благодаря своим знаниям.'
     };
 
-    // Названия вопросов для отображения
+    // Названия вопросов
     const questionNames = {
-        q1: 'Вопрос 1',
-        q2: 'Вопрос 2',
-        q3: 'Вопрос 3',
-        q4: 'Вопрос 4',
-        q5: 'Вопрос 5',
-        q6: 'Вопрос 6'
+        q1: 'Вопрос 1. Что такое информация?',
+        q2: 'Вопрос 2. Какое свойство означает, что информация верна?',
+        q3: 'Вопрос 3. Что такое данные?',
+        q4: 'Вопрос 4. Какие языки относятся к формальным?',
+        q5: 'Вопрос 5. Почему информация с опозданием становится бесполезной?',
+        q6: 'Вопрос 6. Что помогает извлечь информацию из данных?'
+    };
+
+    // Тексты правильных ответов для отображения
+    const correctTexts = {
+        q1: 'Сведения об объектах и событиях окружающего мира',
+        q2: 'Достоверность',
+        q3: 'Сведения, представленные в формализованном виде',
+        q4: 'Математическая символика, нотная грамота',
+        q5: 'Она теряет актуальность',
+        q6: 'Знания и понимание языка/способа представления'
     };
 
     checkBtn.addEventListener('click', function() {
-        // Собираем ответы
-        const answers = {};
-        let allAnswered = true;
         let score = 0;
+        let allAnswered = true;
+        const results = [];
 
         // Проверяем каждый вопрос
         for (const [qName, correctIndex] of Object.entries(correctAnswers)) {
-            const selectedOption = document.querySelector(`input[name="${qName}"]:checked`);
-            
-            if (selectedOption) {
-                const value = parseInt(selectedOption.value);
-                answers[qName] = {
-                    selected: value,
-                    correct: value === correctIndex,
-                    correctIndex: correctIndex
-                };
-                if (value === correctIndex) {
-                    score++;
-                }
-            } else {
-                allAnswered = false;
-                answers[qName] = {
-                    selected: null,
-                    correct: false,
-                    correctIndex: correctIndex
-                };
-            }
+            const selected = document.querySelector(`input[name="${qName}"]:checked`);
+            const isAnswered = selected !== null;
+            const userAnswer = isAnswered ? parseInt(selected.value) : -1;
+            const isCorrect = isAnswered && (userAnswer === correctIndex);
+
+            if (isCorrect) score++;
+            if (!isAnswered) allAnswered = false;
+
+            results.push({
+                id: qName,
+                userAnswer: userAnswer,
+                correctIndex: correctIndex,
+                isCorrect: isCorrect,
+                isAnswered: isAnswered
+            });
         }
 
-        // Показываем результаты
+        // === ПОКАЗЫВАЕМ РЕЗУЛЬТАТЫ ===
         resultContainer.style.display = 'block';
         scoreNumber.textContent = score;
 
@@ -76,11 +80,11 @@ document.addEventListener('DOMContentLoaded', function() {
         if (score === 6) {
             message = '🎉 Отлично! Вы отлично усвоили тему "Информация и данные"!';
         } else if (score >= 4) {
-            message = '👍 Хорошо! Вы хорошо поняли материал. Поработайте над ошибками, чтобы закрепить знания.';
+            message = '👍 Хорошо! Вы хорошо поняли материал. Поработайте над ошибками.';
         } else if (score >= 3) {
             message = '📖 Неплохо, но стоит повторить материал. Внимательно прочитайте параграф ещё раз.';
         } else {
-            message = '📚 К сожалению, результат ниже среднего. Рекомендуем перечитать § 1 учебника и посмотреть презентацию.';
+            message = '📚 Результат ниже среднего. Рекомендуем перечитать § 1 учебника и посмотреть презентацию.';
         }
 
         if (!allAnswered) {
@@ -88,19 +92,19 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         resultMessage.textContent = message;
 
-        // Детали по каждому вопросу
+        // === ДЕТАЛЬНЫЙ РАЗБОР ===
         let detailsHTML = '<h4>Разбор ответов:</h4><ul style="list-style:none; padding:0;">';
-        for (const [qName, data] of Object.entries(answers)) {
-            const isCorrect = data.correct;
-            const icon = isCorrect ? '✅' : '❌';
-            const statusClass = isCorrect ? 'correct-answer' : 'wrong-answer';
+        
+        results.forEach((res) => {
+            const icon = res.isCorrect ? '✅' : '❌';
+            const statusClass = res.isCorrect ? 'correct-answer' : 'wrong-answer';
             
             // Определяем, что выбрал пользователь
             let selectedText = 'Не выбрано';
-            if (data.selected !== null) {
-                const optionLabel = document.querySelector(`input[name="${qName}"]:checked`);
-                if (optionLabel) {
-                    const parentLabel = optionLabel.closest('label');
+            if (res.isAnswered) {
+                const selectedOption = document.querySelector(`input[name="${res.id}"]:checked`);
+                if (selectedOption) {
+                    const parentLabel = selectedOption.closest('label');
                     if (parentLabel) {
                         selectedText = parentLabel.textContent.trim();
                     }
@@ -109,37 +113,27 @@ document.addEventListener('DOMContentLoaded', function() {
 
             detailsHTML += `
                 <li style="padding: 8px 0; border-bottom: 1px solid #eef2f7;">
-                    <strong class="${statusClass}">${icon} ${questionNames[qName]}</strong><br>
+                    <strong class="${statusClass}">${icon} ${questionNames[res.id]}</strong><br>
                     <span style="font-size:0.95rem;">
                         Ваш ответ: ${selectedText}<br>
-                        ${!isCorrect ? `<span class="wrong-answer">Правильный ответ: ${getCorrectAnswerText(qName, data.correctIndex)}</span>` : ''}
-                        <br><span style="font-size:0.85rem; color:#666;">${questionExplanations[qName]}</span>
+                        ${!res.isCorrect ? `<span class="wrong-answer">✅ Правильный ответ: ${correctTexts[res.id]}</span>` : ''}
+                        <br><span style="font-size:0.85rem; color:#666;">${explanations[res.id]}</span>
                     </span>
                 </li>
             `;
-        }
+        });
         detailsHTML += '</ul>';
         resultDetails.innerHTML = detailsHTML;
 
-        // Прокручиваем к результатам
+        // Прокрутка к результатам
         resultContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
 
-    // Вспомогательная функция для получения текста правильного ответа
-    function getCorrectAnswerText(qName, correctIndex) {
-        const options = document.querySelectorAll(`input[name="${qName}"]`);
-        for (const option of options) {
-            if (parseInt(option.value) === correctIndex) {
-                const parentLabel = option.closest('label');
-                return parentLabel ? parentLabel.textContent.trim() : 'Не удалось определить';
-            }
-        }
-        return 'Не удалось определить';
-    }
-
-    // Сброс теста - скрываем результаты при сбросе
+    // Сброс теста - скрываем результаты
     document.querySelector('.btn-reset').addEventListener('click', function() {
         resultContainer.style.display = 'none';
+        // Очищаем все radio-кнопки
+        document.querySelectorAll('input[type="radio"]').forEach(el => el.checked = false);
     });
 
     // Плавная прокрутка для навигации
