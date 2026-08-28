@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Урок 1. Организация сети Интернет - Информатика 9 класс</title>
+    <link rel="stylesheet" href="ur11.css">
+</head>
+<body>
+    <!-- Шапка -->
+    <header class="lesson-header">
+        <div class="container">
+            <div class="breadcrumbs">
+                <a href="../../../index.html">Главная</a> &gt;
+                <a href="../../uroki.html">9 класс</a> &gt;
+                <span>Урок 1</span>
+            </div>
+            <h1>Урок 1. Организация сети Интернет</h1>
+            <div class="lesson-meta">
+                <span class="class">9 класс</span>
+                <span class="subject">Информатика</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Основное содержание -->
+    <main class="lesson-content">
+        <div class="container">
+            
+            <!-- Навигация -->
+            <nav class="lesson-nav">
+                <ul>
+                    <li><a href="#safety">Правила безопасности</a></li>
+                    <li><a href="#intro">Введение</a></li>
+                    <li><a href="#ip">IP-адреса</a></li>
+                    <li><a href="#protocols">Протоколы TCP/IP</a></li>
+                    <li><a href="#http">HTTP и HTTPS</a></li>
+                    <li><a href="#dns">DNS и MAC-адреса</a></li>
+                    <li><a href="#presentation">Презентация</a></li>
+                    <li><a href="#test">Тест</a></li>
+                    <li><a href="#homework">Домашнее задание</a></li>
+                </ul>
+            </nav>
+
+            <!-- Блок 1: Правила безопасности -->
+            <section id="safety" class="lesson-section">
+                <h2>Правила безопасного поведения в компьютерном классе</h2>
+                <div class="safety-grid">
+                    <div class="safety-item">
+                        <span class="icon">🚶</span>
+                        <p>Входите в кабинет спокойно, не бегайте, не толкайтесь</p>
+                    </div>
+                    <div class="safety-item">
+                        <span class="icon">💻</span>
+                        <p>Работайте только за своим компьютером</p>
+                    </div>
+                    <div class="safety-item">
+                        <span class="icon">🖱️</span>
+                        <p>Не трогайте экран, провода и разъемы</p>
+                    </div>
+                    <div class="safety-item">
+                        <span class="icon">🍎</span>
+                        <p>Не ешьте и не пейте за компьютером</p>
+                    </div>
+                    <div class="safety-item">
+                        <span class="icon">⏱️</span>
+                        <p>Делайте перерывы через 20-25 минут работы</p>
+                    </div>
+                    <div class="safety-item">
+                        <span class="icon">👀</span>
+                        <p>Выполняйте гимнастику для глаз</p>
+                    </div>
+                    <div class="safety-item">
+                        <span class="icon">🧑‍🏫</span>
+                        <p>Сообщайте учителю о неисправностях</p>
+                    </div>
+                    <div class="safety-item">
+                        <span class="icon">🧹</span>
+                        <p>После работы уберите рабочее место</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Блок 2: Введение -->
+            <section id="intro" class="lesson-section">
+                <h2>Что такое Интернет?</h2>
+                <p><strong>Интернет</strong> (от англ. <em>Interconnected Networks</em> — объединённые сети) — это всемирная компьютерная сеть, объединяющая миллионы компьютеров и устройств по всему миру.</p>
+                <p>Интернет работает благодаря <strong>сте́ковой протоколов TCP/IP</strong> — набору правил, которые определяют, как данные передаются между устройствами в сети.</p>
+                <div class="info-block">
+                    <h4>📜 Историческая справка</h4>
+                    <p>Прообразом современного Интернета стала сеть <strong>ARPANET</strong>, созданная в 1969 году в США. Первое сообщение было отправлено между компьютерами в Калифорнийском и Стэнфордском университетах. Тогда сеть объединяла всего 4 компьютера!</p>
+                </div>
+                <div class="info-block">
+                    <h4>🌍 Интернет сегодня</h4>
+                    <p>По состоянию на 2025 год более <strong>5,5 миллиардов</strong> человек (около 67% населения Земли) являются пользователями Интернета. Количество подключённых устройств превышает <strong>30 миллиардов</strong>.</p>
+                </div>
+            </section>
+
+            <!-- Блок 3: IP-адреса -->
+            <section id="ip" class="lesson-section">
+                <h2>IP-адреса</h2>
+                
+                <div class="theory-block">
+                    <h3>Что такое IP-адрес?</h3>
+                    <p><strong>IP-адрес</strong> (Internet Protocol Address) — это уникальный числовой идентификатор устройства в сети Интернет. По аналогии с почтовым адресом: чтобы отправить письмо, нужно знать адрес получателя. Так и в сети: чтобы передать данные, нужно знать IP-адрес устройства.</p>
+                    <div class="example-block">
+                        <h4>Пример IP-адреса:</h4>
+                        <p><code>192.168.1.1</code> — это IP-адрес, состоящий из 4 чисел, разделённых точками.</p>
+                    </div>
+                </div>
+
+                <div class="theory-block">
+                    <h3>Двоичное представление IP-адреса</h3>
+                    <p>На самом деле IP-адрес — это 32-битное двоичное число. Для удобства его разделяют на 4 октета (по 8 бит) и записывают в десятичном виде.</p>
+                    <div class="example-block">
+                        <h4>Пример преобразования:</h4>
+                        <p>IP-адрес <code>192.168.1.1</code> в двоичном виде:</p>
+                        <pre><code>192 = 11000000
+168 = 10101000
+1   = 00000001
+1   = 00000001
+
+Итог: 11000000.10101000.00000001.00000001</code></pre>
+                    </div>
+                    <div class="info-block">
+                        <h4>💡 Интересный факт</h4>
+                        <p>Всего существует <strong>2³² = 4 294 967 296</strong> возможных IPv4-адресов. Кажется, что это много, но из-за роста числа устройств в мире адресов стало не хватать. Поэтому был создан стандарт <strong>IPv6</strong> с 128-битными адресами, которых хватит на всех!</p>
+                    </div>
+                </div>
+
+                <div class="theory-block">
+                    <h3>Динамические и статические IP-адреса</h3>
+                    <div class="comparison-table">
+                        <div class="comparison-item">
+                            <h4>🔄 Динамический IP</h4>
+                            <ul>
+                                <li>Меняется при каждом подключении к сети</li>
+                                <li>Используется у большинства домашних пользователей</li>
+                                <li>Назначается автоматически (DHCP-сервером)</li>
+                                <li>Экономит адресное пространство</li>
+                            </ul>
+                        </div>
+                        <div class="comparison-item">
+                            <h4>📌 Статический IP</h4>
+                            <ul>
+                                <li>Всегда остаётся неизменным</li>
+                                <li>Используется для серверов, хостингов</li>
+                                <li>Назначается вручную</li>
+                                <li>Нужен для постоянного доступа к устройству</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="example-block">
+                        <h4>Пример из жизни</h4>
+                        <p>Ваш домашний компьютер чаще всего получает <strong>динамический</strong> IP-адрес от провайдера. А веб-сайт Google имеет <strong>статический</strong> IP-адрес, чтобы пользователи всегда могли к нему обратиться.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Блок 4: Протоколы TCP/IP -->
+            <section id="protocols" class="lesson-section">
+                <h2>Протоколы TCP/IP</h2>
+                
+                <div class="theory-block">
+                    <h3>Что такое протокол?</h3>
+                    <p><strong>Протокол</strong> — это набор правил и стандартов, определяющих, как данные передаются по сети. Представьте, что это язык, на котором устройства общаются друг с другом.</p>
+                </div>
+
+                <div class="theory-block">
+                    <h3>Модель TCP/IP</h3>
+                    <p>Стек протоколов TCP/IP включает несколько уровней. Основные протоколы:</p>
+                    <ul>
+                        <li><strong>IP</strong> (Internet Protocol) — отвечает за доставку данных (маршрутизацию)</li>
+                        <li><strong>TCP</strong> (Transmission Control Protocol) — обеспечивает надёжную передачу данных с проверкой доставки</li>
+                        <li><strong>UDP</strong> (User Datagram Protocol) — быстрая передача без проверки доставки (для видео, аудио)</li>
+                    </ul>
+                    <div class="info-block">
+                        <h4>🔍 Как работает TCP?</h4>
+                        <p>TCP разбивает данные на маленькие пакеты, отправляет их по сети, а затем собирает в правильном порядке. Если какой-то пакет потерялся — TCP запрашивает его повторную отправку. Это как отправка книги по частям с проверкой, что все страницы дошли.</p>
+                    </div>
+                </div>
+
+                <div class="theory-block">
+                    <h3>Протоколы прикладного уровня</h3>
+                    <p>Над TCP/IP работают протоколы, которые мы используем каждый день:</p>
+                    <ul>
+                        <li><strong>HTTP</strong> (HyperText Transfer Protocol) — передача веб-страниц</li>
+                        <li><strong>HTTPS</strong> (HTTP Secure) — защищённая версия HTTP</li>
+                        <li><strong>FTP</strong> (File Transfer Protocol) — передача файлов</li>
+                        <li><strong>SMTP</strong> (Simple Mail Transfer Protocol) — отправка почты</li>
+                        <li><strong>DNS</strong> (Domain Name System) — преобразование доменных имён в IP-адреса</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Блок 5: HTTP и HTTPS -->
+            <section id="http" class="lesson-section">
+                <h2>HTTP и HTTPS</h2>
+                
+                <div class="theory-block">
+                    <h3>HTTP (HyperText Transfer Protocol)</h3>
+                    <p><strong>HTTP</strong> — это протокол, по которому веб-браузеры получают веб-страницы от серверов. Когда вы вводите адрес сайта, браузер отправляет HTTP-запрос, а сервер возвращает HTML-страницу.</p>
+                    <div class="example-block">
+                        <h4>Как работает HTTP:</h4>
+                        <ol>
+                            <li>Вы вводите <code>http://example.com</code></li>
+                            <li>Браузер отправляет HTTP-запрос на сервер</li>
+                            <li>Сервер обрабатывает запрос и отправляет ответ (HTML-страницу)</li>
+                            <li>Браузер отображает страницу</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="theory-block">
+                    <h3>HTTPS (HyperText Transfer Protocol Secure)</h3>
+                    <p><strong>HTTPS</strong> — это защищённая версия HTTP. Все данные между браузером и сервером <strong>шифруются</strong>. Это защищает информацию от перехвата злоумышленниками.</p>
+                    <div class="comparison-table">
+                        <div class="comparison-item">
+                            <h4>🔓 HTTP (небезопасный)</h4>
+                            <ul>
+                                <li>Данные передаются в открытом виде</li>
+                                <li>Информация может быть перехвачена</li>
+                                <li>Используется на старых сайтах</li>
+                                <li>Адрес начинается с <code>http://</code></li>
+                            </ul>
+                        </div>
+                        <div class="comparison-item">
+                            <h4>🔒 HTTPS (безопасный)</h4>
+                            <ul>
+                                <li>Данные шифруются</li>
+                                <li>Информация защищена от перехвата</li>
+                                <li>Используется на всех современных сайтах</li>
+                                <li>Адрес начинается с <code>https://</code></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="info-block">
+                        <h4>🛡️ Важно знать</h4>
+                        <p>Сегодня все крупные сайты используют HTTPS. Браузеры помечают сайты без HTTPS как <strong>«Небезопасные»</strong>. Это делается для защиты ваших паролей, данных банковских карт и личной информации.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Блок 6: DNS и MAC-адреса -->
+            <section id="dns" class="lesson-section">
+                <h2>DNS и MAC-адреса</h2>
+                
+                <div class="theory-block">
+                    <h3>DNS (Domain Name System)</h3>
+                    <p><strong>DNS</strong> — это «телефонная книга» Интернета. Он преобразует понятные человеку доменные имена (например, <code>google.com</code>) в числовые IP-адреса, понятные компьютерам.</p>
+                    <div class="example-block">
+                        <h4>Как работает DNS:</h4>
+                        <ol>
+                            <li>Вы вводите <code>google.com</code> в браузере</li>
+                            <li>Браузер обращается к DNS-серверу</li>
+                            <li>DNS-сервер возвращает IP-адрес: <code>142.250.185.78</code></li>
+                            <li>Браузер подключается к этому IP-адресу</li>
+                        </ol>
+                    </div>
+                    <div class="info-block">
+                        <h4>💡 Интересный факт</h4>
+                        <p>Самый первый домен <strong>symbolics.com</strong> был зарегистрирован в 1985 году. Сегодня в мире существует более <strong>300 миллионов</strong> зарегистрированных доменов.</p>
+                    </div>
+                </div>
+
+                <div class="theory-block">
+                    <h3>MAC-адреса</h3>
+                    <p><strong>MAC-адрес</strong> (Media Access Control) — это уникальный физический адрес сетевого устройства (например, сетевой карты). В отличие от IP-адреса, MAC-адрес «прошит» в устройстве на заводе и не меняется.</p>
+                    <div class="comparison-table">
+                        <div class="comparison-item">
+                            <h4>IP-адрес</h4>
+                            <ul>
+                                <li>Логический адрес (может меняться)</li>
+                                <li>Состоит из 4 чисел (IPv4)</li>
+                                <li>Определяет место устройства в сети</li>
+                                <li>Пример: <code>192.168.1.1</code></li>
+                            </ul>
+                        </div>
+                        <div class="comparison-item">
+                            <h4>MAC-адрес</h4>
+                            <ul>
+                                <li>Физический адрес (не меняется)</li>
+                                <li>Состоит из 6 байт в шестнадцатеричном виде</li>
+                                <li>Уникален для каждого устройства</li>
+                                <li>Пример: <code>00:1A:2B:3C:4D:5E</code></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="example-block">
+                        <h4>Как они работают вместе:</h4>
+                        <ol>
+                            <li>Устройство имеет MAC-адрес (физический «паспорт»)</li>
+                            <li>В сети оно получает IP-адрес («временная прописка»)</li>
+                            <li>Маршрутизаторы используют IP для доставки данных</li>
+                            <li>Внутри локальной сети данные передаются по MAC-адресам</li>
+                        </ol>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Блок 7: Презентация -->
+            <section id="presentation" class="lesson-section">
+                <h2>Презентация к уроку</h2>
+                <div class="presentation-wrapper">
+                    <div class="presentation-viewer">
+                        <iframe src="./pres11.pdf#toolbar=1&navpanes=1" 
+                                width="100%" 
+                                height="600px" 
+                                style="border: none; border-radius: 12px;"
+                                allow="fullscreen"
+                                title="Презентация к уроку">
+                            Ваш браузер не поддерживает просмотр PDF. 
+                            <a href="./pres11.pdf">Скачайте презентацию</a>
+                        </iframe>
+                    </div>
+                    <div class="presentation-download">
+                        <a href="./pres11.pdf" download class="btn-download">
+                            <span>⬇</span> Скачать презентацию (PDF)
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Блок 8: Тест -->
+            <section id="test" class="lesson-section">
+                <h2>Тест для самоконтроля</h2>
+                <p class="test-intro">Проверьте, как вы усвоили материал урока. Выберите правильный вариант ответа.</p>
+                
+                <form id="test-form" class="test-form">
+                    <!-- Вопрос 1 -->
+                    <div class="question">
+                        <p><strong>Вопрос 1.</strong> Что такое IP-адрес?</p>
+                        <div class="options">
+                            <label><input type="radio" name="q1" value="0"> Физический адрес устройства</label>
+                            <label><input type="radio" name="q1" value="1"> Уникальный числовой идентификатор устройства в сети</label>
+                            <label><input type="radio" name="q1" value="2"> Доменное имя сайта</label>
+                        </div>
+                    </div>
+
+                    <!-- Вопрос 2 -->
+                    <div class="question">
+                        <p><strong>Вопрос 2.</strong> Какой IP-адрес записан правильно?</p>
+                        <div class="options">
+                            <label><input type="radio" name="q2" value="0"> 192.168.1.1</label>
+                            <label><input type="radio" name="q2" value="1"> 192.168.1</label>
+                            <label><input type="radio" name="q2" value="2"> 192.168.1.1.1</label>
+                        </div>
+                    </div>
+
+                    <!-- Вопрос 3 -->
+                    <div class="question">
+                        <p><strong>Вопрос 3.</strong> Чем отличается статический IP от динамического?</p>
+                        <div class="options">
+                            <label><input type="radio" name="q3" value="0"> Статический меняется, динамический — нет</label>
+                            <label><input type="radio" name="q3" value="1"> Статический не меняется, динамический может меняться</label>
+                            <label><input type="radio" name="q3" value="2"> Ничем не отличаются</label>
+                        </div>
+                    </div>
+
+                    <!-- Вопрос 4 -->
+                    <div class="question">
+                        <p><strong>Вопрос 4.</strong> Для чего нужен протокол TCP?</p>
+                        <div class="options">
+                            <label><input type="radio" name="q4" value="0"> Для преобразования доменных имён в IP-адреса</label>
+                            <label><input type="radio" name="q4" value="1"> Для надёжной передачи данных с проверкой доставки</label>
+                            <label><input type="radio" name="q4" value="2"> Для шифрования данных</label>
+                        </div>
+                    </div>
+
+                    <!-- Вопрос 5 -->
+                    <div class="question">
+                        <p><strong>Вопрос 5.</strong> Что означает буква S в протоколе HTTPS?</p>
+                        <div class="options">
+                            <label><input type="radio" name="q5" value="0"> Simple (простой)</label>
+                            <label><input type="radio" name="q5" value="1"> Secure (безопасный)</label>
+                            <label><input type="radio" name="q5" value="2"> Super (супер)</label>
+                        </div>
+                    </div>
+
+                    <!-- Вопрос 6 -->
+                    <div class="question">
+                        <p><strong>Вопрос 6.</strong> Что делает DNS-сервер?</p>
+                        <div class="options">
+                            <label><input type="radio" name="q6" value="0"> Шифрует передаваемые данные</label>
+                            <label><input type="radio" name="q6" value="1"> Преобразует доменные имена в IP-адреса</label>
+                            <label><input type="radio" name="q6" value="2"> Раздаёт IP-адреса устройствам</label>
+                        </div>
+                    </div>
+
+                    <!-- Вопрос 7 -->
+                    <div class="question">
+                        <p><strong>Вопрос 7.</strong> Что такое MAC-адрес?</p>
+                        <div class="options">
+                            <label><input type="radio" name="q7" value="0"> Временный адрес устройства в сети</label>
+                            <label><input type="radio" name="q7" value="1"> Уникальный физический адрес сетевого устройства</label>
+                            <label><input type="radio" name="q7" value="2"> Адрес электронной почты</label>
+                        </div>
+                    </div>
+
+                    <!-- Вопрос 8 -->
+                    <div class="question">
+                        <p><strong>Вопрос 8.</strong> Сколько бит содержит IPv4-адрес?</p>
+                        <div class="options">
+                            <label><input type="radio" name="q8" value="0"> 16 бит</label>
+                            <label><input type="radio" name="q8" value="1"> 32 бита</label>
+                            <label><input type="radio" name="q8" value="2"> 128 бит</label>
+                        </div>
+                    </div>
+
+                    <div class="test-actions">
+                        <button type="button" id="check-test" class="btn-check">Проверить ответы</button>
+                        <button type="reset" class="btn-reset">Сбросить</button>
+                    </div>
+                </form>
+
+                <div id="test-result" class="test-result" style="display: none;">
+                    <h3>Результат теста</h3>
+                    <div class="result-score">
+                        <span class="score-number" id="score-number">0</span>
+                        <span class="score-total">/ 8</span>
+                    </div>
+                    <p class="result-message" id="result-message"></p>
+                    <div class="result-details" id="result-details"></div>
+                </div>
+            </section>
+
+            <!-- Блок 9: Домашнее задание -->
+            <section id="homework" class="lesson-section">
+                <h2>Домашнее задание</h2>
+                <div class="homework-content">
+                    <ol>
+                        <li>Изучите § 1 учебника «Организация сети Интернет».</li>
+                        <li>Запишите определения:
+                            <ul>
+                                <li>IP-адрес</li>
+                                <li>Протокол TCP/IP</li>
+                                <li>DNS</li>
+                                <li>MAC-адрес</li>
+                            </ul>
+                        </li>
+                        <li>Переведите IP-адрес <code>10.0.0.1</code> в двоичную систему счисления.</li>
+                        <li>В чём разница между HTTP и HTTPS? Почему HTTPS безопаснее?</li>
+                        <li>Что такое динамический IP-адрес? Приведите пример из жизни.</li>
+                        <li>Как вы думаете, почему для создания Интернета потребовались стандарты и протоколы?</li>
+                    </ol>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Подвал -->
+    <footer class="lesson-footer">
+        <div class="container">
+            <p>© 2026 Учитель информатики - Жосткин И.Н.</p>
+            <p>Все материалы сайта предназначены для образовательных целей</p>
+        </div>
+    </footer>
+
+    <script src="ur11.js"></script>
+</body>
+</html>
