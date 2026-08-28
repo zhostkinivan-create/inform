@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Урок 1. Объектно-событийная модель работы программы - Информатика 11 класс</title>
+    <link rel="stylesheet" href="ur11.css">
+</head>
+<body>
+    <!-- Шапка -->
+    <header class="lesson-header">
+        <div class="container">
+            <div class="breadcrumbs">
+                <a href="../../../index.html">Главная</a> &gt;
+                <a href="../../uroki.html">11 класс</a> &gt;
+                <span>Урок 1</span>
+            </div>
+            <h1>Урок 1. Объектно-событийная модель работы программы</h1>
+            <div class="lesson-meta">
+                <span class="class">11 класс</span>
+                <span class="subject">Информатика</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Основное содержание -->
+    <main class="lesson-content">
+        <div class="container">
+            
+            <!-- Навигация -->
+            <nav class="lesson-nav">
+                <ul>
+                    <li><a href="#safety">Правила безопасности</a></li>
+                    <li><a href="#intro">Введение</a></li>
+                    <li><a href="#paradigms">Парадигмы программирования</a></li>
+                    <li><a href="#oop">Объектно-ориентированное программирование</a></li>
+                    <li><a href="#event">Событийная модель</a></li>
+                    <li><a href="#visual">Визуальные среды разработки</a></li>
+                    <li><a href="#examples">Примеры</a></li>
+                    <li><a href="#presentation">Презентация</a></li>
+                    <li><a href="#test">Тест</a></li>
+                    <li><a href="#homework">Домашнее задание</a></li>
+                </ul>
+            </nav>
+
+            <!-- Блок 1: Правила безопасности -->
+            <section id="safety" class="lesson-section">
+                <h2>Правила безопасного поведения в компьютерном классе</h2>
+                <div class="safety-grid">
+                    <div class="safety-item">
+                        <span class="icon">🚶</span>
+                        <p>Входите в кабинет спокойно, не бегайте, не толкайтесь</p>
+                    </div>
+                    <div class="safety-item">
+                        <span class="icon">💻</span>
+                        <p>Работайте только за своим компьютером</p>
+                    </div>
+                    <div class="safety-item">
+                        <span class="icon">🖱️</span>
+                        <p>Не трогайте экран, провода и разъемы</p>
+                    </div>
+                    <div class="safety-item">
+                        <span class="icon">🍎</span>
+                        <p>Не ешьте и не пейте за компьютером</p>
+                    </div>
+                    <div class="safety-item">
+                        <span class="icon">⏱️</span>
+                        <p>Делайте перерывы через 20-25 минут работы</p>
+                    </div>
+                    <div class="safety-item">
+                        <span class="icon">👀</span>
+                        <p>Выполняйте гимнастику для глаз</p>
+                    </div>
+                    <div class="safety-item">
+                        <span class="icon">🧑‍🏫</span>
+                        <p>Сообщайте учителю о неисправностях</p>
+                    </div>
+                    <div class="safety-item">
+                        <span class="icon">🧹</span>
+                        <p>После работы уберите рабочее место</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Блок 2: Введение -->
+            <section id="intro" class="lesson-section">
+                <h2>Введение</h2>
+                <p>В 11 классе мы подходим к завершению школьного курса информатики. За предыдущие годы вы изучили основы алгоритмизации, познакомились с несколькими языками программирования (Python, PascalABC.NET), научились работать с исполнителями и решать различные задачи.</p>
+                <p>Сегодня мы познакомимся с <strong>объектно-событийной моделью</strong> — современным подходом к созданию программ, который используется в большинстве профессиональных приложений.</p>
+                <div class="info-block">
+                    <h4>📜 Историческая справка</h4>
+                    <p>Объектно-ориентированное программирование (ООП) зародилось в 1960-х годах с появлением языка <strong>Simula</strong>. Однако широкое распространение ООП получило в 1980-х с выходом языков <strong>C++</strong> и <strong>Smalltalk</strong>. Сегодня ООП — доминирующая парадигма в разработке программного обеспечения.</p>
+                </div>
+            </section>
+
+            <!-- Блок 3: Парадигмы программирования -->
+            <section id="paradigms" class="lesson-section">
+                <h2>Парадигмы программирования</h2>
+                
+                <div class="theory-block">
+                    <p><strong>Парадигма программирования</strong> — это совокупность идей и принципов, определяющих стиль написания программ.</p>
+                    
+                    <div class="comparison-table">
+                        <div class="comparison-item">
+                            <h4>📝 Процедурное программирование</h4>
+                            <ul>
+                                <li>Программа — это последовательность инструкций</li>
+                                <li>Используются процедуры и функции</li>
+                                <li>Данные и код разделены</li>
+                                <li><strong>Примеры:</strong> Pascal, C, Python (базовый уровень)</li>
+                            </ul>
+                        </div>
+                        <div class="comparison-item">
+                            <h4>🧩 Объектно-ориентированное программирование</h4>
+                            <ul>
+                                <li>Программа — это набор объектов</li>
+                                <li>Объекты содержат данные и методы</li>
+                                <li>Данные и код объединены</li>
+                                <li><strong>Примеры:</strong> Java, C++, Python, PascalABC.NET</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="info-block">
+                        <h4>💡 Кроме ООП и процедурного программирования, существуют:</h4>
+                        <ul>
+                            <li><strong>Функциональное программирование</strong> (Haskell, Lisp)</li>
+                            <li><strong>Логическое программирование</strong> (Prolog)</li>
+                            <li><strong>Аспектно-ориентированное программирование</strong></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Блок 4: ООП -->
+            <section id="oop" class="lesson-section">
+                <h2>Объектно-ориентированное программирование</h2>
+                
+                <div class="theory-block">
+                    <h3>Основные понятия ООП</h3>
+                    
+                    <div class="properties-grid">
+                        <div class="property-item">
+                            <h4>📦 Объект</h4>
+                            <p>Это сущность, которая имеет <strong>состояние</strong> (данные) и <strong>поведение</strong> (методы). В реальном мире объектом может быть автомобиль, человек, кофеварка.</p>
+                            <div class="example-block">
+                                <p><strong>Пример:</strong> Объект «Автомобиль» имеет состояние (цвет, скорость, марка) и поведение (ехать, тормозить, поворачивать).</p>
+                            </div>
+                        </div>
+                        
+                        <div class="property-item">
+                            <h4>📐 Класс</h4>
+                            <p>Это <strong>шаблон</strong> (описание) для создания объектов. Класс определяет, какие данные и методы будут у объектов.</p>
+                            <div class="example-block">
+                                <p><strong>Пример:</strong> Класс «Автомобиль» описывает, что у любого автомобиля есть цвет, скорость и методы движения.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="property-item">
+                            <h4>🔒 Инкапсуляция</h4>
+                            <p>Это сокрытие внутреннего состояния объекта от внешнего мира. Доступ к данным осуществляется через методы.</p>
+                            <div class="example-block">
+                                <p><strong>Пример:</strong> Вы не можете напрямую изменить скорость автомобиля — вы используете педаль газа (метод).</p>
+                            </div>
+                        </div>
+                        
+                        <div class="property-item">
+                            <h4>🧬 Наследование</h4>
+                            <p>Это возможность создавать новые классы на основе существующих, добавляя или изменяя их свойства.</p>
+                            <div class="example-block">
+                                <p><strong>Пример:</strong> Класс «Электромобиль» наследует свойства класса «Автомобиль» и добавляет новые (ёмкость батареи).</p>
+                            </div>
+                        </div>
+                        
+                        <div class="property-item">
+                            <h4>🎭 Полиморфизм</h4>
+                            <p>Это возможность использовать объекты разных классов через единый интерфейс.</p>
+                            <div class="example-block">
+                                <p><strong>Пример:</strong> Метод «ехать» работает и для бензинового автомобиля, и для электромобиля, но реализован по-разному.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Блок 5: Событийная модель -->
+            <section id="event" class="lesson-section">
+                <h2>Событийная модель</h2>
+                
+                <div class="theory-block">
+                    <h3>Что такое событие?</h3>
+                    <p><strong>Событие</strong> — это действие, которое происходит в программе (нажатие кнопки, движение мыши, загрузка страницы).</p>
+                    <p><strong>Событийная модель</strong> — это подход, при котором программа реагирует на события, а не просто выполняет последовательность команд.</p>
+                    
+                    <div class="comparison-table">
+                        <div class="comparison-item">
+                            <h4>📋 Линейная программа</h4>
+                            <ul>
+                                <li>Программа выполняется от начала до конца</li>
+                                <li>Порядок действий фиксирован</li>
+                                <li>Пользователь не может повлиять на ход выполнения</li>
+                                <li><strong>Пример:</strong> Консольное приложение</li>
+                            </ul>
+                        </div>
+                        <div class="comparison-item">
+                            <h4>🔄 Событийная программа</h4>
+                            <ul>
+                                <li>Программа ждёт событий</li>
+                                <li>Реагирует на действия пользователя</li>
+                                <li>Порядок действий определяется пользователем</li>
+                                <li><strong>Пример:</strong> Графическое приложение</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="theory-block">
+                    <h3>Объектно-событийная модель</h3>
+                    <p>В <strong>объектно-событийной модели</strong> объекты генерируют события, а другие объекты могут на них реагировать (обработчики событий).</p>
+                    
+                    <div class="example-block">
+                        <h4>Пример работы событийной модели:</h4>
+                        <ol>
+                            <li>Пользователь нажимает кнопку на форме (событие)</li>
+                            <li>Программа определяет, какая кнопка была нажата</li>
+                            <li>Вызывается обработчик события для этой кнопки</li>
+                            <li>Обработчик выполняет нужные действия</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="info-block">
+                        <h4>🖥️ Где используется событийная модель?</h4>
+                        <ul>
+                            <li>Графические интерфейсы пользователя (GUI)</li>
+                            <li>Веб-приложения (клики, скролл, ввод текста)</li>
+                            <li>Мобильные приложения</li>
+                            <li>Игры</li>
+                            <li>Операционные системы</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Блок 6: Визуальные среды разработки -->
+            <section id="visual" class="lesson-section">
+                <h2>Визуальные среды разработки</h2>
+                
+                <div class="theory-block">
+                    <p><strong>Визуальная среда разработки</strong> (Visual IDE) — это инструмент, который позволяет создавать программы, используя графические элементы, а не только код.</p>
+                    
+                    <div class="properties-grid">
+                        <div class="property-item">
+                            <h4>🖱️ Конструктор интерфейса</h4>
+                            <p>Позволяет перетаскивать элементы управления (кнопки, поля, списки) на форму и располагать их визуально.</p>
+                        </div>
+                        <div class="property-item">
+                            <h4>📋 Инспектор объектов</h4>
+                            <p>Показывает свойства выбранного элемента и позволяет их изменять без написания кода.</p>
+                        </div>
+                        <div class="property-item">
+                            <h4>⚡ Генерация кода</h4>
+                            <p>Среда автоматически создаёт код для визуальных элементов, который затем можно дополнить логикой.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-block">
+                        <h4>💻 Примеры визуальных сред:</h4>
+                        <ul>
+                            <li><strong>PascalABC.NET</strong> — встроенная среда для создания Windows-приложений</li>
+                            <li><strong>Visual Studio</strong> (C#, C++)</li>
+                            <li><strong>Delphi</strong> (Object Pascal)</li>
+                            <li><strong>Qt Designer</strong> (C++, Python)</li>
+                            <li><strong>Android Studio</strong> (мобильные приложения)</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Блок 7: Примеры -->
+            <section id="examples" class="lesson-section">
+                <h2>Примеры на PascalABC.NET</h2>
+                
+                <div class="theory-block">
+                    <h3>Пример 1. Простое оконное приложение</h3>
+                    <div class="example-block">
+                        <pre><code>program HelloForm;
+uses System.Windows.Forms;
+
+var
+  form: Form;
+  button: Button;
+
+begin
+  form := Form.Create;
+  form.Text := 'Привет, мир!';
+  form.Size := System.Drawing.Size.Create(300, 200);
+  
+  button := Button.Create;
+  button.Text := 'Нажми меня!';
+  button.Location := System.Drawing.Point.Create(100, 80);
+  button.Size := System.Drawing.Size.Create(100, 30);
+  
+  form.Controls.Add(button);
+  Application.Run(form);
+end.</code></pre>
+                        <p>В этом примере создаются объекты <code>form</code> (форма) и <code>button</code> (кнопка), которые затем отображаются на экране.</p>
+                    </div>
+                </div>
+
+                <div class="theory-block">
+                    <h3>Пример 2. Обработка события</h3>
+                    <div class="example-block">
+                        <pre><code>program ButtonClick;
+uses System.Windows.Forms;
+
+var
+  form: Form;
+  button: Button;
+
+procedure OnButtonClick(sender: object; e: EventArgs);
+begin
+  MessageBox.Show('Вы нажали кнопку!');
+end;
+
+begin
+  form := Form.Create;
+  form.Text := 'Событие';
+  
+  button := Button.Create;
+  button.Text := 'Нажми';
+  button.Location := System.Drawing.Point.Create(100, 80);
+  button.Click += OnButtonClick;  // Подключение обработчика
+  
+  form.Controls.Add(button);
+  Application.Run(form);
+end.</code></pre>
+                        <p>Здесь метод <code>OnButtonClick</code> будет вызван, когда пользователь нажмёт на кнопку.</p>
+                    </div>
+                </div>
+
+                <div class="theory-block">
+                    <h3>Пример 3. Визуальный конструктор</h3>
+                    <p>В среде PascalABC.NET можно создавать формы визуально, не написав ни строчки кода. Затем можно добавить обработчики событий для элементов.</p>
+                    <div class="example-block">
+                        <h4>Этапы создания приложения в визуальной среде:</h4>
+                        <ol>
+                            <li>Создать новый проект «Windows Forms Application»</li>
+                            <li>Перетащить элементы управления на форму</li>
+                            <li>Настроить свойства элементов (текст, размер, цвет)</li>
+                            <li>Дважды щёлкнуть по элементу для создания обработчика</li>
+                            <li>Написать код в обработчике события</li>
+                            <li>Запустить приложение</li>
+                        </ol>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Блок 8: Презентация -->
+            <section id="presentation" class="lesson-section">
+                <h2>Презентация к уроку</h2>
+                <div class="presentation-wrapper">
+                    <div class="presentation-viewer">
+                        <iframe src="./pres11.pdf#toolbar=1&navpanes=1" 
+                                width="100%" 
+                                height="600px" 
+                                style="border: none; border-radius: 12px;"
+                                allow="fullscreen"
+                                title="Презентация к уроку">
+                            Ваш браузер не поддерживает просмотр PDF. 
+                            <a href="./pres11.pdf">Скачайте презентацию</a>
+                        </iframe>
+                    </div>
+                    <div class="presentation-download">
+                        <a href="./pres11.pdf" download class="btn-download">
+                            <span>⬇</span> Скачать презентацию (PDF)
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Блок 9: Тест -->
+            <section id="test" class="lesson-section">
+                <h2>Тест для самоконтроля</h2>
+                <p class="test-intro">Проверьте, как вы усвоили материал урока. Выберите правильный вариант ответа.</p>
+                
+                <form id="test-form" class="test-form">
+                    <div class="question">
+                        <p><strong>Вопрос 1.</strong> Что такое объект в ООП?</p>
+                        <div class="options">
+                            <label><input type="radio" name="q1" value="0"> Шаблон для создания программ</label>
+                            <label><input type="radio" name="q1" value="1"> Сущность, имеющая состояние и поведение</label>
+                            <label><input type="radio" name="q1" value="2"> Функция, выполняющая действия</label>
+                        </div>
+                    </div>
+
+                    <div class="question">
+                        <p><strong>Вопрос 2.</strong> Что такое событие в программировании?</p>
+                        <div class="options">
+                            <label><input type="radio" name="q2" value="0"> Последовательность инструкций</label>
+                            <label><input type="radio" name="q2" value="1"> Действие, на которое программа может реагировать</label>
+                            <label><input type="radio" name="q2" value="2"> Объект, содержащий данные</label>
+                        </div>
+                    </div>
+
+                    <div class="question">
+                        <p><strong>Вопрос 3.</strong> Какая парадигма программирования доминирует в современной разработке?</p>
+                        <div class="options">
+                            <label><input type="radio" name="q3" value="0"> Процедурное программирование</label>
+                            <label><input type="radio" name="q3" value="1"> Объектно-ориентированное программирование</label>
+                            <label><input type="radio" name="q3" value="2"> Функциональное программирование</label>
+                        </div>
+                    </div>
+
+                    <div class="question">
+                        <p><strong>Вопрос 4.</strong> Что такое инкапсуляция?</p>
+                        <div class="options">
+                            <label><input type="radio" name="q4" value="0"> Создание новых классов на основе существующих</label>
+                            <label><input type="radio" name="q4" value="1"> Сокрытие внутреннего состояния объекта</label>
+                            <label><input type="radio" name="q4" value="2"> Использование объектов разных классов через единый интерфейс</label>
+                        </div>
+                    </div>
+
+                    <div class="question">
+                        <p><strong>Вопрос 5.</strong> В чём особенность событийной модели программы?</p>
+                        <div class="options">
+                            <label><input type="radio" name="q5" value="0"> Программа выполняется последовательно от начала до конца</label>
+                            <label><input type="radio" name="q5" value="1"> Программа ждёт событий и реагирует на них</label>
+                            <label><input type="radio" name="q5" value="2"> Программа не может взаимодействовать с пользователем</label>
+                        </div>
+                    </div>
+
+                    <div class="question">
+                        <p><strong>Вопрос 6.</strong> Что такое визуальная среда разработки?</p>
+                        <div class="options">
+                            <label><input type="radio" name="q6" value="0"> Программа для написания кода в командной строке</label>
+                            <label><input type="radio" name="q6" value="1"> Инструмент для создания программ с графическими элементами</label>
+                            <label><input type="radio" name="q6" value="2"> Язык программирования</label>
+                        </div>
+                    </div>
+
+                    <div class="test-actions">
+                        <button type="button" id="check-test" class="btn-check">Проверить ответы</button>
+                        <button type="reset" class="btn-reset">Сбросить</button>
+                    </div>
+                </form>
+
+                <div id="test-result" class="test-result" style="display: none;">
+                    <h3>Результат теста</h3>
+                    <div class="result-score">
+                        <span class="score-number" id="score-number">0</span>
+                        <span class="score-total">/ 6</span>
+                    </div>
+                    <p class="result-message" id="result-message"></p>
+                    <div class="result-details" id="result-details"></div>
+                </div>
+            </section>
+
+            <!-- Блок 10: Домашнее задание -->
+            <section id="homework" class="lesson-section">
+                <h2>Домашнее задание</h2>
+                <div class="homework-content">
+                    <ol>
+                        <li>Изучите § 1 учебника «Объектно-событийная модель работы программы».</li>
+                        <li>Запишите определения:
+                            <ul>
+                                <li>Объект и класс</li>
+                                <li>Инкапсуляция, наследование, полиморфизм</li>
+                                <li>Событие и обработчик события</li>
+                            </ul>
+                        </li>
+                        <li>Приведите 3 примера объектов из реального мира с их свойствами и методами.</li>
+                        <li>В чём разница между процедурным и объектно-ориентированным программированием?</li>
+                        <li>Почему событийная модель важна для создания графических приложений?</li>
+                        <li>* Попробуйте создать простое приложение в PascalABC.NET с кнопкой, которая меняет свой текст при нажатии.</li>
+                    </ol>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Подвал -->
+    <footer class="lesson-footer">
+        <div class="container">
+            <p>© 2026 Учитель информатики - Жосткин И.Н.</p>
+            <p>Все материалы сайта предназначены для образовательных целей</p>
+        </div>
+    </footer>
+
+    <script src="ur11.js"></script>
+</body>
+</html>
