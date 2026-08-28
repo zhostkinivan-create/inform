@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Урок 1. Алгоритм и его свойства. Языки программирования - Информатика 10 класс</title>
+    <link rel="stylesheet" href="ur11.css">
+</head>
+<body>
+    <!-- Шапка -->
+    <header class="lesson-header">
+        <div class="container">
+            <div class="breadcrumbs">
+                <a href="../../../index.html">Главная</a> &gt;
+                <a href="../../uroki.html">10 класс</a> &gt;
+                <span>Урок 1</span>
+            </div>
+            <h1>Урок 1. Алгоритм и его свойства. Языки программирования</h1>
+            <div class="lesson-meta">
+                <span class="class">10 класс</span>
+                <span class="subject">Информатика</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Основное содержание -->
+    <main class="lesson-content">
+        <div class="container">
+            
+            <!-- Навигация -->
+            <nav class="lesson-nav">
+                <ul>
+                    <li><a href="#safety">Правила безопасности</a></li>
+                    <li><a href="#intro">Введение</a></li>
+                    <li><a href="#algorithm">Понятие алгоритма</a></li>
+                    <li><a href="#properties">Свойства алгоритмов</a></li>
+                    <li><a href="#languages">Языки программирования</a></li>
+                    <li><a href="#pascal">PascalABC.NET</a></li>
+                    <li><a href="#examples">Примеры</a></li>
+                    <li><a href="#presentation">Презентация</a></li>
+                    <li><a href="#test">Тест</a></li>
+                    <li><a href="#homework">Домашнее задание</a></li>
+                </ul>
+            </nav>
+
+            <!-- Блок 1: Правила безопасности -->
+            <section id="safety" class="lesson-section">
+                <h2>Правила безопасного поведения в компьютерном классе</h2>
+                <div class="safety-grid">
+                    <div class="safety-item">
+                        <span class="icon">🚶</span>
+                        <p>Входите в кабинет спокойно, не бегайте, не толкайтесь</p>
+                    </div>
+                    <div class="safety-item">
+                        <span class="icon">💻</span>
+                        <p>Работайте только за своим компьютером</p>
+                    </div>
+                    <div class="safety-item">
+                        <span class="icon">🖱️</span>
+                        <p>Не трогайте экран, провода и разъемы</p>
+                    </div>
+                    <div class="safety-item">
+                        <span class="icon">🍎</span>
+                        <p>Не ешьте и не пейте за компьютером</p>
+                    </div>
+                    <div class="safety-item">
+                        <span class="icon">⏱️</span>
+                        <p>Делайте перерывы через 20-25 минут работы</p>
+                    </div>
+                    <div class="safety-item">
+                        <span class="icon">👀</span>
+                        <p>Выполняйте гимнастику для глаз</p>
+                    </div>
+                    <div class="safety-item">
+                        <span class="icon">🧑‍🏫</span>
+                        <p>Сообщайте учителю о неисправностях</p>
+                    </div>
+                    <div class="safety-item">
+                        <span class="icon">🧹</span>
+                        <p>После работы уберите рабочее место</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Блок 2: Введение -->
+            <section id="intro" class="lesson-section">
+                <h2>Введение</h2>
+                <p>В 10 классе мы переходим к более серьёзному изучению программирования. Вы уже знакомы с основами алгоритмизации, работали с исполнителями (Черепаха, Робот) и изучали Python. Теперь мы познакомимся с языком <strong>PascalABC.NET</strong> — мощным инструментом для решения учебных и практических задач.</p>
+                <p>На этом уроке мы разберемся, что такое алгоритм, какими свойствами он обладает, и как алгоритмы превращаются в программы на языках программирования.</p>
+                <div class="info-block">
+                    <h4>📜 Историческая справка</h4>
+                    <p>Слово <strong>«алгоритм»</strong> происходит от имени великого средневекового математика <strong>Мухаммеда ибн Мусы аль-Хорезми</strong> (ок. 783–850). Он жил в Багдаде и написал книгу «О сложении и вычитании», где описал правила выполнения арифметических действий. Его имя в латинской транскрипции — <em>Algorithmi</em> — дало название понятию «алгоритм».</p>
+                </div>
+            </section>
+
+            <!-- Блок 3: Понятие алгоритма -->
+            <section id="algorithm" class="lesson-section">
+                <h2>Понятие алгоритма</h2>
+                
+                <div class="theory-block">
+                    <h3>Что такое алгоритм?</h3>
+                    <p><strong>Алгоритм</strong> — это точное и понятное предписание исполнителю выполнить последовательность действий, направленную на решение поставленной задачи.</p>
+                    <div class="example-block">
+                        <h4>Примеры алгоритмов из жизни:</h4>
+                        <ul>
+                            <li><strong>Рецепт приготовления блюда</strong> — последовательность действий для получения результата</li>
+                            <li><strong>Инструкция по сборке мебели</strong> — чёткие шаги, которые нужно выполнить</li>
+                            <li><strong>Правила перехода дороги</strong>: остановиться, посмотреть налево, направо, затем перейти</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="theory-block">
+                    <h3>Исполнитель алгоритма</h3>
+                    <p><strong>Исполнитель</strong> — это субъект (человек или устройство), который может понять и выполнить команды алгоритма.</p>
+                    <ul>
+                        <li><strong>Человек</strong> — может выполнять алгоритмы, следуя инструкциям</li>
+                        <li><strong>Компьютер</strong> — главный исполнитель алгоритмов в информатике</li>
+                        <li><strong>Робот</strong> — техническое устройство, выполняющее алгоритмы</li>
+                    </ul>
+                    <div class="info-block">
+                        <h4>💡 Важно!</h4>
+                        <p>Алгоритм должен быть записан на языке, который <strong>понимает исполнитель</strong>. Для компьютера это язык программирования, для человека — естественный язык (русский, белорусский и т.д.)</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Блок 4: Свойства алгоритмов -->
+            <section id="properties" class="lesson-section">
+                <h2>Свойства алгоритмов</h2>
+                
+                <div class="theory-block">
+                    <p>Любой алгоритм должен обладать следующими свойствами:</p>
+                    
+                    <div class="properties-grid">
+                        <div class="property-item">
+                            <h4>1️⃣ Дискретность</h4>
+                            <p>Алгоритм состоит из отдельных шагов (команд), которые выполняются последовательно. Каждый шаг должен быть чётко определён.</p>
+                            <div class="example-block">
+                                <p><strong>Пример:</strong> Инструкция «Помыть руки»: <br>1. Открыть кран <br>2. Намочить руки <br>3. Нанести мыло <br>4. Смыть мыло <br>5. Закрыть кран</p>
+                            </div>
+                        </div>
+                        
+                        <div class="property-item">
+                            <h4>2️⃣ Определённость (Детерминированность)</h4>
+                            <p>Каждая команда должна быть однозначно понята исполнителем. Не должно быть двусмысленности.</p>
+                            <div class="example-block">
+                                <p><strong>Пример:</strong> Плохой алгоритм: «Добавить немного соли». <br>Хороший алгоритм: «Добавить 5 граммов соли».</p>
+                            </div>
+                        </div>
+                        
+                        <div class="property-item">
+                            <h4>3️⃣ Результативность</h4>
+                            <p>Алгоритм должен обязательно привести к результату за конечное число шагов.</p>
+                            <div class="example-block">
+                                <p><strong>Пример:</strong> Алгоритм вычисления суммы чисел всегда даёт результат.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="property-item">
+                            <h4>4️⃣ Массовость</h4>
+                            <p>Алгоритм должен быть применим к целому классу задач, а не только к одной конкретной.</p>
+                            <div class="example-block">
+                                <p><strong>Пример:</strong> Алгоритм сложения двух чисел работает для любых чисел, а не только для 2+2.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="property-item">
+                            <h4>5️⃣ Понятность</h4>
+                            <p>Алгоритм должен быть записан на языке, понятном исполнителю.</p>
+                            <div class="example-block">
+                                <p><strong>Пример:</strong> Для компьютера алгоритм должен быть записан на языке программирования, а для человека — на естественном языке.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Блок 5: Языки программирования -->
+            <section id="languages" class="lesson-section">
+                <h2>Языки программирования</h2>
+                
+                <div class="theory-block">
+                    <h3>Что такое язык программирования?</h3>
+                    <p><strong>Язык программирования</strong> — это формальный язык, предназначенный для записи алгоритмов в виде, понятном компьютеру.</p>
+                    <p>Существует множество языков программирования. Их можно классифицировать по разным признакам:</p>
+                    
+                    <div class="comparison-table">
+                        <div class="comparison-item">
+                            <h4>📊 По уровню</h4>
+                            <ul>
+                                <li><strong>Низкого уровня</strong> (машинные коды, ассемблер) — близки к процессору</li>
+                                <li><strong>Высокого уровня</strong> (Pascal, Python, Java) — близки к человеческому языку</li>
+                            </ul>
+                        </div>
+                        <div class="comparison-item">
+                            <h4>🎯 По назначению</h4>
+                            <ul>
+                                <li><strong>Универсальные</strong> (Pascal, C++) — для любых задач</li>
+                                <li><strong>Специализированные</strong> (SQL, HTML) — для конкретных областей</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="theory-block">
+                    <h3>Поколения языков программирования</h3>
+                    <ul>
+                        <li><strong>1 поколение (1940-1950)</strong> — машинные коды (0 и 1)</li>
+                        <li><strong>2 поколение (1950-1960)</strong> — ассемблер (символьные обозначения)</li>
+                        <li><strong>3 поколение (1960-1980)</strong> — языки высокого уровня (Fortran, Pascal, C)</li>
+                        <li><strong>4 поколение (1980-1990)</strong> — языки для работы с базами данных (SQL)</li>
+                        <li><strong>5 поколение (1990-…)</strong> — языки искусственного интеллекта (Prolog, Lisp)</li>
+                    </ul>
+                    <div class="info-block">
+                        <h4>💡 Интересный факт</h4>
+                        <p>Первый язык программирования высокого уровня — <strong>Plankalkül</strong> — был разработан в 1940-х годах Конрадом Цузе, но не был реализован. Первым реализованным языком считается <strong>Fortran</strong> (1957 год).</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Блок 6: PascalABC.NET -->
+            <section id="pascal" class="lesson-section">
+                <h2>PascalABC.NET</h2>
+                
+                <div class="theory-block">
+                    <h3>История Pascal</h3>
+                    <p>Язык <strong>Pascal</strong> был создан в 1970 году швейцарским учёным <strong>Никлаусом Виртом</strong>. Он назвал его в честь французского математика и философа <strong>Блеза Паскаля</strong>.</p>
+                    <p><strong>PascalABC.NET</strong> — это современная версия языка Pascal, разработанная в России. Она сочетает классический синтаксис Pascal с возможностями платформы .NET.</p>
+                    <div class="info-block">
+                        <h4>✨ Особенности PascalABC.NET:</h4>
+                        <ul>
+                            <li>Бесплатный и простой в использовании</li>
+                            <li>Встроенная среда разработки (IDE)</li>
+                            <li>Поддержка объектно-ориентированного программирования</li>
+                            <li>Мощная стандартная библиотека</li>
+                            <li>Отличный выбор для обучения программированию</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="theory-block">
+                    <h3>Структура программы на Pascal</h3>
+                    <div class="example-block">
+                        <h4>Базовая структура:</h4>
+                        <pre><code>program HelloWorld;      // Заголовок программы
+uses crt;                // Подключение модулей
+var                      // Описание переменных
+  a, b: integer;
+begin                    // Начало программы
+  writeln('Hello, World!');  // Вывод на экран
+end.                     // Конец программы</code></pre>
+                    </div>
+                    <ul>
+                        <li><strong>program</strong> — заголовок программы (можно опускать)</li>
+                        <li><strong>uses</strong> — подключение дополнительных модулей</li>
+                        <li><strong>var</strong> — раздел описания переменных</li>
+                        <li><strong>begin</strong> — начало выполнения программы</li>
+                        <li><strong>end.</strong> — конец программы (точка обязательна)</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Блок 7: Примеры -->
+            <section id="examples" class="lesson-section">
+                <h2>Примеры программ на PascalABC.NET</h2>
+                
+                <div class="theory-block">
+                    <h3>Пример 1. Вывод на экран</h3>
+                    <div class="example-block">
+                        <pre><code>program Hello;
+begin
+  writeln('Привет, мир!');
+  writeln('Это моя первая программа');
+end.</code></pre>
+                        <p>Команда <code>writeln</code> выводит текст на экран и переводит курсор на новую строку.</p>
+                    </div>
+                </div>
+
+                <div class="theory-block">
+                    <h3>Пример 2. Сложение двух чисел</h3>
+                    <div class="example-block">
+                        <pre><code>program Sum;
+var
+  a, b, c: integer;
+begin
+  write('Введите первое число: ');
+  readln(a);
+  write('Введите второе число: ');
+  readln(b);
+  c := a + b;
+  writeln('Сумма чисел: ', c);
+end.</code></pre>
+                        <ul>
+                            <li><code>write</code> — вывод без перевода строки</li>
+                            <li><code>readln</code> — ввод значения с клавиатуры</li>
+                            <li><code>:=</code> — оператор присваивания</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="theory-block">
+                    <h3>Пример 3. Ветвление (if)</h3>
+                    <div class="example-block">
+                        <pre><code>program CheckNumber;
+var
+  number: integer;
+begin
+  write('Введите число: ');
+  readln(number);
+  if number > 0 then
+    writeln('Число положительное')
+  else if number < 0 then
+    writeln('Число отрицательное')
+  else
+    writeln('Число равно нулю');
+end.</code></pre>
+                        <p>Конструкция <code>if-else</code> позволяет выполнять разные действия в зависимости от условия.</p>
+                    </div>
+                </div>
+
+                <div class="theory-block">
+                    <h3>Пример 4. Цикл (for)</h3>
+                    <div class="example-block">
+                        <pre><code>program CountTo10;
+var
+  i: integer;
+begin
+  for i := 1 to 10 do
+    writeln('Шаг номер ', i);
+end.</code></pre>
+                        <p>Цикл <code>for</code> выполняется заданное количество раз.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Блок 8: Презентация -->
+            <section id="presentation" class="lesson-section">
+                <h2>Презентация к уроку</h2>
+                <div class="presentation-wrapper">
+                    <div class="presentation-viewer">
+                        <iframe src="./pres11.pdf#toolbar=1&navpanes=1" 
+                                width="100%" 
+                                height="600px" 
+                                style="border: none; border-radius: 12px;"
+                                allow="fullscreen"
+                                title="Презентация к уроку">
+                            Ваш браузер не поддерживает просмотр PDF. 
+                            <a href="./pres11.pdf">Скачайте презентацию</a>
+                        </iframe>
+                    </div>
+                    <div class="presentation-download">
+                        <a href="./pres11.pdf" download class="btn-download">
+                            <span>⬇</span> Скачать презентацию (PDF)
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Блок 9: Тест -->
+            <section id="test" class="lesson-section">
+                <h2>Тест для самоконтроля</h2>
+                <p class="test-intro">Проверьте, как вы усвоили материал урока. Выберите правильный вариант ответа.</p>
+                
+                <form id="test-form" class="test-form">
+                    <div class="question">
+                        <p><strong>Вопрос 1.</strong> Что такое алгоритм?</p>
+                        <div class="options">
+                            <label><input type="radio" name="q1" value="0"> Программа на языке программирования</label>
+                            <label><input type="radio" name="q1" value="1"> Точное предписание исполнителю выполнить последовательность действий</label>
+                            <label><input type="radio" name="q1" value="2"> Устройство компьютера</label>
+                        </div>
+                    </div>
+
+                    <div class="question">
+                        <p><strong>Вопрос 2.</strong> Какое свойство алгоритма означает, что он состоит из отдельных шагов?</p>
+                        <div class="options">
+                            <label><input type="radio" name="q2" value="0"> Результативность</label>
+                            <label><input type="radio" name="q2" value="1"> Дискретность</label>
+                            <label><input type="radio" name="q2" value="2"> Массовость</label>
+                        </div>
+                    </div>
+
+                    <div class="question">
+                        <p><strong>Вопрос 3.</strong> Кто создал язык программирования Pascal?</p>
+                        <div class="options">
+                            <label><input type="radio" name="q3" value="0"> Блез Паскаль</label>
+                            <label><input type="radio" name="q3" value="1"> Никлаус Вирт</label>
+                            <label><input type="radio" name="q3" value="2"> Мухаммед аль-Хорезми</label>
+                        </div>
+                    </div>
+
+                    <div class="question">
+                        <p><strong>Вопрос 4.</strong> Какая команда в Pascal используется для вывода данных на экран?</p>
+                        <div class="options">
+                            <label><input type="radio" name="q4" value="0"> readln</label>
+                            <label><input type="radio" name="q4" value="1"> writeln</label>
+                            <label><input type="radio" name="q4" value="2"> begin</label>
+                        </div>
+                    </div>
+
+                    <div class="question">
+                        <p><strong>Вопрос 5.</strong> Что означает свойство алгоритма «массовость»?</p>
+                        <div class="options">
+                            <label><input type="radio" name="q5" value="0"> Алгоритм должен выполняться за конечное число шагов</label>
+                            <label><input type="radio" name="q5" value="1"> Алгоритм должен быть применим к целому классу задач</label>
+                            <label><input type="radio" name="q5" value="2"> Алгоритм должен быть понятен исполнителю</label>
+                        </div>
+                    </div>
+
+                    <div class="question">
+                        <p><strong>Вопрос 6.</strong> Как называется раздел программы на Pascal, где описываются переменные?</p>
+                        <div class="options">
+                            <label><input type="radio" name="q6" value="0"> begin</label>
+                            <label><input type="radio" name="q6" value="1"> var</label>
+                            <label><input type="radio" name="q6" value="2"> uses</label>
+                        </div>
+                    </div>
+
+                    <div class="test-actions">
+                        <button type="button" id="check-test" class="btn-check">Проверить ответы</button>
+                        <button type="reset" class="btn-reset">Сбросить</button>
+                    </div>
+                </form>
+
+                <div id="test-result" class="test-result" style="display: none;">
+                    <h3>Результат теста</h3>
+                    <div class="result-score">
+                        <span class="score-number" id="score-number">0</span>
+                        <span class="score-total">/ 6</span>
+                    </div>
+                    <p class="result-message" id="result-message"></p>
+                    <div class="result-details" id="result-details"></div>
+                </div>
+            </section>
+
+            <!-- Блок 10: Домашнее задание -->
+            <section id="homework" class="lesson-section">
+                <h2>Домашнее задание</h2>
+                <div class="homework-content">
+                    <ol>
+                        <li>Изучите § 1-2 учебника «Алгоритм и его свойства. Языки программирования».</li>
+                        <li>Запишите определения:
+                            <ul>
+                                <li>Алгоритм</li>
+                                <li>Исполнитель алгоритма</li>
+                                <li>Язык программирования</li>
+                                <li>Дискретность алгоритма</li>
+                            </ul>
+                        </li>
+                        <li>Приведите 3 примера алгоритмов из повседневной жизни (не из учебника).</li>
+                        <li>Напишите на Pascal программу, которая запрашивает у пользователя два числа и выводит их произведение.</li>
+                        <li>Что такое массовость алгоритма? Приведите пример.</li>
+                        <li>В чём разница между языками программирования низкого и высокого уровня?</li>
+                    </ol>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Подвал -->
+    <footer class="lesson-footer">
+        <div class="container">
+            <p>© 2026 Учитель информатики - Жосткин И.Н.</p>
+            <p>Все материалы сайта предназначены для образовательных целей</p>
+        </div>
+    </footer>
+
+    <script src="ur11.js"></script>
+</body>
+</html>
