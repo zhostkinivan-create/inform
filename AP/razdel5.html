@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Раздел 5. Сроки и исковая давность</title>
+<style>
+  :root{--bg:#f5f7fa;--card:#fff;--text:#1a2332;--muted:#5a6a80;--accent:#1e5a96;--accent-hover:#164a7d;--border:#d8e0ea;--success:#1e7d4e;--error:#b03a3a;--warning:#a8761f;--shadow:0 2px 8px rgba(0,0,0,.06)}
+  [data-theme="dark"]{--bg:#141a24;--card:#1d2532;--text:#e6ecf3;--muted:#93a3b8;--accent:#4a8fd1;--accent-hover:#6aa7e0;--border:#2c3a4d;--success:#4caf7d;--error:#e07a7a;--warning:#d4a548;--shadow:0 2px 8px rgba(0,0,0,.3)}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.65;transition:background .3s,color .3s}
+  .layout{display:flex;min-height:100vh}
+  .sidebar{width:320px;background:var(--card);border-right:1px solid var(--border);padding:20px 16px;position:fixed;top:0;left:0;bottom:0;overflow-y:auto;transition:transform .3s;z-index:100}
+  .sidebar-header{margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--border)}
+  .sidebar-header h1{font-size:17px;color:var(--accent);margin-bottom:6px}
+  .sidebar-header p{font-size:12px;color:var(--muted)}
+  .search-box{width:100%;padding:8px 12px;margin-bottom:14px;border:1px solid var(--border);border-radius:8px;background:var(--bg);color:var(--text);font-size:14px}
+  .search-box:focus{outline:2px solid var(--accent)}
+  .progress-wrap{margin-bottom:14px}
+  .progress-label{font-size:12px;color:var(--muted);margin-bottom:6px;display:flex;justify-content:space-between}
+  .progress-bar-bg{height:8px;background:var(--border);border-radius:4px;overflow:hidden}
+  .progress-bar-fill{height:100%;background:var(--accent);width:0%;transition:width .4s}
+  .nav-section{margin-bottom:6px}
+  .nav-section-title{font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;padding:10px 8px 6px}
+  .nav-list{list-style:none}
+  .nav-list li a{display:flex;align-items:center;gap:6px;padding:7px 10px;font-size:13.5px;color:var(--text);text-decoration:none;border-radius:6px;margin-bottom:2px;transition:background .15s}
+  .nav-list li a:hover{background:var(--bg);color:var(--accent)}
+  .nav-list li a.active{background:var(--accent);color:#fff}
+  .nav-list li a .check{color:var(--success);font-weight:bold}
+  .nav-list li a.active .check{color:#c8f5d8}
+  .main{flex:1;margin-left:320px;padding:32px 40px 80px;max-width:900px}
+  .topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;gap:12px;flex-wrap:wrap}
+  .topbar .breadcrumb{font-size:13px;color:var(--muted)}
+  .btn{padding:8px 14px;border:1px solid var(--border);background:var(--card);color:var(--text);border-radius:8px;cursor:pointer;font-size:13.5px;transition:all .2s;text-decoration:none;display:inline-block}
+  .btn:hover{border-color:var(--accent);color:var(--accent)}
+  .btn-primary{background:var(--accent);color:#fff;border-color:var(--accent)}
+  .btn-primary:hover{background:var(--accent-hover);color:#fff}
+  .ticket{display:none;animation:fade .3s}
+  .ticket.active{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  .ticket h2{font-size:24px;color:var(--accent);margin-bottom:6px;line-height:1.3}
+  .ticket .subtitle{font-size:14px;color:var(--muted);margin-bottom:22px;padding-bottom:14px;border-bottom:2px solid var(--border)}
+  .ticket h3{font-size:18px;margin:26px 0 12px;color:var(--text);border-left:4px solid var(--accent);padding-left:10px}
+  .ticket h4{font-size:15.5px;margin:18px 0 8px;color:var(--accent)}
+  .ticket p{margin-bottom:12px}
+  .ticket ul,.ticket ol{margin:0 0 14px 24px}
+  .ticket li{margin-bottom:6px}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px 20px;margin:16px 0;box-shadow:var(--shadow)}
+  .card.note{border-left:4px solid var(--accent)}
+  .card.warn{border-left:4px solid var(--warning);background:rgba(168,118,31,.06)}
+  .card.law{border-left:4px solid var(--success);background:rgba(30,125,78,.05)}
+  .card-title{font-weight:700;margin-bottom:8px;font-size:14.5px}
+  .card.note .card-title{color:var(--accent)}
+  .card.warn .card-title{color:var(--warning)}
+  .card.law .card-title{color:var(--success)}
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px}
+  th,td{border:1px solid var(--border);padding:9px 12px;text-align:left;vertical-align:top}
+  th{background:var(--bg);font-weight:700}
+  .tasks-header{margin:34px 0 16px;padding:12px 18px;background:linear-gradient(90deg,var(--accent),var(--accent-hover));color:#fff;border-radius:10px;font-size:17px;font-weight:700}
+  .task{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px 20px;margin-bottom:16px;box-shadow:var(--shadow)}
+  .task-title{font-weight:700;margin-bottom:10px;color:var(--accent);font-size:15px}
+  .task .question{margin-bottom:12px}
+  .options{list-style:none;margin:0 0 12px 0}
+  .options li{margin-bottom:6px}
+  .options label{display:flex;gap:9px;align-items:flex-start;padding:8px 12px;border:1px solid var(--border);border-radius:8px;cursor:pointer;transition:all .15s;font-size:14px}
+  .options label:hover{border-color:var(--accent);background:var(--bg)}
+  .options input{margin-top:4px;accent-color:var(--accent)}
+  .options label.correct{border-color:var(--success);background:rgba(30,125,78,.1)}
+  .options label.wrong{border-color:var(--error);background:rgba(176,58,58,.1)}
+  .feedback{margin-top:10px;font-size:14px;padding:10px 14px;border-radius:8px;display:none}
+  .feedback.show{display:block}
+  .feedback.ok{background:rgba(30,125,78,.12);color:var(--success);border-left:3px solid var(--success)}
+  .feedback.bad{background:rgba(176,58,58,.1);color:var(--error);border-left:3px solid var(--error)}
+  .feedback .explain{display:block;margin-top:6px;color:var(--text);font-size:13.5px}
+  .match-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}
+  .match-item{padding:8px 12px;border:1px solid var(--border);border-radius:8px;font-size:14px}
+  .match-item.left{background:var(--bg);font-weight:600}
+  .match-item select{width:100%;padding:6px 8px;border:1px solid var(--border);border-radius:6px;background:var(--card);color:var(--text);font-size:14px}
+  textarea{width:100%;min-height:90px;padding:10px 12px;border:1px solid var(--border);border-radius:8px;background:var(--bg);color:var(--text);font-size:14px;font-family:inherit;resize:vertical;margin-bottom:10px}
+  textarea:focus{outline:2px solid var(--accent)}
+  .reveal-btn{background:var(--bg);border:1px dashed var(--accent);color:var(--accent);padding:7px 14px;border-radius:8px;cursor:pointer;font-size:13.5px;margin-top:6px}
+  .reveal-btn:hover{background:var(--accent);color:#fff}
+  .reveal-content{display:none;margin-top:10px;padding:12px 16px;background:var(--bg);border-radius:8px;border-left:3px solid var(--accent);font-size:14px}
+  .reveal-content.show{display:block}
+  .ticket-nav{display:flex;justify-content:space-between;gap:12px;margin-top:40px;padding-top:20px;border-top:1px solid var(--border)}
+  .ticket-nav .btn{flex:1;text-align:center}
+  .menu-toggle{display:none;position:fixed;bottom:20px;right:20px;width:54px;height:54px;border-radius:50%;background:var(--accent);color:#fff;border:none;font-size:24px;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,.3);z-index:200}
+  @media (max-width:900px){.sidebar{transform:translateX(-100%)}.sidebar.open{transform:none;box-shadow:0 0 40px rgba(0,0,0,.3)}.main{margin-left:0;padding:20px 16px 90px}.menu-toggle{display:block}.match-grid{grid-template-columns:1fr}}
+  .footer{margin-top:50px;padding-top:20px;border-top:1px solid var(--border);font-size:12.5px;color:var(--muted);text-align:center}
+</style>
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <h1>📘 Раздел 5</h1>
+      <p>Сроки и исковая давность</p>
+    </div>
+    <input type="text" class="search-box" id="searchBox" placeholder="🔍 Поиск...">
+    <div class="progress-wrap">
+      <div class="progress-label"><span>Прогресс</span><span id="progressText">0 / 5</span></div>
+      <div class="progress-bar-bg"><div class="progress-bar-fill" id="progressFill"></div></div>
+    </div>
+    <nav id="nav"></nav>
+    <div style="margin-top:16px;display:flex;gap:8px;flex-wrap:wrap;">
+      <button class="btn" onclick="toggleTheme()" id="themeBtn">🌙 Тема</button>
+      <button class="btn" onclick="resetProgress()">↺ Сброс</button>
+    </div>
+  </aside>
+  <main class="main">
+    <div class="topbar">
+      <div class="breadcrumb" id="breadcrumb">Раздел 5 · Билет 1</div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;">
+        <a href="razdel4.html" class="btn">← Раздел 4</a>
+        <a href="razdel6.html" class="btn">Раздел 6 →</a>
+      </div>
+    </div>
+    <div id="content"></div>
+    <div class="footer">© Учебный материал по курсу «Гражданское право (Общая часть)».<br>ГК Республики Беларусь (по состоянию на 2026 г.).</div>
+  </main>
+  <button class="menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')">☰</button>
+</div>
+
+<script>
+const tickets = [
+{
+  id:"b1",
+  section:"Раздел 5. Сроки и исковая давность",
+  title:"Билет 1. Понятие и виды сроков в гражданском праве",
+  subtitle:"Классификация сроков и их правовое значение.",
+  body:`
+    <h3>1. Понятие срока (ст. 191 ГК)</h3>
+    <p><strong>Срок</strong> — календарная дата либо период времени, с наступлением или истечением которого возникают, изменяются или прекращаются гражданские правоотношения.</p>
+
+    <h3>2. Классификация сроков</h3>
+    <h4>2.1. По тому, кем устанавливаются:</h4>
+    <ul>
+      <li><strong>Нормативные</strong> — установлены законодательством, носят императивный характер (сроки исковой давности, приобретательной давности).</li>
+      <li><strong>Договорные</strong> — установлены соглашением сторон. Могут быть изменены соглашением сторон.</li>
+      <li><strong>Судебные</strong> — установлены судом. Не могут быть изменены сторонами (например, срок совершения действий по опровержению сведений).</li>
+    </ul>
+    <h4>2.2. По правовым последствиям:</h4>
+    <ul>
+      <li><strong>Правообразующие</strong> — влекут возникновение правоотношения.</li>
+      <li><strong>Правоизменяющие</strong> — влекут изменение правоотношения.</li>
+      <li><strong>Правопрекращающие</strong> — влекут прекращение правоотношения.</li>
+    </ul>
+    <h4>2.3. По способу обозначения:</h4>
+    <ul>
+      <li>Установленные календарной датой.</li>
+      <li>Возникающие с истечением периода времени.</li>
+      <li>Определённые наступлением событий.</li>
+    </ul>
+    <h4>2.4. По назначению:</h4>
+    <ul>
+      <li><strong>Сроки осуществления гражданских прав</strong> — время, в течение которого управомоченное лицо может реализовать своё право. Подразделяются на:
+        <ul>
+          <li><strong>Пресекательные (преклюзивные)</strong> — предоставляются для реализации субъективного права;</li>
+          <li><strong>Гарантийные</strong> — период, в течение которого обязанное лицо отвечает за ненадлежащее качество (продавец, изготовитель);</li>
+          <li><strong>Претензионные</strong> — период для предварительного (до суда) обращения к нарушителю.</li>
+        </ul>
+      </li>
+      <li><strong>Сроки исполнения обязанностей</strong> — время, в течение которого обязанные лица должны исполнить обязательства.</li>
+      <li><strong>Сроки защиты нарушенных прав</strong> — исковая давность.</li>
+    </ul>
+
+    <h3>3. Исчисление сроков (ст. 192–194 ГК)</h3>
+    <p>Течение срока, определённого периодом времени, начинается <strong>на следующий день</strong> после календарной даты или наступления события, которыми определено его начало (ст. 192 ГК).</p>
+    <p>Окончание срока (ст. 193 ГК):</p>
+    <ul>
+      <li>срок, исчисляемый годами, истекает в соответствующий месяц и число последнего года;</li>
+      <li>срок, исчисляемый месяцами, — в соответствующее число последнего месяца;</li>
+      <li>срок, исчисляемый неделями, — в соответствующий день последней недели.</li>
+    </ul>
+    <p>В последний день срока действия могут быть выполнены до 24 часов. Если действие должно быть совершено в конкретной организации — срок истекает в тот час, когда в организации прекращаются соответствующие операции. Если последний день — нерабочий, днём окончания считается ближайший рабочий день (ст. 194 ГК).</p>
+
+    <div class="card law">
+      <div class="card-title">⚖️ Ст. 191–194 ГК</div>
+      Регулируют понятие, исчисление и окончание сроков.
+    </div>
+  `,
+  tasks:[
+    {type:"single",q:"С какого дня начинается течение срока, определённого периодом времени?",options:["Со дня подписания договора","На следующий день после календарной даты или наступления события","Через три дня","С момента регистрации"],correct:1,explain:"Ст. 192 ГК: течение срока начинается на следующий день после события."},
+    {type:"multi",q:"Какие сроки выделяют по назначению?",options:["Сроки осуществления прав","Сроки исполнения обязанностей","Сроки защиты нарушенных прав","Сроки оплаты налогов"],correct:[0,1,2],explain:"Три группы по назначению."},
+    {type:"match",q:"Соотнесите вид срока с примером:",left:["Пресекательный","Гарантийный","Претензионный"],right:["Срок реализации преимущественного права","Срок гарантии на товар","Срок для предъявления претензии перевозчику"],correct:[0,1,2],explain:"Разные виды сроков осуществления прав."},
+    {type:"case",q:"Кейс. Договор заключён 15 марта 2026 года. Срок исполнения — 3 месяца. Когда истекает срок?",answer:"Течение срока начинается 16 марта 2026 года. Срок 3 месяца истекает 15 июня 2026 года (в соответствующее число последнего месяца). Если 15 июня — нерабочий день, срок переносится на ближайший рабочий день."}
+  ]
+},
+{
+  id:"b2",
+  section:"Раздел 5. Сроки и исковая давность",
+  title:"Билет 2. Понятие исковой давности и её значение",
+  subtitle:"Срок для защиты нарушенного права.",
+  body:`
+    <h3>1. Понятие исковой давности (ст. 197 ГК)</h3>
+    <p><strong>Исковая давность</strong> — установленный законодательными актами срок, в пределах которого лицо может защитить своё нарушенное субъективное право путём предъявления иска.</p>
+    <p><strong>Иск</strong> — обращённое к суду и ответчику требование заинтересованного лица о защите нарушенного или оспоренного субъективного права.</p>
+
+    <h3>2. Значение исковой давности</h3>
+    <ul>
+      <li>Устранение неопределённости в гражданском обороте.</li>
+      <li>Упорядочение гражданских правоотношений.</li>
+      <li>Стимулирование своевременной защиты прав.</li>
+    </ul>
+
+    <h3>3. Императивность правил</h3>
+    <p>Правила об исковой давности носят <strong>императивный характер</strong>. Стороны не могут изменить их по своему соглашению. Исковая давность применяется судом только по заявлению стороны в споре, сделанному до вынесения решения.</p>
+
+    <h3>4. Виды сроков исковой давности</h3>
+    <ul>
+      <li><strong>Общий срок — 3 года</strong> (ст. 197 ГК). Применяется ко всем правоотношениям, кроме тех, для которых установлен специальный срок или нет давностного срока.</li>
+      <li><strong>Специальные сроки</strong> — могут быть как более, так и менее общего:
+        <ul>
+          <li>10 лет — по требованию об установлении факта ничтожности сделки;</li>
+          <li>1 год — по спорам из перевозок всеми видами транспорта;</li>
+          <li>3 месяца — для требований участника долевой собственности о переводе прав покупателя при нарушении преимущественного права покупки.</li>
+        </ul>
+      </li>
+    </ul>
+
+    <h3>5. Начало течения срока (ст. 201 ГК)</h3>
+    <p>Течение срока исковой давности начинается <strong>со дня, когда лицо узнало или должно было узнать о нарушении своего права</strong>.</p>
+    <p>По некоторым требованиям начальный момент определяется специальными правилами (например, по искам о недостатках работы по договору подряда — со дня принятия результата).</p>
+
+    <h3>6. Требования, на которые исковая давность не распространяется (ст. 209 ГК)</h3>
+    <ol>
+      <li>Требования, вытекающие из нарушения личных неимущественных прав и других нематериальных благ (кроме случаев, предусмотренных законом).</li>
+      <li>Требования вкладчиков к банку о возврате вкладов.</li>
+      <li>Требования о возмещении вреда, причинённого жизни или здоровью гражданина. Однако требования, предъявленные по истечении 3 лет с момента возникновения права, удовлетворяются не более чем за 3 года, предшествовавшие предъявлению иска.</li>
+      <li>Требования собственника или иного законного владельца об устранении всяких нарушений его права, не связанных с лишением владения (негаторный иск).</li>
+    </ol>
+
+    <div class="card law">
+      <div class="card-title">⚖️ Ст. 197–209 ГК</div>
+      Регулируют исковую давность: понятие, виды, начало течения, требования, на которые она не распространяется.
+    </div>
+  `,
+  tasks:[
+    {type:"single",q:"Какой общий срок исковой давности?",options:["1 год","2 года","3 года","5 лет"],correct:2,explain:"Общий срок — 3 года (ст. 197 ГК)."},
+    {type:"multi",q:"На какие требования исковая давность не распространяется?",options:["О защите личных неимущественных прав","О возврате банковских вкладов","О возмещении вреда жизни и здоровью","О взыскании долга по договору займа"],correct:[0,1,2],explain:"Взыскание долга — обычное требование, давность распространяется."},
+    {type:"match",q:"Соотнесите вид срока с продолжительностью:",left:["Общий","Ничтожная сделка","Перевозка"],right:["3 года","10 лет","1 год"],correct:[0,1,2],explain:"Разные сроки для разных требований."},
+    {type:"case",q:"Кейс. Гражданин узнал о нарушении своего права 10 января 2026 года. Когда истекает срок исковой давности?",answer:"Срок начинается 11 января 2026 года. Общий срок исковой давности — 3 года, значит, он истекает 10 января 2029 года. Если 10 января 2029 года — нерабочий день, срок переносится на ближайший рабочий день."}
+  ]
+},
+{
+  id:"b3",
+  section:"Раздел 5. Сроки и исковая давность",
+  title:"Билет 3. Приостановление, перерыв и восстановление сроков исковой давности",
+  subtitle:"Изменение течения срока под влиянием обстоятельств.",
+  body:`
+    <h3>1. Приостановление срока исковой давности (ст. 202 ГК)</h3>
+    <p><strong>Приостановление</strong> — период, в течение которого срок не течёт из-за обстоятельств, препятствующих своевременному предъявлению иска.</p>
+    <p>Перечень обстоятельств исчерпывающий:</p>
+    <ul>
+      <li><strong>Непреодолимая сила</strong> — чрезвычайное и непредотвратимое обстоятельство (ураган, землетрясение).</li>
+      <li><strong>Нахождение истца или ответчика в составе Вооружённых Сил</strong>, переведённых на военное положение.</li>
+      <li><strong>Установление Правительством отсрочки исполнения обязательств</strong> (моратория).</li>
+      <li><strong>Приостановление действия соответствующего законодательного акта</strong>, регулирующего данные отношения.</li>
+    </ul>
+    <p>Течение срока приостанавливается, если указанные обстоятельства возникли или продолжали существовать <strong>в последние 6 месяцев</strong> срока давности, а если срок равен 6 месяцам или менее — в течение всего срока.</p>
+    <p>С момента прекращения обстоятельства течение срока продолжается. Оставшаяся часть удлиняется до 6 месяцев.</p>
+
+    <h3>2. Перерыв срока исковой давности (ст. 204 ГК)</h3>
+    <p><strong>Перерыв</strong> — все время, истёкшее до появления основания, погашается, и срок начинается заново.</p>
+    <p>Основания перерыва:</p>
+    <ul>
+      <li><strong>Предъявление иска в установленном порядке</strong> (если иск оставлен без рассмотрения, перерыв сохраняется только на период до оставления без рассмотрения).</li>
+      <li><strong>Совершение обязанным лицом действий, свидетельствующих о признании долга</strong> (выплата части суммы, письменное подтверждение долга).</li>
+    </ul>
+
+    <h3>3. Восстановление срока исковой давности (ст. 206 ГК)</h3>
+    <p>Восстановление возможно, если суд признает причину пропуска <strong>уважительной</strong>. Причина должна быть связана с личностью истца-гражданина. Примерный перечень: тяжёлая болезнь, беспомощное состояние и др.</p>
+    <p>Восстановление возможно, если обстоятельство имело место в последние <strong>6 месяцев</strong> срока давности.</p>
+    <p>Восстановление срока для юридических лиц не предусмотрено.</p>
+
+    <h3>4. Сравнение</h3>
+    <table>
+      <tr><th>Институт</th><th>Суть</th><th>Когда возможно</th></tr>
+      <tr><td>Приостановление</td><td>Срок не течёт в период обстоятельства</td><td>Обстоятельства в последние 6 месяцев</td></tr>
+      <tr><td>Перерыв</td><td>Срок начинается заново</td><td>Иск или признание долга</td></tr>
+      <tr><td>Восстановление</td><td>Суд продлевает срок</td><td>Уважительная причина у гражданина</td></tr>
+    </table>
+
+    <div class="card law">
+      <div class="card-title">⚖️ Ст. 202–206 ГК</div>
+      Регулируют приостановление, перерыв и восстановление сроков исковой давности.
+    </div>
+  `,
+  tasks:[
+    {type:"single",q:"Какое основание влечёт перерыв срока исковой давности?",options:["Тяжёлая болезнь истца","Признание долга должником","Непреодолимая сила","Мораторий Правительства"],correct:1,explain:"Признание долга — основание перерыва (ст. 204 ГК). Остальные — приостановление."},
+    {type:"multi",q:"Какие обстоятельства приостанавливают срок исковой давности?",options:["Непреодолимая сила","Нахождение в Вооружённых Силах на военном положении","Мораторий Правительства","Признание долга"],correct:[0,1,2],explain:"Признание долга — перерыв."},
+    {type:"case",q:"Кейс. Гражданин тяжело болел последние 5 месяцев срока исковой давности. Может ли он восстановить срок?",answer:"Да, если причина признана судом уважительной (ст. 206 ГК). Тяжёлая болезнь — пример из перечня уважительных причин. Обстоятельство имело место в последние 6 месяцев срока — это условие соблюдено. Гражданин должен подтвердить болезнь медицинскими документами. Суд может восстановить срок и рассмотреть дело по существу."}
+  ]
+},
+{
+  id:"b4",
+  section:"Раздел 5. Сроки и исковая давность",
+  title:"Билет 4. Последствия истечения сроков исковой давности",
+  subtitle:"Отказ в иске и его правовые последствия.",
+  body:`
+    <h3>1. Принятие иска независимо от срока</h3>
+    <p>Суд обязан принять к рассмотрению требование о защите нарушенного права <strong>независимо от истечения срока исковой давности</strong>. Право на предъявление иска (право на иск в процессуальном смысле) не погашается действием исковой давности.</p>
+
+    <h3>2. Основание для отказа в иске</h3>
+    <p>Истечение срока исковой давности — самостоятельное основание для отказа в иске (материально-правовое последствие). Управомоченное лицо лишается возможности осуществить нарушенное субъективное право в принудительном порядке.</p>
+    <p>Суд применяет исковую давность <strong>только по заявлению стороны</strong>, сделанному до вынесения решения.</p>
+
+    <h3>3. Судьба дополнительных требований</h3>
+    <p>С истечением срока исковой давности по основному требованию истекает и срок по дополнительным требованиям (уплата неустойки, поручительство).</p>
+
+    <h3>4. Добровольное исполнение после истечения срока</h3>
+    <p>Если должник добровольно исполнил обязательство по истечении срока исковой давности, он <strong>не вправе требовать исполненное обратно</strong>, даже если в момент исполнения не знал об истечении срока.</p>
+
+    <h3>5. Признание долга после истечения срока</h3>
+    <p>Если должник после истечения срока исковой давности признал долг (например, подписал акт сверки), это может расцениваться как основание для перерыва (если срок ещё не истёк) или как самостоятельное обязательство.</p>
+
+    <h3>6. Отличие материального и процессуального аспекта</h3>
+    <ul>
+      <li><strong>Право на иск в процессуальном смысле</strong> — право обратиться в суд (не погашается давностью).</li>
+      <li><strong>Право на иск в материальном смысле</strong> — право на принудительное осуществление (погашается давностью).</li>
+    </ul>
+
+    <div class="card law">
+      <div class="card-title">⚖️ Ст. 200 ГК</div>
+      «Исковая давность применяется судом только по заявлению стороны в споре, сделанному до вынесения судом решения.»
+    </div>
+
+    <div class="card note">
+      <div class="card-title">💡 Практический совет</div>
+      Если вы ответчик и срок давности истёк — заявите об этом до вынесения решения. Иначе суд применит давность по своей инициативе неправомерно (не должен).
+    </div>
+  `,
+  tasks:[
+    {type:"single",q:"Когда суд применяет исковую давность?",options:["По своей инициативе","По заявлению стороны до вынесения решения","После вынесения решения","Автоматически"],correct:1,explain:"Только по заявлению стороны в споре (ст. 200 ГК)."},
+    {type:"multi",q:"Какие последствия истечения срока исковой давности?",options:["Отказ в иске","Погашение срока по дополнительным требованиям","Невозможность истребовать исполненное обратно","Автоматическое прекращение обязательства"],correct:[0,1,2],explain:"Обязательство не прекращается — оно становится натуральным (без принудительной защиты)."},
+    {type:"case",q:"Кейс. Кредитор предъявил иск через 5 лет после нарушения права. Должник не заявил о пропуске срока. Какое решение примет суд?",answer:"Суд рассмотрит дело по существу и, скорее всего, удовлетворит иск, поскольку исковая давность применяется только по заявлению стороны. Если должник не заявил о пропуске срока до вынесения решения, суд не вправе применить давность по своей инициативе. Это важное правило: ответчик должен активно заявить о пропуске срока."}
+  ]
+},
+{
+  id:"b5",
+  section:"Раздел 5. Сроки и исковая давность",
+  title:"Билет 5. Требования, на которые исковая давность не распространяется",
+  subtitle:"Исключения из общего правила.",
+  body:`
+    <h3>1. Перечень требований (ст. 209 ГК)</h3>
+    <p>Исковая давность не распространяется на следующие требования:</p>
+    <ol>
+      <li><strong>Требования, вытекающие из нарушения личных неимущественных прав и других нематериальных благ</strong> (кроме случаев, предусмотренных законодательными актами). Например, требования о защите чести, достоинства, деловой репутации.</li>
+      <li><strong>Требования вкладчиков к банку или небанковской кредитно-финансовой организации о возврате банковских вкладов (депозитов).</strong> Это гарантия защиты интересов вкладчиков.</li>
+      <li><strong>Требования о возмещении вреда, причинённого жизни или здоровью гражданина.</strong> Однако требования, предъявленные по истечении 3 лет с момента возникновения права на возмещение вреда, удовлетворяются не более чем за 3 года, предшествовавшие предъявлению иска.</li>
+      <li><strong>Требования собственника или иного законного владельца об устранении всяких нарушений его права, хотя бы эти нарушения и не были соединены с лишением владения</strong> (негаторный иск).</li>
+    </ol>
+
+    <h3>2. Логика исключений</h3>
+    <ul>
+      <li><strong>Личные неимущественные права</strong> неотчуждаемы и бессрочны, поэтому и защита не ограничена сроком.</li>
+      <li><strong>Банковские вклады</strong> — гарантия сохранности сбережений граждан.</li>
+      <li><strong>Вред жизни и здоровью</strong> — защита социально значимых интересов, но с разумным ограничением по периоду взыскания.</li>
+      <li><strong>Негаторный иск</strong> — правонарушение носит длящийся характер, иск можно предъявить, пока нарушение продолжается.</li>
+    </ul>
+
+    <h3>3. Применение к длящимся нарушениям</h3>
+    <p>Если нарушение права носит длящийся характер (например, незаконное использование товарного знака, самовольное занятие участка), исковая давность не применяется. Иск можно предъявить в любой момент, пока нарушение продолжается.</p>
+
+    <h3>4. Ограничения для требований о возмещении вреда жизни и здоровью</h3>
+    <p>Само право на возмещение вреда не ограничено сроком. Но если иск предъявлен спустя много лет, взыскание производится не более чем за 3 года, предшествовавших обращению.</p>
+    <p><em>Пример:</em> если вред здоровью причинён 10 лет назад и гражданин обратился в суд только сейчас, он получит возмещение только за последние 3 года.</p>
+
+    <h3>5. Практическое значение</h3>
+    <p>Знание перечня требований, на которые исковая давность не распространяется, важно для правильной квалификации спора и выбора стратегии защиты.</p>
+
+    <div class="card law">
+      <div class="card-title">⚖️ Ст. 209 ГК</div>
+      Устанавливает исчерпывающий перечень требований, на которые исковая давность не распространяется.
+    </div>
+
+    <div class="card warn">
+      <div class="card-title">⚠️ Важно</div>
+      Отсутствие исковой давности не означает, что требование будет удовлетворено. Истец должен доказать факт нарушения права.
+    </div>
+  `,
+  tasks:[
+    {type:"single",q:"На какое требование исковая давность не распространяется?",options:["О взыскании долга по договору займа","О возврате банковского вклада","О взыскании неустойки","О возмещении убытков по договору поставки"],correct:1,explain:"Требования вкладчиков к банку о возврате вкладов не подпадают под исковую давность (ст. 209 ГК)."},
+    {type:"multi",q:"На какие требования исковая давность не распространяется?",options:["О защите чести и достоинства","О возврате банковских вкладов","О возмещении вреда жизни и здоровью","О взыскании неустойки"],correct:[0,1,2],explain:"Неустойка — дополнительное требование, по ней давность истекает вместе с основным."},
+    {type:"match",q:"Соотнесите требование с наличием исковой давности:",left:["Защита чести","Возврат вклада","Взыскание долга"],right:["Давность не применяется","Давность не применяется","Давность применяется (3 года)"],correct:[0,1,2],explain:"Разные правовые режимы."},
+    {type:"case",q:"Кейс. Гражданин обратился в суд с иском о возмещении вреда здоровью, причинённого 7 лет назад. Суд отказал, сославшись на пропуск срока. Правомерно ли это?",answer:"Нет, неправомерно. На требования о возмещении вреда, причинённого жизни или здоровью, исковая давность не распространяется (ст. 209 ГК). Суд должен рассмотреть дело по существу. Однако возмещение будет взыскано не более чем за 3 года, предшествовавшие предъявлению иска. Суд не вправе отказать в иске полностью, если вред подтверждён."}
+  ]
+}
+];
+
+const navEl=document.getElementById('nav');
+const contentEl=document.getElementById('content');
+const breadcrumbEl=document.getElementById('breadcrumb');
+const progressTextEl=document.getElementById('progressText');
+const progressFillEl=document.getElementById('progressFill');
+let currentTicket=tickets[0].id;
+const STORAGE_KEY='gp_progress_rz5_v1';
+let progress=JSON.parse(localStorage.getItem(STORAGE_KEY)||'{}');
+
+function buildNav(){
+  const sections={};
+  tickets.forEach(t=>{if(!sections[t.section])sections[t.section]=[];sections[t.section].push(t);});
+  let html='';
+  Object.keys(sections).forEach(sec=>{
+    html+=`<div class="nav-section"><div class="nav-section-title">${sec}</div><ul class="nav-list">`;
+    sections[sec].forEach(t=>{
+      const done=progress[t.id]?'<span class="check">✓</span>':'';
+      html+=`<li><a href="#${t.id}" data-id="${t.id}">${done}<span>${t.title.replace(/^Билет \\d+\\.\\s*/,'')}</span></a></li>`;
+    });
+    html+='</ul></div>';
+  });
+  navEl.innerHTML=html;
+  navEl.querySelectorAll('a').forEach(a=>{
+    a.addEventListener('click',e=>{e.preventDefault();showTicket(a.dataset.id);document.getElementById('sidebar').classList.remove('open');});
+  });
+}
+function showTicket(id){
+  currentTicket=id;
+  const t=tickets.find(x=>x.id===id);
+  if(!t)return;
+  breadcrumbEl.textContent=t.section+' · '+t.title.split('.')[0];
+  contentEl.innerHTML=`
+    <div class="ticket active">
+      <h2>${t.title}</h2>
+      <p class="subtitle">${t.subtitle}</p>
+      ${t.body}
+      <div class="tasks-header">📝 Задания для закрепления</div>
+      <div id="tasks-${t.id}"></div>
+      <div class="ticket-nav">
+        ${prevTicketId(id)?`<button class="btn" onclick="showTicket('${prevTicketId(id)}')">← Предыдущий</button>`:'<span></span>'}
+        <button class="btn btn-primary" onclick="markDone('${t.id}')">✓ Отметить как изученный</button>
+        ${nextTicketId(id)?`<button class="btn" onclick="showTicket('${nextTicketId(id)}')">Следующий →</button>`:'<span></span>'}
+      </div>
+    </div>`;
+  renderTasks(t);
+  updateNavActive();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function prevTicketId(id){const i=tickets.findIndex(t=>t.id===id);return i>0?tickets[i-1].id:null;}
+function nextTicketId(id){const i=tickets.findIndex(t=>t.id===id);return i<tickets.length-1?tickets[i+1].id:null;}
+function updateNavActive(){navEl.querySelectorAll('a').forEach(a=>{a.classList.toggle('active',a.dataset.id===currentTicket);});}
+function renderTasks(t){
+  const container=document.getElementById('tasks-'+t.id);
+  if(!container)return;
+  let html='';
+  t.tasks.forEach((task,idx)=>{
+    html+=`<div class="task" id="task-${t.id}-${idx}"><div class="task-title">Задание ${idx+1}</div><div class="question">${task.q}</div>`;
+    if(task.type==='single'){
+      html+='<ul class="options">';
+      task.options.forEach((opt,i)=>{html+=`<li><label><input type="radio" name="single-${t.id}-${idx}" value="${i}"> <span>${opt}</span></label></li>`;});
+      html+='</ul>';
+      html+=`<button class="btn btn-primary" onclick="checkSingle('${t.id}',${idx})">Проверить</button><div class="feedback" id="fb-${t.id}-${idx}"></div>`;
+    }else if(task.type==='multi'){
+      html+='<ul class="options">';
+      task.options.forEach((opt,i)=>{html+=`<li><label><input type="checkbox" name="multi-${t.id}-${idx}" value="${i}"> <span>${opt}</span></label></li>`;});
+      html+='</ul>';
+      html+=`<button class="btn btn-primary" onclick="checkMulti('${t.id}',${idx})">Проверить</button><div class="feedback" id="fb-${t.id}-${idx}"></div>`;
+    }else if(task.type==='match'){
+      html+='<div class="match-grid">';
+      task.left.forEach((left,i)=>{
+        html+=`<div class="match-item left">${left}</div><div class="match-item"><select id="match-${t.id}-${idx}-${i}"><option value="">— выберите —</option>`;
+        task.right.forEach((r,j)=>{html+=`<option value="${j}">${r}</option>`;});
+        html+='</select></div>';
+      });
+      html+='</div>';
+      html+=`<button class="btn btn-primary" onclick="checkMatch('${t.id}',${idx})">Проверить</button><div class="feedback" id="fb-${t.id}-${idx}"></div>`;
+    }else if(task.type==='case'){
+      html+=`<textarea placeholder="Напишите ответ..." id="case-${t.id}-${idx}"></textarea>`;
+      html+=`<button class="reveal-btn" onclick="toggleReveal('${t.id}',${idx})">👁 Показать образец</button><div class="reveal-content" id="reveal-${t.id}-${idx}"><strong>Образец:</strong><br>${task.answer}</div>`;
+    }
+    html+='</div>';
+  });
+  container.innerHTML=html;
+}
+function checkSingle(tid,idx){
+  const t=tickets.find(x=>x.id===tid);const task=t.tasks[idx];
+  const selected=document.querySelector(`input[name="single-${tid}-${idx}"]:checked`);
+  const fb=document.getElementById(`fb-${tid}-${idx}`);
+  const labels=document.querySelectorAll(`#task-${tid}-${idx} .options label`);
+  labels.forEach((l,i)=>{l.classList.remove('correct','wrong');if(i===task.correct)l.classList.add('correct');});
+  if(!selected){fb.className='feedback show bad';fb.innerHTML='Выберите вариант.';return;}
+  const val=parseInt(selected.value);
+  if(val===task.correct){fb.className='feedback show ok';fb.innerHTML='✅ Правильно! <span class="explain">'+task.explain+'</span>';}
+  else{selected.parentElement.classList.add('wrong');fb.className='feedback show bad';fb.innerHTML='❌ Неправильно. <span class="explain">'+task.explain+'</span>';}
+}
+function checkMulti(tid,idx){
+  const t=tickets.find(x=>x.id===tid);const task=t.tasks[idx];
+  const selected=Array.from(document.querySelectorAll(`input[name="multi-${tid}-${idx}"]:checked`)).map(c=>parseInt(c.value));
+  const fb=document.getElementById(`fb-${tid}-${idx}`);
+  const labels=document.querySelectorAll(`#task-${tid}-${idx} .options label`);
+  labels.forEach((l,i)=>{l.classList.remove('correct','wrong');if(task.correct.includes(i))l.classList.add('correct');if(selected.includes(i)&&!task.correct.includes(i))l.classList.add('wrong');});
+  const ok=selected.length===task.correct.length&&selected.every(v=>task.correct.includes(v));
+  if(ok){fb.className='feedback show ok';fb.innerHTML='✅ Правильно! <span class="explain">'+task.explain+'</span>';}
+  else{fb.className='feedback show bad';fb.innerHTML='❌ Неправильно. <span class="explain">'+task.explain+'</span>';}
+}
+function checkMatch(tid,idx){
+  const t=tickets.find(x=>x.id===tid);const task=t.tasks[idx];
+  const fb=document.getElementById(`fb-${tid}-${idx}`);
+  let ok=true;
+  task.left.forEach((_,i)=>{const sel=document.getElementById(`match-${tid}-${idx}-${i}`);if(parseInt(sel.value)!==task.correct[i])ok=false;});
+  if(ok){fb.className='feedback show ok';fb.innerHTML='✅ Всё верно! <span class="explain">'+task.explain+'</span>';}
+  else{fb.className='feedback show bad';fb.innerHTML='❌ Есть ошибки. <span class="explain">'+task.explain+'</span>';}
+}
+function toggleReveal(tid,idx){document.getElementById(`reveal-${tid}-${idx}`).classList.toggle('show');}
+function markDone(id){progress[id]=true;localStorage.setItem(STORAGE_KEY,JSON.stringify(progress));buildNav();updateNavActive();updateProgress();const next=nextTicketId(id);if(next)setTimeout(()=>showTicket(next),300);}
+function updateProgress(){const done=Object.keys(progress).length;const total=tickets.length;progressTextEl.textContent=`${done} / ${total}`;progressFillEl.style.width=(done/total*100)+'%';}
+function resetProgress(){if(confirm('Сбросить прогресс?')){progress={};localStorage.removeItem(STORAGE_KEY);buildNav();updateNavActive();updateProgress();}}
+function toggleTheme(){const html=document.documentElement;const isDark=html.getAttribute('data-theme')==='dark';html.setAttribute('data-theme',isDark?'light':'dark');localStorage.setItem('gp_theme',isDark?'light':'dark');document.getElementById('themeBtn').textContent=isDark?'🌙 Тема':'☀️ Тема';}
+document.getElementById('searchBox').addEventListener('input',e=>{const q=e.target.value.toLowerCase().trim();navEl.querySelectorAll('a').forEach(a=>{const t=tickets.find(x=>x.id===a.dataset.id);const m=!q||t.title.toLowerCase().includes(q)||t.subtitle.toLowerCase().includes(q)||t.body.toLowerCase().includes(q);a.parentElement.style.display=m?'':'none';});navEl.querySelectorAll('.nav-section').forEach(sec=>{const v=Array.from(sec.querySelectorAll('li')).some(li=>li.style.display!=='none');sec.style.display=v?'':'none';});});
+(function init(){const savedTheme=localStorage.getItem('gp_theme');if(savedTheme==='dark'){document.documentElement.setAttribute('data-theme','dark');document.getElementById('themeBtn').textContent='☀️ Тема';}buildNav();showTicket(currentTicket);updateProgress();})();
+</script>
+</body>
+</html>
