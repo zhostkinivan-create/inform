@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Раздел 6. Осуществление и защита гражданских прав</title>
+<style>
+  :root{--bg:#f5f7fa;--card:#fff;--text:#1a2332;--muted:#5a6a80;--accent:#1e5a96;--accent-hover:#164a7d;--border:#d8e0ea;--success:#1e7d4e;--error:#b03a3a;--warning:#a8761f;--shadow:0 2px 8px rgba(0,0,0,.06)}
+  [data-theme="dark"]{--bg:#141a24;--card:#1d2532;--text:#e6ecf3;--muted:#93a3b8;--accent:#4a8fd1;--accent-hover:#6aa7e0;--border:#2c3a4d;--success:#4caf7d;--error:#e07a7a;--warning:#d4a548;--shadow:0 2px 8px rgba(0,0,0,.3)}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.65;transition:background .3s,color .3s}
+  .layout{display:flex;min-height:100vh}
+  .sidebar{width:320px;background:var(--card);border-right:1px solid var(--border);padding:20px 16px;position:fixed;top:0;left:0;bottom:0;overflow-y:auto;transition:transform .3s;z-index:100}
+  .sidebar-header{margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--border)}
+  .sidebar-header h1{font-size:17px;color:var(--accent);margin-bottom:6px}
+  .sidebar-header p{font-size:12px;color:var(--muted)}
+  .search-box{width:100%;padding:8px 12px;margin-bottom:14px;border:1px solid var(--border);border-radius:8px;background:var(--bg);color:var(--text);font-size:14px}
+  .search-box:focus{outline:2px solid var(--accent)}
+  .progress-wrap{margin-bottom:14px}
+  .progress-label{font-size:12px;color:var(--muted);margin-bottom:6px;display:flex;justify-content:space-between}
+  .progress-bar-bg{height:8px;background:var(--border);border-radius:4px;overflow:hidden}
+  .progress-bar-fill{height:100%;background:var(--accent);width:0%;transition:width .4s}
+  .nav-section{margin-bottom:6px}
+  .nav-section-title{font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;padding:10px 8px 6px}
+  .nav-list{list-style:none}
+  .nav-list li a{display:flex;align-items:center;gap:6px;padding:7px 10px;font-size:13.5px;color:var(--text);text-decoration:none;border-radius:6px;margin-bottom:2px;transition:background .15s}
+  .nav-list li a:hover{background:var(--bg);color:var(--accent)}
+  .nav-list li a.active{background:var(--accent);color:#fff}
+  .nav-list li a .check{color:var(--success);font-weight:bold}
+  .nav-list li a.active .check{color:#c8f5d8}
+  .main{flex:1;margin-left:320px;padding:32px 40px 80px;max-width:900px}
+  .topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;gap:12px;flex-wrap:wrap}
+  .topbar .breadcrumb{font-size:13px;color:var(--muted)}
+  .btn{padding:8px 14px;border:1px solid var(--border);background:var(--card);color:var(--text);border-radius:8px;cursor:pointer;font-size:13.5px;transition:all .2s;text-decoration:none;display:inline-block}
+  .btn:hover{border-color:var(--accent);color:var(--accent)}
+  .btn-primary{background:var(--accent);color:#fff;border-color:var(--accent)}
+  .btn-primary:hover{background:var(--accent-hover);color:#fff}
+  .ticket{display:none;animation:fade .3s}
+  .ticket.active{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  .ticket h2{font-size:24px;color:var(--accent);margin-bottom:6px;line-height:1.3}
+  .ticket .subtitle{font-size:14px;color:var(--muted);margin-bottom:22px;padding-bottom:14px;border-bottom:2px solid var(--border)}
+  .ticket h3{font-size:18px;margin:26px 0 12px;color:var(--text);border-left:4px solid var(--accent);padding-left:10px}
+  .ticket h4{font-size:15.5px;margin:18px 0 8px;color:var(--accent)}
+  .ticket p{margin-bottom:12px}
+  .ticket ul,.ticket ol{margin:0 0 14px 24px}
+  .ticket li{margin-bottom:6px}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px 20px;margin:16px 0;box-shadow:var(--shadow)}
+  .card.note{border-left:4px solid var(--accent)}
+  .card.warn{border-left:4px solid var(--warning);background:rgba(168,118,31,.06)}
+  .card.law{border-left:4px solid var(--success);background:rgba(30,125,78,.05)}
+  .card-title{font-weight:700;margin-bottom:8px;font-size:14.5px}
+  .card.note .card-title{color:var(--accent)}
+  .card.warn .card-title{color:var(--warning)}
+  .card.law .card-title{color:var(--success)}
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px}
+  th,td{border:1px solid var(--border);padding:9px 12px;text-align:left;vertical-align:top}
+  th{background:var(--bg);font-weight:700}
+  .tasks-header{margin:34px 0 16px;padding:12px 18px;background:linear-gradient(90deg,var(--accent),var(--accent-hover));color:#fff;border-radius:10px;font-size:17px;font-weight:700}
+  .task{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px 20px;margin-bottom:16px;box-shadow:var(--shadow)}
+  .task-title{font-weight:700;margin-bottom:10px;color:var(--accent);font-size:15px}
+  .task .question{margin-bottom:12px}
+  .options{list-style:none;margin:0 0 12px 0}
+  .options li{margin-bottom:6px}
+  .options label{display:flex;gap:9px;align-items:flex-start;padding:8px 12px;border:1px solid var(--border);border-radius:8px;cursor:pointer;transition:all .15s;font-size:14px}
+  .options label:hover{border-color:var(--accent);background:var(--bg)}
+  .options input{margin-top:4px;accent-color:var(--accent)}
+  .options label.correct{border-color:var(--success);background:rgba(30,125,78,.1)}
+  .options label.wrong{border-color:var(--error);background:rgba(176,58,58,.1)}
+  .feedback{margin-top:10px;font-size:14px;padding:10px 14px;border-radius:8px;display:none}
+  .feedback.show{display:block}
+  .feedback.ok{background:rgba(30,125,78,.12);color:var(--success);border-left:3px solid var(--success)}
+  .feedback.bad{background:rgba(176,58,58,.1);color:var(--error);border-left:3px solid var(--error)}
+  .feedback .explain{display:block;margin-top:6px;color:var(--text);font-size:13.5px}
+  .match-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}
+  .match-item{padding:8px 12px;border:1px solid var(--border);border-radius:8px;font-size:14px}
+  .match-item.left{background:var(--bg);font-weight:600}
+  .match-item select{width:100%;padding:6px 8px;border:1px solid var(--border);border-radius:6px;background:var(--card);color:var(--text);font-size:14px}
+  textarea{width:100%;min-height:90px;padding:10px 12px;border:1px solid var(--border);border-radius:8px;background:var(--bg);color:var(--text);font-size:14px;font-family:inherit;resize:vertical;margin-bottom:10px}
+  textarea:focus{outline:2px solid var(--accent)}
+  .reveal-btn{background:var(--bg);border:1px dashed var(--accent);color:var(--accent);padding:7px 14px;border-radius:8px;cursor:pointer;font-size:13.5px;margin-top:6px}
+  .reveal-btn:hover{background:var(--accent);color:#fff}
+  .reveal-content{display:none;margin-top:10px;padding:12px 16px;background:var(--bg);border-radius:8px;border-left:3px solid var(--accent);font-size:14px}
+  .reveal-content.show{display:block}
+  .ticket-nav{display:flex;justify-content:space-between;gap:12px;margin-top:40px;padding-top:20px;border-top:1px solid var(--border)}
+  .ticket-nav .btn{flex:1;text-align:center}
+  .menu-toggle{display:none;position:fixed;bottom:20px;right:20px;width:54px;height:54px;border-radius:50%;background:var(--accent);color:#fff;border:none;font-size:24px;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,.3);z-index:200}
+  @media (max-width:900px){.sidebar{transform:translateX(-100%)}.sidebar.open{transform:none;box-shadow:0 0 40px rgba(0,0,0,.3)}.main{margin-left:0;padding:20px 16px 90px}.menu-toggle{display:block}.match-grid{grid-template-columns:1fr}}
+  .footer{margin-top:50px;padding-top:20px;border-top:1px solid var(--border);font-size:12.5px;color:var(--muted);text-align:center}
+</style>
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <h1>📘 Раздел 6</h1>
+      <p>Осуществление и защита гражданских прав</p>
+    </div>
+    <input type="text" class="search-box" id="searchBox" placeholder="🔍 Поиск...">
+    <div class="progress-wrap">
+      <div class="progress-label"><span>Прогресс</span><span id="progressText">0 / 5</span></div>
+      <div class="progress-bar-bg"><div class="progress-bar-fill" id="progressFill"></div></div>
+    </div>
+    <nav id="nav"></nav>
+    <div style="margin-top:16px;display:flex;gap:8px;flex-wrap:wrap;">
+      <button class="btn" onclick="toggleTheme()" id="themeBtn">🌙 Тема</button>
+      <button class="btn" onclick="resetProgress()">↺ Сброс</button>
+    </div>
+  </aside>
+  <main class="main">
+    <div class="topbar">
+      <div class="breadcrumb" id="breadcrumb">Раздел 6 · Билет 1</div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;">
+        <a href="razdel5.html" class="btn">← Раздел 5</a>
+        <a href="razdel7.html" class="btn">Раздел 7 →</a>
+      </div>
+    </div>
+    <div id="content"></div>
+    <div class="footer">© Учебный материал по курсу «Гражданское право (Общая часть)».<br>ГК Республики Беларусь (по состоянию на 2026 г.).</div>
+  </main>
+  <button class="menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')">☰</button>
+</div>
+
+<script>
+const tickets = [
+{
+  id:"b1",
+  section:"Раздел 6. Осуществление и защита гражданских прав",
+  title:"Билет 1. Понятие и принципы осуществления субъективного гражданского права",
+  subtitle:"Реализация прав и исполнение обязанностей.",
+  body:`
+    <h3>1. Понятие осуществления гражданских прав</h3>
+    <p><strong>Осуществление гражданских прав</strong> — совершение тех действий, которые составляют содержание субъективных прав.</p>
+    <p>Граждане и юридические лица <strong>по своему усмотрению</strong> осуществляют принадлежащие им гражданские права (п. 1 ст. 8 ГК). Лицо действует «своей властью и в своём интересе», никто не вправе понудить его осуществлять право.</p>
+
+    <h3>2. Принципы осуществления прав</h3>
+    <ul>
+      <li><strong>Свобода усмотрения</strong> — лицо само решает, осуществлять право или нет.</li>
+      <li><strong>Юридическое равенство</strong> — все субъекты равны в возможности осуществления прав.</li>
+      <li><strong>Недопустимость ограничений</strong> — п. 2 ст. 8 ГК запрещает соглашения об ограничении осуществления гражданских прав. Исключение: отказ от права может повлечь его прекращение (например, отказ от права собственности — ст. 237 ГК).</li>
+      <li><strong>Соответствие принципам права</strong> — осуществление прав не должно противоречить общественной пользе, безопасности, не наносить вред окружающей среде, историко-культурным ценностям, не ущемлять права других лиц, соответствовать моральным принципам.</li>
+    </ul>
+
+    <h3>3. Осуществление прав и исполнение обязанностей</h3>
+    <p>Осуществление прав неразрывно связано с исполнением обязанностей. Реализуя право требования, можно добиться от других лиц исполнения обязанностей:</p>
+    <ul>
+      <li>в абсолютных отношениях — от любого из третьих лиц;</li>
+      <li>в относительных — от конкретного лица.</li>
+    </ul>
+    <p><strong>Исполнение гражданских обязанностей</strong> — совершение тех действий, которые составляют содержание обязанности.</p>
+
+    <h3>4. Способы осуществления гражданских прав</h3>
+    <h4>4.1. Фактические способы:</h4>
+    <p>Действия управомоченного лица, не обладающие признаками сделок (например, использование вещи, потребление плодов).</p>
+    <h4>4.2. Юридические способы:</h4>
+    <p>Действия, являющиеся сделками или иными юридическими действиями. Подразделяются на:</p>
+    <ul>
+      <li><strong>активные действия</strong>, осуществляемые самим управомоченным;</li>
+      <li><strong>требования соответствующего поведения</strong> от обязанных лиц.</li>
+    </ul>
+
+    <h3>5. Исполнение обязанностей</h3>
+    <p>В относительных правоотношениях исполнение обязанности происходит в <strong>активной форме</strong> (совершение действий), в абсолютных — в <strong>пассивной</strong> (воздержание от действий).</p>
+    <p>Исполнение должно соответствовать требованиям законодательства и соглашению сторон.</p>
+
+    <div class="card law">
+      <div class="card-title">⚖️ Статья 8 ГК</div>
+      Граждане и юридические лица по своему усмотрению осуществляют принадлежащие им гражданские права. Отказ от осуществления права не влечёт его прекращения, кроме случаев, предусмотренных законом.
+    </div>
+  `,
+  tasks:[
+    {type:"single",q:"Как осуществляются гражданские права?",options:["По указанию государства","По усмотрению самого лица","По решению суда","Только через представителя"],correct:1,explain:"П. 1 ст. 8 ГК: граждане и юридические лица по своему усмотрению осуществляют права."},
+    {type:"multi",q:"Какие принципы осуществления гражданских прав?",options:["Свобода усмотрения","Юридическое равенство","Недопустимость ограничений","Обязательность осуществления"],correct:[0,1,2],explain:"Обязательности осуществления нет — это право, а не обязанность."},
+    {type:"match",q:"Соотнесите способ осуществления с примером:",left:["Фактический","Юридический активный","Юридический — требование"],right:["Использование своей вещи","Заключение договора","Предъявление претензии"],correct:[0,1,2],explain:"Разные способы реализации права."},
+    {type:"case",q:"Кейс. Гражданин унаследовал квартиру, но 5 лет не регистрировал право собственности и не пользовался ею. Утратил ли он право?",answer:"Нет, не утратил. Отказ от осуществления права не влечёт его прекращения (п. 2 ст. 8 ГК). Право собственности сохраняется. Однако для распоряжения квартирой необходимо зарегистрировать право. Также возможна ситуация с приобретательной давностью — если третье лицо открыто владело квартирой 15 лет, оно может претендовать на неё."}
+  ]
+},
+{
+  id:"b2",
+  section:"Раздел 6. Осуществление и защита гражданских прав",
+  title:"Билет 2. Пределы осуществления гражданских прав. Злоупотребление правом",
+  subtitle:"Границы дозволенного поведения и последствия их нарушения.",
+  body:`
+    <h3>1. Понятие пределов осуществления прав</h3>
+    <p><strong>Пределы осуществления субъективных гражданских прав</strong> — установленные законодательными актами границы поведения лица по реализации содержания этих прав.</p>
+    <p>Пределы делятся на <strong>общие</strong> и <strong>специальные</strong>.</p>
+
+    <h3>2. Общие пределы (ст. 9 ГК)</h3>
+    <ul>
+      <li>Не допускаются действия граждан и юридических лиц, осуществляемые <strong>исключительно с намерением причинить вред другому лицу</strong>, а также злоупотребление правом в иных формах.</li>
+      <li>Не допускается использование гражданских прав в целях <strong>ограничения конкуренции</strong>, а также злоупотребление доминирующим положением на рынке.</li>
+    </ul>
+    <p>Общий предел — принцип приоритета общественных интересов (ст. 2 ГК).</p>
+
+    <h3>3. Специальные пределы</h3>
+    <p>Устанавливаются в актах гражданского законодательства, регулирующих осуществление конкретных гражданских прав:</p>
+    <ul>
+      <li>временные границы осуществления прав;</li>
+      <li>определённый субъектный состав правоотношений;</li>
+      <li>требования к форме и порядку реализации.</li>
+    </ul>
+
+    <h3>4. Злоупотребление правом</h3>
+    <p><strong>Злоупотребление правом</strong> — особый тип гражданского правонарушения, совершаемого управомоченным лицом при осуществлении принадлежащего ему права, связанный с использованием недозволенных конкретных форм в рамках дозволенного законом общего типа поведения.</p>
+
+    <h3>5. Формы злоупотребления правом</h3>
+    <ul>
+      <li><strong>Шикана</strong> — осуществление права с единственной целью причинить вред другому лицу (прямой умысел).</li>
+      <li><strong>Злоупотребление правом в иных формах</strong> — объективно причиняющее вред третьим лицам (неосторожность).</li>
+      <li><strong>Ограничение конкуренции</strong> — использование прав для ограничения конкуренции, злоупотребление доминирующим положением.</li>
+    </ul>
+
+    <h3>6. Правовые последствия злоупотребления правом</h3>
+    <ul>
+      <li><strong>Отказ суда в защите права</strong> лицу, злоупотребляющему своими гражданскими правами.</li>
+      <li><strong>Обязанность восстановления положения</strong> лица, потерпевшего от злоупотребления.</li>
+      <li><strong>Возмещение причинённого ущерба.</strong></li>
+    </ul>
+
+    <div class="card warn">
+      <div class="card-title">⚠️ Пример</div>
+      Собственник земельного участка строит глухой забор высотой 5 метров, чтобы лишить соседа солнечного света. Это злоупотребление правом (шикана), поскольку цель — причинить вред соседу, а не реализовать своё право.
+    </div>
+
+    <div class="card law">
+      <div class="card-title">⚖️ Статья 9 ГК</div>
+      Устанавливает общие пределы осуществления гражданских прав и запрет злоупотребления правом.
+    </div>
+  `,
+  tasks:[
+    {type:"single",q:"Что такое шикана?",options:["Злоупотребление правом в форме неосторожности","Осуществление права с единственной целью причинить вред другому","Ограничение конкуренции","Неосуществление права"],correct:1,explain:"Шикана — злоупотребление правом с прямым умыслом причинить вред."},
+    {type:"multi",q:"Какие последствия злоупотребления правом?",options:["Отказ суда в защите права","Возмещение ущерба","Восстановление положения потерпевшего","Автоматическое прекращение права"],correct:[0,1,2],explain:"Право не прекращается автоматически — суд может отказать в защите."},
+    {type:"match",q:"Соотнесите форму злоупотребления с примером:",left:["Шикана","Злоупотребление в иных формах","Ограничение конкуренции"],right:["Забор, чтобы лишить соседа света","Недобросовестное использование права","Демпинг для вытеснения конкурентов"],correct:[0,1,2],explain:"Разные формы злоупотребления."},
+    {type:"case",q:"Кейс. Компания, занимающая доминирующее положение на рынке, установила цены ниже себестоимости, чтобы вытеснить конкурентов. Это правомерно?",answer:"Нет. Это злоупотребление правом в форме ограничения конкуренции (ст. 9 ГК). Компания использует своё положение для устранения конкурентов, что запрещено. Последствия: возможен отказ в защите права, штрафы со стороны антимонопольного органа, возмещение убытков конкурентам (Закон «О противодействии монополистической деятельности и развитии конкуренции»)."}
+  ]
+},
+{
+  id:"b3",
+  section:"Раздел 6. Осуществление и защита гражданских прав",
+  title:"Билет 3. Понятие и содержание права на защиту",
+  subtitle:"Способы и формы защиты гражданских прав.",
+  body:`
+    <h3>1. Понятие защиты гражданских прав</h3>
+    <p><strong>Защита гражданских прав</strong> — действия правоохранительных и иных компетентных управомоченных государственных или общественных органов, организаций, направленные на предотвращение нарушений или восстановление нарушенных гражданских прав.</p>
+
+    <h3>2. Субъекты защиты</h3>
+    <p>Защиту осуществляют:</p>
+    <ul>
+      <li>суд, хозяйственный суд, третейский суд;</li>
+      <li>профсоюзные и иные общественные организации;</li>
+      <li>административные органы (в особо предусмотренных случаях).</li>
+    </ul>
+
+    <h3>3. Формы защиты</h3>
+    <h4>3.1. Юрисдикционная форма:</h4>
+    <p>Деятельность уполномоченных государством органов. Осуществляется в двух порядках:</p>
+    <ul>
+      <li><strong>Общий (судебный) порядок</strong> — средство защиты: иск. Обеспечивается судами общей компетенции, хозяйственными судами, третейскими судами (по подведомственности).</li>
+      <li><strong>Специальный (административный) порядок</strong> — средство защиты: жалоба. Применяется в случаях, прямо предусмотренных законом (например, защита прав потребителей).</li>
+    </ul>
+    <h4>3.2. Неюрисдикционная форма:</h4>
+    <p>Действия граждан и организаций по защите прав самостоятельно, без обращения к уполномоченным органам. Подразделяется на:</p>
+    <ul>
+      <li><strong>самозащиту гражданских прав</strong> (ст. 13 ГК);</li>
+      <li><strong>применение дозволенных законом мер оперативного воздействия</strong> в одностороннем порядке (например, отказ от оплаты недоброкачественного товара).</li>
+    </ul>
+
+    <h3>4. Самозащита (ст. 13 ГК)</h3>
+    <p>Допускается защита гражданских прав непосредственными действиями лица, права которого нарушены, если такие действия не сопряжены с нарушением законодательства. Способы должны быть <strong>соразмерны</strong> нарушению. Примеры: необходимая оборона, крайняя необходимость.</p>
+
+    <h3>5. Содержание права на защиту</h3>
+    <p>Право на защиту включает:</p>
+    <ul>
+      <li>возможность обратиться за защитой к компетентному органу;</li>
+      <li>возможность использовать меры самозащиты;</li>
+      <li>возможность применить меры оперативного воздействия.</li>
+    </ul>
+
+    <div class="card law">
+      <div class="card-title">⚖️ Ст. 11 и 13 ГК</div>
+      Статья 11 — способы защиты; статья 13 — самозащита.
+    </div>
+  `,
+  tasks:[
+    {type:"single",q:"Какое средство защиты используется в судебном порядке?",options:["Жалоба","Иск","Претензия","Заявление"],correct:1,explain:"В судебном порядке — иск; в административном — жалоба."},
+    {type:"multi",q:"Какие формы защиты гражданских прав?",options:["Юрисдикционная","Неюрисдикционная","Административная","Самозащита"],correct:[0,1],explain:"Основные формы — юрисдикционная и неюрисдикционная. Административная — подвид юрисдикционной. Самозащита — элемент неюрисдикционной."},
+    {type:"match",q:"Соотнесите порядок защиты со средством:",left:["Судебный","Административный","Неюрисдикционный"],right:["Иск","Жалоба","Самозащита"],correct:[0,1,2],explain:"Разные порядки — разные средства."},
+    {type:"case",q:"Кейс. Гражданин обнаружил, что сосед затопил его квартиру. Он самостоятельно перекрыл воду в стояке, повредив при этом имущество соседа. Правомерна ли самозащита?",answer:"Нет, действия неправомерны. Самозащита (ст. 13 ГК) допускается, если действия не сопряжены с нарушением законодательства и соразмерны нарушению. Повреждение имущества соседа — превышение пределов самозащиты. Гражданин должен был вызвать аварийную службу или обратиться в суд с иском о возмещении ущерба. Его действия могут быть квалифицированы как причинение вреда."}
+  ]
+},
+{
+  id:"b4",
+  section:"Раздел 6. Осуществление и защита гражданских прав",
+  title:"Билет 4. Способы защиты гражданских прав",
+  subtitle:"Перечень способов по статье 11 ГК.",
+  body:`
+    <h3>1. Перечень способов защиты (ст. 11 ГК)</h3>
+    <p>Защита гражданских прав осуществляется путём:</p>
+    <ol>
+      <li><strong>Признания права</strong> — например, признание права собственности на часть дома, права авторства.</li>
+      <li><strong>Восстановления положения, существовавшего до нарушения права, и пресечения действий, нарушающих право</strong> — например, возврат сторон в первоначальное положение по недействительной сделке, пресечение незаконного использования чужого товарного знака.</li>
+      <li><strong>Признания оспоримой сделки недействительной и применения последствий её недействительности</strong>, установления факта ничтожности сделки и применения последствий её недействительности.</li>
+      <li><strong>Признания недействительным акта государственного органа или органа местного управления и самоуправления.</strong></li>
+      <li><strong>Самозащиты гражданского права</strong> (ст. 13 ГК).</li>
+      <li><strong>Принуждения к исполнению обязанности в натуре</strong> — например, решение, обязывающее продавца передать товар.</li>
+      <li><strong>Возмещения убытков</strong> — по общему правилу в полном объёме (реальный ущерб + упущенная выгода).</li>
+      <li><strong>Взыскания неустойки</strong> — обеспечительная и защитная функции.</li>
+      <li><strong>Компенсации морального вреда</strong> — только в отношении физических лиц.</li>
+      <li><strong>Прекращения или изменения правоотношения</strong> — например, расторжение договора купли-продажи при продаже товара ненадлежащего качества.</li>
+      <li><strong>Неприменения судом противоречащего законодательству акта государственного органа или органа местного управления и самоуправления.</strong></li>
+      <li><strong>Иными способами, предусмотренными законодательством.</strong></li>
+    </ol>
+
+    <h3>2. Универсальные способы</h3>
+    <ul>
+      <li><strong>Возмещение убытков</strong> — универсальный способ, применимый при любом нарушении.</li>
+      <li><strong>Признание права</strong> — применяется, когда право оспаривается.</li>
+      <li><strong>Пресечение действий</strong> — для длящихся нарушений.</li>
+    </ul>
+
+    <h3>3. Специальные способы</h3>
+    <ul>
+      <li><strong>Взыскание неустойки</strong> — только если предусмотрена законом или договором.</li>
+      <li><strong>Компенсация морального вреда</strong> — только для граждан, при нарушении личных неимущественных прав.</li>
+      <li><strong>Признание сделки недействительной</strong> — специальный способ.</li>
+    </ul>
+
+    <h3>4. Выбор способа защиты</h3>
+    <p>Истец самостоятельно выбирает способ защиты. Однако суд может применить иной способ, если это приведёт к более полному восстановлению нарушенного права (например, вместо признания сделки недействительной — взыскание убытков).</p>
+
+    <div class="card note">
+      <div class="card-title">💡 Совет</div>
+      Правильный выбор способа защиты — залог успеха в суде. Убытки можно взыскать почти всегда, а неустойку — только если она предусмотрена договором.
+    </div>
+  `,
+  tasks:[
+    {type:"single",q:"Какой способ защиты применяется только к физическим лицам?",options:["Возмещение убытков","Компенсация морального вреда","Признание права","Взыскание неустойки"],correct:1,explain:"Компенсация морального вреда — только для физических лиц."},
+    {type:"multi",q:"Какие способы защиты являются универсальными?",options:["Возмещение убытков","Признание права","Пресечение действий","Взыскание неустойки"],correct:[0,1,2],explain:"Неустойка — специальный способ, только если предусмотрена."},
+    {type:"match",q:"Соотнесите способ с примером:",left:["Признание права","Пресечение действий","Возмещение убытков"],right:["Иск о признании права собственности","Запрет на использование товарного знака","Взыскание стоимости повреждённого имущества"],correct:[0,1,2],explain:"Разные способы для разных нарушений."},
+    {type:"case",q:"Кейс. Покупатель приобрёл некачественный товар. Какой способ защиты выбрать: возврат денег, замена товара, возмещение убытков, неустойка?",answer:"Покупатель может выбрать: 1) возврат уплаченной суммы; 2) замену товара на качественный; 3) соразмерное уменьшение цены; 4) возмещение убытков; 5) неустойку (если предусмотрена договором). Согласно Закону «О защите прав потребителей», покупатель вправе требовать также компенсацию морального вреда. Выбор — за покупателем. Обычно оптимально потребовать возврат денег + неустойку + моральный вред."}
+  ]
+},
+{
+  id:"b5",
+  section:"Раздел 6. Осуществление и защита гражданских прав",
+  title:"Билет 5. Самозащита гражданских прав и меры оперативного воздействия",
+  subtitle:"Неюрисдикционная форма защиты.",
+  body:`
+    <h3>1. Понятие самозащиты (ст. 13 ГК)</h3>
+    <p><strong>Самозащита гражданских прав</strong> — защита гражданских прав непосредственными действиями лица, права которого нарушены, без обращения к уполномоченным органам.</p>
+    <p>Допускается, если такие действия:</p>
+    <ul>
+      <li>не сопряжены с нарушением законодательства;</li>
+      <li>соразмерны характеру и опасности нарушения.</li>
+    </ul>
+
+    <h3>2. Способы самозащиты</h3>
+    <ul>
+      <li><strong>Необходимая оборона</strong> — причинение вреда посягающему при защите своих прав, если не превышены пределы.</li>
+      <li><strong>Крайняя необходимость</strong> — причинение вреда третьим лицам для устранения опасности, если опасность не могла быть устранена иными средствами.</li>
+      <li><strong>Иные способы</strong>, соразмерные нарушению (например, установка сигнализации, забор на участке).</li>
+    </ul>
+
+    <h3>3. Меры оперативного воздействия</h3>
+    <p>Применяются в обязательственных отношениях в одностороннем порядке. Характерны для предпринимательских договоров. Примеры:</p>
+    <ul>
+      <li>отказ от оплаты недоброкачественного товара;</li>
+      <li>перевод покупателя, не выполняющего обязанности, на предварительную оплату;</li>
+      <li>приостановление исполнения обязательства при неисполнении встречного обязательства;</li>
+      <li>односторонний отказ от договора при существенном нарушении.</li>
+    </ul>
+
+    <h3>4. Отличие самозащиты от мер оперативного воздействия</h3>
+    <table>
+      <tr><th>Критерий</th><th>Самозащита</th><th>Меры оперативного воздействия</th></tr>
+      <tr><td>Сфера</td><td>Любые гражданские права</td><td>Обязательственные отношения</td></tr>
+      <tr><td>Основание</td><td>Нарушение права</td><td>Нарушение договора</td></tr>
+      <tr><td>Цель</td><td>Пресечение нарушения</td><td>Побуждение должника к исполнению</td></tr>
+      <tr><td>Правовое регулирование</td><td>Ст. 13 ГК</td><td>Нормы об обязательствах</td></tr>
+    </table>
+
+    <h3>5. Соразмерность</h3>
+    <p>Способы самозащиты должны быть соразмерны нарушению. Превышение пределов самозащиты влечёт ответственность за причинённый вред (ст. 935 ГК).</p>
+
+    <h3>6. Значение самозащиты</h3>
+    <p>Самозащита позволяет быстро реагировать на нарушение без обращения в суд. Однако она не должна нарушать права других лиц.</p>
+
+    <div class="card warn">
+      <div class="card-title">⚠️ Важно</div>
+      Самозащита не должна перерастать в самоуправство. Если гражданин самовольно изымает имущество у должника — это уже не самозащита, а самоуправство, влекущее ответственность.
+    </div>
+  `,
+  tasks:[
+    {type:"single",q:"Что такое самозащита гражданских прав?",options:["Обращение в суд","Защита прав непосредственными действиями без обращения к органам","Обращение в прокуратуру","Медиация"],correct:1,explain:"Ст. 13 ГК: самозащита — непосредственные действия лица."},
+    {type:"multi",q:"Какие способы самозащиты?",options:["Необходимая оборона","Крайняя необходимость","Установка сигнализации","Самоуправство"],correct:[0,1,2],explain:"Самоуправство — противоправное деяние, не самозащита."},
+    {type:"match",q:"Соотнесите институт с примером:",left:["Самозащита","Мера оперативного воздействия"],right:["Установка забора","Отказ от оплаты некачественного товара"],correct:[0,1],explain:"Самозащита — для любых прав; оперативное воздействие — в обязательствах."},
+    {type:"case",q:"Кейс. Должник не возвращает заём. Кредитор самовольно изъял у него телевизор в счёт долга. Правомерно ли это?",answer:"Нет, неправомерно. Это не самозащита, а самоуправство. Самозащита (ст. 13 ГК) допускается только если действия не сопряжены с нарушением закона и соразмерны нарушению. Самовольное изъятие имущества — нарушение права собственности должника. Кредитор должен обратиться в суд с иском о взыскании долга, а затем — к судебному приставу для исполнения. Его действия могут квалифицироваться как самоуправство (ст. 383 УК)."}
+  ]
+}
+];
+
+const navEl=document.getElementById('nav');
+const contentEl=document.getElementById('content');
+const breadcrumbEl=document.getElementById('breadcrumb');
+const progressTextEl=document.getElementById('progressText');
+const progressFillEl=document.getElementById('progressFill');
+let currentTicket=tickets[0].id;
+const STORAGE_KEY='gp_progress_rz6_v1';
+let progress=JSON.parse(localStorage.getItem(STORAGE_KEY)||'{}');
+
+function buildNav(){
+  const sections={};
+  tickets.forEach(t=>{if(!sections[t.section])sections[t.section]=[];sections[t.section].push(t);});
+  let html='';
+  Object.keys(sections).forEach(sec=>{
+    html+=`<div class="nav-section"><div class="nav-section-title">${sec}</div><ul class="nav-list">`;
+    sections[sec].forEach(t=>{
+      const done=progress[t.id]?'<span class="check">✓</span>':'';
+      html+=`<li><a href="#${t.id}" data-id="${t.id}">${done}<span>${t.title.replace(/^Билет \\d+\\.\\s*/,'')}</span></a></li>`;
+    });
+    html+='</ul></div>';
+  });
+  navEl.innerHTML=html;
+  navEl.querySelectorAll('a').forEach(a=>{
+    a.addEventListener('click',e=>{e.preventDefault();showTicket(a.dataset.id);document.getElementById('sidebar').classList.remove('open');});
+  });
+}
+function showTicket(id){
+  currentTicket=id;
+  const t=tickets.find(x=>x.id===id);
+  if(!t)return;
+  breadcrumbEl.textContent=t.section+' · '+t.title.split('.')[0];
+  contentEl.innerHTML=`
+    <div class="ticket active">
+      <h2>${t.title}</h2>
+      <p class="subtitle">${t.subtitle}</p>
+      ${t.body}
+      <div class="tasks-header">📝 Задания для закрепления</div>
+      <div id="tasks-${t.id}"></div>
+      <div class="ticket-nav">
+        ${prevTicketId(id)?`<button class="btn" onclick="showTicket('${prevTicketId(id)}')">← Предыдущий</button>`:'<span></span>'}
+        <button class="btn btn-primary" onclick="markDone('${t.id}')">✓ Отметить как изученный</button>
+        ${nextTicketId(id)?`<button class="btn" onclick="showTicket('${nextTicketId(id)}')">Следующий →</button>`:'<span></span>'}
+      </div>
+    </div>`;
+  renderTasks(t);
+  updateNavActive();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function prevTicketId(id){const i=tickets.findIndex(t=>t.id===id);return i>0?tickets[i-1].id:null;}
+function nextTicketId(id){const i=tickets.findIndex(t=>t.id===id);return i<tickets.length-1?tickets[i+1].id:null;}
+function updateNavActive(){navEl.querySelectorAll('a').forEach(a=>{a.classList.toggle('active',a.dataset.id===currentTicket);});}
+function renderTasks(t){
+  const container=document.getElementById('tasks-'+t.id);
+  if(!container)return;
+  let html='';
+  t.tasks.forEach((task,idx)=>{
+    html+=`<div class="task" id="task-${t.id}-${idx}"><div class="task-title">Задание ${idx+1}</div><div class="question">${task.q}</div>`;
+    if(task.type==='single'){
+      html+='<ul class="options">';
+      task.options.forEach((opt,i)=>{html+=`<li><label><input type="radio" name="single-${t.id}-${idx}" value="${i}"> <span>${opt}</span></label></li>`;});
+      html+='</ul>';
+      html+=`<button class="btn btn-primary" onclick="checkSingle('${t.id}',${idx})">Проверить</button><div class="feedback" id="fb-${t.id}-${idx}"></div>`;
+    }else if(task.type==='multi'){
+      html+='<ul class="options">';
+      task.options.forEach((opt,i)=>{html+=`<li><label><input type="checkbox" name="multi-${t.id}-${idx}" value="${i}"> <span>${opt}</span></label></li>`;});
+      html+='</ul>';
+      html+=`<button class="btn btn-primary" onclick="checkMulti('${t.id}',${idx})">Проверить</button><div class="feedback" id="fb-${t.id}-${idx}"></div>`;
+    }else if(task.type==='match'){
+      html+='<div class="match-grid">';
+      task.left.forEach((left,i)=>{
+        html+=`<div class="match-item left">${left}</div><div class="match-item"><select id="match-${t.id}-${idx}-${i}"><option value="">— выберите —</option>`;
+        task.right.forEach((r,j)=>{html+=`<option value="${j}">${r}</option>`;});
+        html+='</select></div>';
+      });
+      html+='</div>';
+      html+=`<button class="btn btn-primary" onclick="checkMatch('${t.id}',${idx})">Проверить</button><div class="feedback" id="fb-${t.id}-${idx}"></div>`;
+    }else if(task.type==='case'){
+      html+=`<textarea placeholder="Напишите ответ..." id="case-${t.id}-${idx}"></textarea>`;
+      html+=`<button class="reveal-btn" onclick="toggleReveal('${t.id}',${idx})">👁 Показать образец</button><div class="reveal-content" id="reveal-${t.id}-${idx}"><strong>Образец:</strong><br>${task.answer}</div>`;
+    }
+    html+='</div>';
+  });
+  container.innerHTML=html;
+}
+function checkSingle(tid,idx){
+  const t=tickets.find(x=>x.id===tid);const task=t.tasks[idx];
+  const selected=document.querySelector(`input[name="single-${tid}-${idx}"]:checked`);
+  const fb=document.getElementById(`fb-${tid}-${idx}`);
+  const labels=document.querySelectorAll(`#task-${tid}-${idx} .options label`);
+  labels.forEach((l,i)=>{l.classList.remove('correct','wrong');if(i===task.correct)l.classList.add('correct');});
+  if(!selected){fb.className='feedback show bad';fb.innerHTML='Выберите вариант.';return;}
+  const val=parseInt(selected.value);
+  if(val===task.correct){fb.className='feedback show ok';fb.innerHTML='✅ Правильно! <span class="explain">'+task.explain+'</span>';}
+  else{selected.parentElement.classList.add('wrong');fb.className='feedback show bad';fb.innerHTML='❌ Неправильно. <span class="explain">'+task.explain+'</span>';}
+}
+function checkMulti(tid,idx){
+  const t=tickets.find(x=>x.id===tid);const task=t.tasks[idx];
+  const selected=Array.from(document.querySelectorAll(`input[name="multi-${tid}-${idx}"]:checked`)).map(c=>parseInt(c.value));
+  const fb=document.getElementById(`fb-${tid}-${idx}`);
+  const labels=document.querySelectorAll(`#task-${tid}-${idx} .options label`);
+  labels.forEach((l,i)=>{l.classList.remove('correct','wrong');if(task.correct.includes(i))l.classList.add('correct');if(selected.includes(i)&&!task.correct.includes(i))l.classList.add('wrong');});
+  const ok=selected.length===task.correct.length&&selected.every(v=>task.correct.includes(v));
+  if(ok){fb.className='feedback show ok';fb.innerHTML='✅ Правильно! <span class="explain">'+task.explain+'</span>';}
+  else{fb.className='feedback show bad';fb.innerHTML='❌ Неправильно. <span class="explain">'+task.explain+'</span>';}
+}
+function checkMatch(tid,idx){
+  const t=tickets.find(x=>x.id===tid);const task=t.tasks[idx];
+  const fb=document.getElementById(`fb-${tid}-${idx}`);
+  let ok=true;
+  task.left.forEach((_,i)=>{const sel=document.getElementById(`match-${tid}-${idx}-${i}`);if(parseInt(sel.value)!==task.correct[i])ok=false;});
+  if(ok){fb.className='feedback show ok';fb.innerHTML='✅ Всё верно! <span class="explain">'+task.explain+'</span>';}
+  else{fb.className='feedback show bad';fb.innerHTML='❌ Есть ошибки. <span class="explain">'+task.explain+'</span>';}
+}
+function toggleReveal(tid,idx){document.getElementById(`reveal-${tid}-${idx}`).classList.toggle('show');}
+function markDone(id){progress[id]=true;localStorage.setItem(STORAGE_KEY,JSON.stringify(progress));buildNav();updateNavActive();updateProgress();const next=nextTicketId(id);if(next)setTimeout(()=>showTicket(next),300);}
+function updateProgress(){const done=Object.keys(progress).length;const total=tickets.length;progressTextEl.textContent=`${done} / ${total}`;progressFillEl.style.width=(done/total*100)+'%';}
+function resetProgress(){if(confirm('Сбросить прогресс?')){progress={};localStorage.removeItem(STORAGE_KEY);buildNav();updateNavActive();updateProgress();}}
+function toggleTheme(){const html=document.documentElement;const isDark=html.getAttribute('data-theme')==='dark';html.setAttribute('data-theme',isDark?'light':'dark');localStorage.setItem('gp_theme',isDark?'light':'dark');document.getElementById('themeBtn').textContent=isDark?'🌙 Тема':'☀️ Тема';}
+document.getElementById('searchBox').addEventListener('input',e=>{const q=e.target.value.toLowerCase().trim();navEl.querySelectorAll('a').forEach(a=>{const t=tickets.find(x=>x.id===a.dataset.id);const m=!q||t.title.toLowerCase().includes(q)||t.subtitle.toLowerCase().includes(q)||t.body.toLowerCase().includes(q);a.parentElement.style.display=m?'':'none';});navEl.querySelectorAll('.nav-section').forEach(sec=>{const v=Array.from(sec.querySelectorAll('li')).some(li=>li.style.display!=='none');sec.style.display=v?'':'none';});});
+(function init(){const savedTheme=localStorage.getItem('gp_theme');if(savedTheme==='dark'){document.documentElement.setAttribute('data-theme','dark');document.getElementById('themeBtn').textContent='☀️ Тема';}buildNav();showTicket(currentTicket);updateProgress();})();
+</script>
+</body>
+</html>
