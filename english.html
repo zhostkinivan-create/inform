@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Билеты: Право</title>
+<style>
+  :root{
+    --bg:#000;
+    --fg:#fff;
+    --muted:#9aa0a6;
+    --card:#111;
+    --accent:#4da3ff;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+    -webkit-text-size-adjust:100%;}
+  body{padding:6px 6px 16px;}
+  header{
+    position:sticky;top:0;z-index:10;background:var(--bg);
+    padding:4px 2px 6px;border-bottom:1px solid #222;
+  }
+  h1{font-size:14px;margin:0 0 4px;color:var(--muted);font-weight:600;letter-spacing:.3px}
+  .list{display:flex;flex-direction:column;gap:6px;margin-top:6px;}
+  button.ticket{
+    width:100%;text-align:left;background:var(--card);color:var(--fg);
+    border:1px solid #222;border-radius:12px;padding:10px 12px;
+    font-size:14px;line-height:1.25;cursor:pointer;
+  }
+  button.ticket:active{background:#1b1b1b}
+  button.ticket .num{color:var(--accent);font-weight:700;margin-right:6px}
+  .card{
+    background:var(--card);border:1px solid #222;border-radius:14px;
+    padding:10px 12px;margin-top:8px;
+  }
+  .card h2{font-size:14px;margin:0 0 8px;color:var(--accent)}
+  .block{margin:10px 0 0}
+  .block .label{font-size:11px;letter-spacing:.6px;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+  .en{font-size:14px;line-height:1.45}
+  .ru{font-size:13px;line-height:1.4;color:#d7d7d7}
+  .back{
+    position:sticky;bottom:8px;margin-top:12px;width:100%;
+    background:#1f6feb;color:#fff;border:none;border-radius:12px;
+    padding:10px;font-size:14px;font-weight:600;cursor:pointer;
+  }
+  .back:active{background:#1858b8}
+  .hint{font-size:11px;color:var(--muted);margin-top:6px;line-height:1.35}
+  @media (max-width:260px){
+    .en{font-size:12.5px}.ru{font-size:12px}
+    button.ticket{font-size:12.5px;padding:8px}
+    h1{font-size:12px}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>ПРАВО · ВЫБЕРИ БИЛЕТ</h1>
+</header>
+
+<div id="app"></div>
+
+<script>
+const TICKETS = [
+  {
+    n: 1,
+    ruTitle: "Обеспечение правопорядка",
+    en: [
+      "Law is a system of rules made by the state to guide people's behaviour.",
+      "Order means that people follow these rules and live without conflict.",
+      "The police patrol streets, work with local people and use cameras to prevent crime and catch offenders.",
+      "Offences are divided into minor offences, misdemeanours and felonies.",
+      "In Belarus, the Criminal Code lists ten types of punishment, including fines, community service and imprisonment."
+    ],
+    ru: [
+      "Право — это система правил, созданных государством для регулирования поведения людей.",
+      "Порядок означает, что люди соблюдают эти правила и живут без конфликтов.",
+      "Полиция патрулирует улицы, работает с местными жителями и использует камеры, чтобы предотвращать преступления и задерживать нарушителей.",
+      "Правонарушения делятся на незначительные, мисдиминоры и фелонии.",
+      "В Беларуси Уголовный кодекс предусматривает десять видов наказания, включая штраф, общественные работы и лишение свободы."
+    ]
+  },
+  {
+    n: 2,
+    ruTitle: "Семейное право",
+    en: [
+      "Family law regulates relations between family members: spouses, parents and children.",
+      "Marriage is a legal union of two people, and before marriage they can sign a marriage agreement.",
+      "After divorce, both parents keep their parental rights, and the judge always puts the child's best interests first.",
+      "In Belarus, domestic violence is defined as intentional actions that harm a family member.",
+      "Family law protects families and helps resolve conflicts peacefully."
+    ],
+    ru: [
+      "Семейное право регулирует отношения между членами семьи: супругами, родителями и детьми.",
+      "Брак — это юридический союз двух людей, и до брака они могут заключить брачный договор.",
+      "После развода оба родителя сохраняют родительские права, а судья всегда ставит интересы ребёнка на первое место.",
+      "В Беларуси домашнее насилие определяется как умышленные действия, причиняющие вред члену семьи.",
+      "Семейное право защищает семьи и помогает мирно разрешать конфликты."
+    ]
+  },
+  {
+    n: 3,
+    ruTitle: "Наследственное право",
+    en: [
+      "Probate law deals with what happens to a person's money and property after death.",
+      "A will is a legal document in which the testator says how the estate should be distributed.",
+      "There are two ways to inherit: by will (testate succession) and by law (intestate succession).",
+      "In Belarus, close family members have a compulsory share, and heirs of the first priority are children, spouse and parents.",
+      "This area of law protects both the wishes of the deceased and the rights of the family."
+    ],
+    ru: [
+      "Наследственное право регулирует, что происходит с деньгами и имуществом человека после смерти.",
+      "Завещание — это юридический документ, в котором завещатель указывает, как распределить наследство.",
+      "Есть два способа наследования: по завещанию и по закону.",
+      "В Беларуси близкие члены семьи имеют обязательную долю, а наследники первой очереди — дети, супруг и родители.",
+      "Эта отрасль права защищает как волю умершего, так и права семьи."
+    ]
+  },
+  {
+    n: 4,
+    ruTitle: "Уголовное право",
+    en: [
+      "Criminal law defines what actions are crimes and sets punishments for them.",
+      "A crime is an act that breaks the law and is harmful to society, and before being proven guilty a person is called a suspect.",
+      "In common law countries crimes are divided into felonies, misdemeanours and infractions.",
+      "In Belarus, the Criminal Code divides crimes into four categories by their danger to society.",
+      "Common punishments include fines, community service, probation and imprisonment."
+    ],
+    ru: [
+      "Уголовное право определяет, какие действия являются преступлениями, и устанавливает наказания за них.",
+      "Преступление — это деяние, нарушающее закон и вредное для общества, а до признания виновным человек называется подозреваемым.",
+      "В странах общего права преступления делятся на фелонии, мисдиминоры и незначительные правонарушения.",
+      "В Беларуси Уголовный кодекс делит преступления на четыре категории по общественной опасности.",
+      "Распространённые наказания — штраф, общественные работы, пробация и лишение свободы."
+    ]
+  },
+  {
+    n: 5,
+    ruTitle: "Земельное право",
+    en: [
+      "Land law governs the ownership, use and transfer of land.",
+      "The owner is called the landlord (lessor), and the person who uses the land is the tenant (lessee).",
+      "In common law countries there is freehold (permanent ownership) and leasehold (use for a limited time).",
+      "In Belarus, land can be leased for up to 99 years, and for agriculture — for at least ten years.",
+      "Land law protects property rights and helps resolve conflicts between landowners and tenants."
+    ],
+    ru: [
+      "Земельное право регулирует владение, пользование и передачу земли.",
+      "Собственник называется арендодателем, а лицо, пользующееся землёй, — арендатором.",
+      "В странах общего права есть фригольд (бессрочное владение) и лизгольд (пользование на ограниченный срок).",
+      "В Беларуси землю можно арендовать на срок до 99 лет, а для сельского хозяйства — не менее чем на десять лет.",
+      "Земельное право защищает имущественные права и помогает разрешать конфликты между землевладельцами и арендаторами."
+    ]
+  },
+  {
+    n: 6,
+    ruTitle: "Право защиты потребителей",
+    en: [
+      "Consumer law protects people who buy goods and services for personal use.",
+      "Goods must be of satisfactory quality, fit for their purpose and match the description.",
+      "If a product is faulty, the consumer can get a refund, a repair or a replacement.",
+      "In Belarus, the Law on the Protection of Consumer Rights was adopted in 2002 and also covers online purchases.",
+      "This branch of law balances the interests of consumers and sellers."
+    ],
+    ru: [
+      "Право защиты потребителей защищает людей, которые покупают товары и услуги для личного пользования.",
+      "Товары должны быть надлежащего качества, пригодны для своего назначения и соответствовать описанию.",
+      "Если товар некачественный, потребитель может получить возврат денег, ремонт или замену.",
+      "В Беларуси Закон «О защите прав потребителей» был принят в 2002 году и распространяется также на покупки в интернете.",
+      "Эта отрасль права уравновешивает интересы потребителей и продавцов."
+    ]
+  },
+  {
+    n: 7,
+    ruTitle: "Договорное право",
+    en: [
+      "Contract law governs agreements between people and businesses.",
+      "A contract is a legally binding agreement, and it must include an offer, acceptance and consideration.",
+      "Both parties must have an intention to create legal relations, and the terms must be certain and clear.",
+      "In Belarus, contract law is governed by the Civil Code and recognises the principle of freedom of contract.",
+      "A contract is concluded when the parties agree on all essential terms."
+    ],
+    ru: [
+      "Договорное право регулирует соглашения между людьми и компаниями.",
+      "Договор — это юридически обязательное соглашение, и он должен включать оферту, акцепт и встречное предоставление.",
+      "Обе стороны должны иметь намерение создать правовые отношения, а условия должны быть определёнными и ясными.",
+      "В Беларуси договорное право регулируется Гражданским кодексом и признаёт принцип свободы договора.",
+      "Договор считается заключённым, когда стороны достигли соглашения по всем существенным условиям."
+    ]
+  },
+  {
+    n: 8,
+    ruTitle: "Экологическое право",
+    en: [
+      "Environmental law protects air, water, land and wildlife from harm caused by human activity.",
+      "It regulates governments, companies and businesses and helps balance economic development with environmental protection.",
+      "In Belarus, the main law is the Law \"On Environmental Protection\" of 1992.",
+      "Companies need permits that limit emissions, and new projects must have an environmental impact assessment."
+    ],
+    ru: [
+      "Экологическое право защищает воздух, воду, землю и дикую природу от вреда, причиняемого деятельностью человека.",
+      "Оно регулирует деятельность правительств и компаний и помогает сочетать экономическое развитие с охраной окружающей среды.",
+      "В Беларуси основной закон — Закон «Об охране окружающей среды» 1992 года.",
+      "Компаниям нужны разрешения, ограничивающие выбросы, а для новых проектов проводится оценка воздействия на окружающую среду."
+    ]
+  },
+  {
+    n: 9,
+    ruTitle: "Административное право",
+    en: [
+      "Administrative law controls the activity of government and public authorities.",
+      "Its aim is to make sure they act within the law and do not misuse their power.",
+      "It is divided into substantive law (rights and duties) and procedural law (how decisions are made).",
+      "In Belarus, the Law \"On the Grounds of Administrative Procedures\" of 2008 sets the rules, including the \"one-window\" system.",
+      "This branch of law protects citizens from unfair decisions of the state."
+    ],
+    ru: [
+      "Административное право контролирует деятельность правительства и органов публичной власти.",
+      "Его цель — обеспечить, чтобы они действовали в рамках закона и не злоупотребляли властью.",
+      "Оно делится на материальное право (права и обязанности) и процессуальное право (как принимаются решения).",
+      "В Беларуси Закон «Об основах административных процедур» 2008 года устанавливает правила, включая систему «одно окно».",
+      "Эта отрасль права защищает граждан от несправедливых решений государства."
+    ]
+  },
+  {
+    n: 10,
+    ruTitle: "Конституционное право",
+    en: [
+      "Constitutional law deals with the most important rules of a country and defines the relationship between the state and citizens.",
+      "A constitution is the highest law of the land and can be codified or uncodified, rigid or flexible.",
+      "The Constitution of the Republic of Belarus was adopted on 15 March 1994 and is a codified constitution.",
+      "It defines Belarus as a unitary democratic social state governed by the rule of law and was last amended in 2022."
+    ],
+    ru: [
+      "Конституционное право касается важнейших правил страны и определяет отношения между государством и гражданами.",
+      "Конституция — это высший закон страны, и она может быть кодифицированной или некодифицированной, жёсткой или гибкой.",
+      "Конституция Республики Беларусь была принята 15 марта 1994 года и является кодифицированной.",
+      "Она определяет Беларусь как унитарное демократическое социальное правовое государство и последний раз изменялась в 2022 году."
+    ]
+  },
+  {
+    n: 11,
+    ruTitle: "Право интеллектуальной собственности",
+    en: [
+      "Intellectual property law protects creations of the human mind, such as inventions, works of art and brand names.",
+      "It is divided into industrial property (patents, trademarks) and copyright.",
+      "In Belarus, this area is mainly regulated by the Civil Code, and in July 2026 a new law shortened the time for examining applications.",
+      "Today this branch faces a serious challenge because of artificial intelligence, which can create music, art and texts."
+    ],
+    ru: [
+      "Право интеллектуальной собственности защищает результаты деятельности человеческого разума: изобретения, произведения искусства, названия брендов.",
+      "Оно делится на промышленную собственность (патенты, товарные знаки) и авторское право.",
+      "В Беларуси эта сфера в основном регулируется Гражданским кодексом, а в июле 2026 года новый закон сократил сроки рассмотрения заявок.",
+      "Сегодня эта отрасль сталкивается с серьёзной проблемой из-за искусственного интеллекта, который может создавать музыку, искусство и тексты."
+    ]
+  },
+  {
+    n: 12,
+    ruTitle: "Международное право",
+    en: [
+      "International law governs relations between sovereign states.",
+      "Its sources are international treaties, international custom and general principles of law.",
+      "It is divided into public international law (relations between states) and private international law (disputes between people or companies from different countries).",
+      "The main problem is enforcement, because there is no global police or supreme court.",
+      "Belarus is a member of more than 50 international organisations, including the UN, CIS, EAEU and CSTO."
+    ],
+    ru: [
+      "Международное право регулирует отношения между суверенными государствами.",
+      "Его источники — международные договоры, международный обычай и общие принципы права.",
+      "Оно делится на публичное международное право (отношения между государствами) и частное международное право (споры между людьми или компаниями из разных стран).",
+      "Главная проблема — обеспечение исполнения, потому что нет мировой полиции или верховного суда.",
+      "Беларусь является членом более чем 50 международных организаций, включая ООН, СНГ, ЕАЭС и ОДКБ."
+    ]
+  }
+];
+
+const app = document.getElementById("app");
+
+function esc(s){
+  return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+}
+
+function renderList(){
+  let html = '<div class="list">';
+  TICKETS.forEach(t=>{
+    html += `<button class="ticket" data-id="${t.n}">
+      <span class="num">${t.n}.</span>${esc(t.ruTitle)}
+    </button>`;
+  });
+  html += '</div><div class="hint">Нажми на билет, чтобы увидеть ответ на английском и русском.</div>';
+  app.innerHTML = html;
+
+  app.querySelectorAll("button.ticket").forEach(btn=>{
+    btn.addEventListener("click", ()=> renderTicket(Number(btn.dataset.id)));
+  });
+  window.scrollTo(0,0);
+}
+
+function renderTicket(id){
+  const t = TICKETS.find(x=>x.n===id);
+  if(!t){ renderList(); return; }
+
+  const enHtml = t.en.map((s,i)=>`<div>${i+1}. ${esc(s)}</div>`).join("");
+  const ruHtml = t.ru.map((s,i)=>`<div>${i+1}. ${esc(s)}</div>`).join("");
+
+  app.innerHTML = `
+    <div class="card">
+      <h2>Билет ${t.n}. ${esc(t.ruTitle)}</h2>
+
+      <div class="block">
+        <div class="label">English</div>
+        <div class="en">${enHtml}</div>
+      </div>
+
+      <div class="block">
+        <div class="label">Русский</div>
+        <div class="ru">${ruHtml}</div>
+      </div>
+    </div>
+
+    <button class="back" id="backBtn">← К списку билетов</button>
+    <div class="hint">Совет: говори по схеме «определение → пояснение → пример по Беларуси → вывод».</div>
+  `;
+
+  document.getElementById("backBtn").addEventListener("click", renderList);
+  window.scrollTo(0,0);
+}
+
+renderList();
+</script>
+</body>
+</html>
